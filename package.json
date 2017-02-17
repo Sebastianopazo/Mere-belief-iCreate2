@@ -1,0 +1,23 @@
+{
+  "name": "roomba",
+  "version": "1.0.0",
+  "description": "First app for roomba control Okita Lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebastianopazo/Roomba.git"
+  },
+  "author": "Sebastian Opazo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sebastianopazo/Roomba/issues"
+  },
+  "homepage": "https://github.com/Sebastianopazo/Roomba#readme",
+  "dependencies": {
+    "create2": "^1.2.3"
+  },
+  "devDependencies": {}
+}
