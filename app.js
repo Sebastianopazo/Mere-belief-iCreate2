@@ -8,13 +8,6 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', function(client) {
-    console.log('Client connected...');
-
-    client.on('join', function(data) {
-        console.log(data);
-    });
-  });
 
   io.on('connection', function(client) {
     console.log('Client connected...');
