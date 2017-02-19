@@ -29,7 +29,7 @@ server.listen(3000, function(){
 //ROBOT STUFF
 
 var create = require('create2');
-var robot, turnRobot, stopTurn;
+var robot, turnRobot, stopTurn, moveForward;
 
 function start() {
 	create.prompt(function(p){create.open(p,main)});
@@ -157,8 +157,5 @@ function handleInput(robot) {
 	});
 }
 
-function moving (robot) {
-  moveForward();
-}
 
 start();
