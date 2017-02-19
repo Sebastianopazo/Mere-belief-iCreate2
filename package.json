@@ -5,7 +5,6 @@
   "description": "First app for roomba control Okita Lab",
   "main": "app.js",
   "scripts": {
-    "start": "sudo node app.js"
   },
   "repository": {
     "type": "git",
