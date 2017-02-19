@@ -161,12 +161,23 @@
 // start();
 
 
-var play = require('/play/lib/play.js');
+var play = require('play').play();
 
-// play with a callback
-play.sound('audio/monkey2.wav', function(){
+  // play with a callback
+  play.sound('audio/monkey2.wav', function(){
 
-  // these are all "fire and forget", no callback
+    // these are all "fire and forget", no callback
+    play.sound('audio/monkey2.wav');
+  });
+
+  //If you want to know when the player has defintely started playing
+  play.on('play', function (valid) {
+    console.log('I just started playing!');
+  });
+
   play.sound('audio/monkey2.wav');
 
-});
+  //If you want to know if this can't play for some reason
+  play.on('error', function () {
+    console.log('I cant play!');
+  });
