@@ -161,7 +161,7 @@
 // start();
 
 
-var play = require('node_modules/play/lib/play.js');
+var play = require('/play/lib/play.js');
 
 // play with a callback
 play.sound('audio/monkey2.wav', function(){
