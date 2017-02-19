@@ -12,9 +12,10 @@ app.get('/', function(req, res,next) {
   io.on('connection', function(client) {
     console.log('Client connected...');
 
-    client.on('join', function(data) {
+    client.on('move', function(data) {
         console.log(data);
-        client.emit('messages', 'Hello from server');
+        client.emit('messages', 'Executing...');
+        moveForward();
     });
   });
 
@@ -84,7 +85,7 @@ function main(r) {
 	function driveLogic() {
 		//We're in user-control (FULL mode) and can control the robot. (Your main program would be here!)
 		if(robot.data.lightBumper || robot.data.bumpLeft || robot.data.bumpRight) robot.driveSpeed(0,0); //Disable motors.
-		else robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100); //Enable motors if wheels are up.
+		else robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0); //Enable motors if wheels are up.
 		if(robot.data.clean || robot.data.docked) {robot.driveSpeed(0,0);robot.start()} //Back to PASSIVE mode.
 	}
 
@@ -128,6 +129,14 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
+}
+
+var moveForward = function() {
+  robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+}
+
+var stop = function() {
+  robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
 }
 
 function handleInput(robot) {
