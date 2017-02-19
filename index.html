@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script src="http://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="http://192.168.10.103:80/Roomba/node_modules/socket.io/socket.io.js"></script>
+    <script src="http://192.168.10.103:80/socket.io/socket.io.js"></script>
     <title>Roomba Control</title>
   </head>
   <body>
@@ -11,5 +11,12 @@
       <h1>Roomba Control</h1>
       <p>This is it.</p>
     </div>
+    <script>
+  var socket = io.connect('http://192.168.10.103:80'); // connect to server
+  socket.on('news', function (data) { // listen to news event raised by the server
+    console.log(data);
+    socket.emit('my other event', { my: 'data' }); // raise an event on the server
+  });
+</script>
   </body>
 </html>
