@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
     <head>
-
     </head>
     <body>
         <h1>Hello World!</h1>
@@ -12,5 +11,11 @@
         </form>
          <script src="/jquery/dist/jquery.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script>
+         var socket = io.connect('http://10.1.220.19:4200');
+         socket.on('connect', function(data) {
+            socket.emit('join', 'Hello World from client');
+         });
+        </script>  
     </body>
-</html>  
+</html>
