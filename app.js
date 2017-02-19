@@ -137,7 +137,7 @@ function main(r) {
   var stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
-  
+
 }
 
 
@@ -155,6 +155,10 @@ function handleInput(robot) {
 			stopTurn(); //Stop Turning.
 		}
 	});
+}
+
+function moving (robot) {
+  moveForward();
 }
 
 start();
