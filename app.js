@@ -16,6 +16,14 @@ io.on('connection', function(client) {
     });
   });
 
+  io.on('connection', function(client) {
+    console.log('Client connected...');
+
+    client.on('join', function(data) {
+        console.log(data);
+        client.emit('messages', 'Hello from server');
+    });
+
 server.listen(3000, function(){
   console.log('listening on *:3000');
 });
