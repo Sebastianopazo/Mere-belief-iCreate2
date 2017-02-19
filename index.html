@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="node_modules/create2/index.js" charset="utf-8"></script>
-    <script src="node_modules/create2/examples/dock.js" charset="utf-8"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <title>Roomba Control</title>
   </head>
   <body>
@@ -13,6 +11,11 @@
       <p>This is it.</p>
     </div>
   </body>
-  <script type="text/javascript">
+  <script>
+    var socket = io.connect('http://192.168.10.103'); // connect to server
+    socket.on('news', function (data) { // listen to news event raised by the server
+      console.log(data);
+      socket.emit('my other event', { my: 'data' }); // raise an event on the server
+    });
   </script>
 </html>
