@@ -130,7 +130,7 @@ function main(r) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
 
-  var moveForward = function() {
+moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
   }
 
