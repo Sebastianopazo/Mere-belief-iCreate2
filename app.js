@@ -1,9 +1,10 @@
-var express = require('express'),
-    app = express(),
-    server = require('http').createServer(app),
-    io = require('socket.io').listen(server);
+var io = require('socket.io').listen(80); // initiate socket.io server
 
-server.listen(3000);
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' }); // Send data to client
+
+  // wait for the event raised by the client
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });
