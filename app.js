@@ -16,4 +16,6 @@ io.on('connection', function(client) {
     });
   });
 
-server.listen(8080);
+server.listen(8080, function(){
+  console.log('listening on *:3000');
+});
