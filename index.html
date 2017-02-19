@@ -7,21 +7,21 @@
         <div id="future"></div>
         <form id="form" id="chat_form">
             <input id="chat_input" type="text">
-            <input id="send" type="submit" value="Send">
+            <input id="start" type="submit" value="start">
         </form>
          <script src="/jquery/dist/jquery.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
          var socket = io.connect('http://192.168.10.103:3000');
          socket.on('connect', function(data) {
-            socket.emit('move', 'Hello World from client');
+            socket.emit('join', 'Hello World from client');
          });
          socket.on('messages', function(data) {
                console.log(data);
          });
 
-         $('#send').click(function(){
-           socket.emit('join', 'Requesting action...')
+         $('#start').click(function(){
+           socket.emit('move', 'Requesting action...')
          });
         </script>
     </body>
