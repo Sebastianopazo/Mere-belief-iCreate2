@@ -14,5 +14,6 @@ io.on('connection', function(client) {
     client.on('join', function(data) {
         console.log(data);
     });
+  });
 
 server.listen(4200);
