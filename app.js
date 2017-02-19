@@ -8,4 +8,11 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-server.listen(4200); 
+io.on('connection', function(client) {
+    console.log('Client connected...');
+
+    client.on('join', function(data) {
+        console.log(data);
+    });
+
+server.listen(4200);
