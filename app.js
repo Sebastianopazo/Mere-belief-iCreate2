@@ -160,9 +160,8 @@
 //
 // start();
 
-sudo amixer cset numid=3 1
 
 const player = require('play-sound')();
-player.play('monkeys.mp3', (err) => {
-    if (err) console.log(`Could not play sound: ${err}`);
-});
+player.play('monkeys.mp3', { omxplayer: ['-v', 1 ] /* lower volume for afplay on OSX */ }, function(err){
+  if (err) throw err
+})
