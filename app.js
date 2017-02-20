@@ -162,6 +162,6 @@
 
 
 const player = require('play-sound')();
-player.play('-o local monkeys.mp3', (err) => {
+player.play('monkeys.mp3', (err) => {
     if (err) console.log(`Could not play sound: ${err}`);
 });
