@@ -182,4 +182,6 @@ player.play('monkeys.mp3', { afplay: ['-v', 1 ] /* lower volume for afplay on OS
 var audio = player.play('monkeys.mp3', function(err){
   if (err && !err.killed) throw err
 })
-audio.kill()
+audio.kill();
+
+play('monkeys.mp3');
