@@ -183,5 +183,3 @@ var audio = player.play('monkeys.mp3', function(err){
   if (err && !err.killed) throw err
 })
 audio.kill();
-
-play('monkeys.mp3');
