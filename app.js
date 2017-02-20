@@ -160,6 +160,7 @@
 //
 // start();
 
+sudo amixer cset numid=3 1
 
 const player = require('play-sound')();
 player.play('monkeys.mp3', (err) => {
