@@ -162,6 +162,6 @@
 
 
 const player = require('play-sound')(opts = {});
-player.play('monkeys.mp3', { omxplayer: ['-v', 1 ] /* lower volume for afplay on OSX */ }, function(err){
+player.play('monkeys.mp3', { omxplayer: ['-o', local ] /* lower volume for afplay on OSX */ }, function(err){
   if (err) throw err
 })
