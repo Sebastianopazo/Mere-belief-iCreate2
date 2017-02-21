@@ -18,7 +18,7 @@
         <script src="/jquery/dist/jquery.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
-         var socket = io.connect('http://192.168.10.103:3000');
+         var socket = io.connect('http://192.168.10.103:8080');
          socket.on('connect', function(data) {
             socket.emit('join', 'Hello World from client');
          });

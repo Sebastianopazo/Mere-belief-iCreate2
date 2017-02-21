@@ -19,8 +19,8 @@ app.get('/', function(req, res,next) {
     });
   });
 
-server.listen(80, function(){
-  console.log('listening on *:80');
+server.listen(8080, function(){
+  console.log('listening on *:8080');
 });
 
 
