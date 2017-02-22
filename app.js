@@ -165,3 +165,7 @@
 // player.play('monkeys.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
 //   if (err) throw err
 // })
+
+var matrix = new LedMatrix(16);
+matrix.fill(255, 50, 100);
+matrix.setPixel(0, 0, 0, 50, 255);
