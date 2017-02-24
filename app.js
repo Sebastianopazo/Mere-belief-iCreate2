@@ -169,5 +169,4 @@
 var LedMatrix = require("node-rpi-rgb-led-matrix");
 
 var matrix = new LedMatrix(16);
-matrix.fill(50, 50, 50);
-matrix.setPixel(0, 0, 0, 50, 255);
+matrix.fill(255, 255, 255);
