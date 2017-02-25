@@ -183,7 +183,6 @@ board.on("ready", function() {
       clock: 'GPIO11',
       cs: 'GPIO8'
     },
-    devices: 1
   });
 
 matrix.row(1, 0xFFFF);
