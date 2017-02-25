@@ -179,7 +179,7 @@ board.on("ready", function() {
 
   var matrix = new five.Led.Matrix({
     pins: {
-      data: 'GPI10',
+      data: 'GPIO10',
       clock: 'GPIO11',
       cs: 'GPIO8'
     },
