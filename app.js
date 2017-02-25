@@ -167,9 +167,11 @@
 // })
 
 
-
-var five = require("johnny-five");
-var board = new five.Board({ port: "/dev/ttyACM0" });
+const Raspi = require('raspi-io');
+const five = require('johnny-five');
+const board = new five.Board({
+  io: new Raspi()
+});
 
 board.on("ready", function() {
 
