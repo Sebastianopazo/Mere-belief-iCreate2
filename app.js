@@ -183,7 +183,6 @@ board.on("ready", function() {
       clock: 'GPIO11',
       cs: 'GPIO8'
     },
-    controller: 'B01MZZ11F4',
   });
   matrix.row(8, 0, 255);
 });
