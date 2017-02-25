@@ -181,7 +181,7 @@ board.on("ready", function() {
     pins: {
       data: 'GPIO10',
       clock: 'GPIO11',
-      cs: 4
+      cs: 'GPIO08'
     },
     devices: 1
   });
