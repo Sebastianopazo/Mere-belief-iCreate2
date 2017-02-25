@@ -186,6 +186,5 @@ board.on("ready", function() {
     controller: 'B01MZZ11F4',
   });
   matrix.brightness(1, 50);
-  matrix.row(1, 0, 255);
   matrix.row(8, 0, 255);
 });
