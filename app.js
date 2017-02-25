@@ -166,10 +166,16 @@
 //   if (err) throw err
 // })
 
-var LedMatrix = require("node-rpi-rgb-led-matrix");
 
-var matrix = new LedMatrix(32);
-var poto = matrix.getWidth();
-var caca = matrix.getHeight();
-console.log(poto, caca)
-matrix.fill(255, 50, 100);
+
+var five = require("johnny-five");
+var Rasp = require("raspi-io");
+
+var board = new five.Board({
+    io: new Rasp()
+});
+
+board.on("ready", function() {
+    var led = new five.Led(15);
+    led.blink();
+});
