@@ -186,6 +186,6 @@ board.on("ready", function() {
     devices: 1
   });
 
-matrix.row(1, 255);
+matrix.row(1, 0xFFFF);
 
 });
