@@ -184,7 +184,7 @@ board.on("ready", function() {
       cs: 'GPIO8'
     },
   });
-
-  matrix.row(1, 0, 255);
+  matrix.brightness(0, 100);
+  matrix.row(0, 0, 255);
 
 });
