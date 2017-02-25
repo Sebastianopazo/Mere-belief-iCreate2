@@ -181,8 +181,7 @@ board.on("ready", function() {
     }
   });
 
-  matrix.on();
-
+  matrix.on()
   /*
 
   A single Led.Matrix object can control one
