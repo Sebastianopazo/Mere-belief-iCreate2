@@ -168,7 +168,7 @@
 
 var LedMatrix = require("node-rpi-rgb-led-matrix");
 
-var matrix = new LedMatrix(1, 0, 0);
+var matrix = new LedMatrix(1);
 var caca = matrix.getWidth();
 var poto = matrix.getHeight();
 console.log(caca);
