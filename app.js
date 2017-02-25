@@ -179,12 +179,12 @@ board.on("ready", function() {
 
   var matrix = new five.Led.Matrix({
     pins: {
-      data: 'GPIO10',
+      data: 'GPIO9',
       clock: 'GPIO11',
       cs: 'GPIO8'
     },
   });
 
-matrix.row(1, 0xFFFF);
+  matrix.row(1, 0, 255);
 
 });
