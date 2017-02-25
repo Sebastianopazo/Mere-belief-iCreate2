@@ -183,7 +183,7 @@ board.on("ready", function() {
       clock: 'GPIO11',
       cs: 'GPIO8'
     },
-    controller: 'HT16K33'
+    controller: 'B01MZZ11F4',
   });
   matrix.brightness(1, 50);
   matrix.row(1, 0, 255);
