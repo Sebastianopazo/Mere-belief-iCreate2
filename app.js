@@ -167,34 +167,8 @@
 // })
 
 
+var LedMatrix = require("node-rpi-rgb-led-matrix");
 
-var five = require("johnny-five");
-var Rasp = require("raspi-io");
-
-var board = new five.Board({
-    io: new Rasp()
-});
-
-board.on("ready", function() {
-
-  var matrix = new five.Led.Matrix({
-    pins: {
-      data: 'GPIO10',
-      clock: 'GPIO11',
-      cs: 'GPIO8'
-    },
-  });
-  var heart = [
-    "01100110",
-    "10011001",
-    "10000001",
-    "10000001",
-    "01000010",
-    "00100100",
-    "00011000",
-    "00000000"
-  ];
-
-  // Draw a heart to device 1
-  matrix.draw(1, heart);
-});
+var matrix = new LedMatrix(16);
+matrix.fill(255, 50, 100);
+matrix.setPixel(0, 0, 0, 50, 255);
