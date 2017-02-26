@@ -166,11 +166,11 @@
 //   if (err) throw err
 // })
 
-
+var $ = require('jquery');
 var LedMatrix = require("node-rpi-rgb-led-matrix");
 
 var matrix = new LedMatrix(8);
 var caca = matrix.getHeight();
 var poto = matrix.getWidth();
 console.log(caca, poto);
-matrix.fill(255, 100, 100).delay(300).matrix.clear();
+matrix.fill(255, 100, 100).($(delay(300)).matrix.clear();
