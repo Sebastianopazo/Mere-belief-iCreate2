@@ -173,4 +173,5 @@ var matrix = new LedMatrix(8);
 var caca = matrix.getHeight();
 var poto = matrix.getWidth();
 console.log(caca, poto);
-matrix.fill(255, 100, 100).($(delay(300)).matrix.clear();
+matrix.fill(255, 100, 100);
+matrix.clear();
