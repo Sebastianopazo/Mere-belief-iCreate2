@@ -165,3 +165,5 @@ const player = require('play-sound')(opts = {});
 player.play('monkeys.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
   if (err) throw err
 })
+
+var pene = require('matrixroomba');
