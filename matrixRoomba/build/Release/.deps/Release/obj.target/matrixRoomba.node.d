@@ -1,1 +1,0 @@
-cmd_Release/obj.target/matrixRoomba.node := g++ -shared -pthread -rdynamic  -Wl,-soname=matrixRoomba.node -o Release/obj.target/matrixRoomba.node -Wl,--start-group Release/obj.target/matrixRoomba/matrixRoomba.o -Wl,--end-group 
