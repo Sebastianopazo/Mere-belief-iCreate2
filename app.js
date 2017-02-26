@@ -166,4 +166,4 @@ player.play('monkeys.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
   if (err) throw err
 })
 
-var pene = require('node_modules/matrixroomba/build/release/matrixroomba.node');
+var pene = require('./matrixroomba/build/release/matrixroomba');
