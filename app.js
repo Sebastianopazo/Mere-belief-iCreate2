@@ -168,20 +168,12 @@
 
 var gpio = require('rpi-gpio');
 
-gpio.setup(12, gpio.DIR_OUT, write);
+var gpio = require('rpi-gpio');
 
-function write() {
-    gpio.write(12, true, function(err) {
-        if (err) throw err;
-        console.log('Written to pin');
-    });
-}
+gpio.setup(12, gpio.DIR_IN, readInput);
 
-gpio.setup(13, gpio.DIR_OUT, write);
-
-function write() {
-    gpio.write(12, true, function(err) {
-        if (err) throw err;
-        console.log('Written to pin');
+function readInput() {
+    gpio.read(12, function(err, value) {
+        console.log('The value is ' + value);
     });
 }
