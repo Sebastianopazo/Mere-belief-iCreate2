@@ -170,10 +170,10 @@ var gpio = require('rpi-gpio');
 
 var gpio = require('rpi-gpio');
 
-gpio.setup(12, gpio.DIR_IN, readInput);
+var gpio = require('rpi-gpio');
 
-function readInput() {
-    gpio.read(12, function(err, value) {
-        console.log('The value is ' + value);
-    });
-}
+gpio.setup(12, gpio.DIR_OUT, changeMode);
+
+function changeMode() {
+    gpio.setMode(MODE_RPI);
+};
