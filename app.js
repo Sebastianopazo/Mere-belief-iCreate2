@@ -106,7 +106,7 @@ moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
   }
 
-  var stop = function() {
+stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
 
