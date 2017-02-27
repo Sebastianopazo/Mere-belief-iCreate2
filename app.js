@@ -1,7 +1,7 @@
 //ROBOT STUFF
 
 var create = require('create2');
-var robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight;
+var robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight, turnLeft;
 
 function start() {
 	create.prompt(function(p){create.open(p,main)});
@@ -110,6 +110,9 @@ moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
     }
 turnRight = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+    }
+turnLeft = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
 
@@ -171,6 +174,11 @@ app.get('/', function(req, res,next) {
         console.log(data);
         client.emit('messages', 'Executing...');
         turnRight();
+    });
+    client.on('turn_left', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        turnLeft();
     });
   });
 

@@ -138,7 +138,7 @@ var forward = $('#forward');
 // var left = $('#left');
 // var right = $('#right');
 var back = $('#back');
-// var rotateLeft = $('#rotateLeft');
+var rotateLeft = $('#rotateLeft');
 var rotateRight = $('#rotateRight');
 
 
@@ -151,7 +151,7 @@ touchEvents(forward, moveForward);
 // touchEvents(left, moveLeft);
 // touchEvents(right, moveRight);
 touchEvents(back, moveBackward);
-// touchEvents(rotateLeft, leftRotation);
+touchEvents(rotateLeft, leftRotation);
 touchEvents(rotateRight, rightRotation);
 //
 //Initialize socket.io and connect to localhost robot.
@@ -178,6 +178,10 @@ function moveBackward () {
 
 function rightRotation () {
   socket.emit('turn_right', 'Requesting action...')
+}
+
+function leftRotation () {
+  socket.emit('turn_left', 'Requesting action...')
 }
 
 
