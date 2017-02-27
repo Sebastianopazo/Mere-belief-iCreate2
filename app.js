@@ -167,7 +167,7 @@ app.get('/', function(req, res,next) {
         client.emit('messages', 'Executing...');
         moveBackward();
     });
-    client.on('turn right', function(data) {
+    client.on('turn_right', function(data) {
         console.log(data);
         client.emit('messages', 'Executing...');
         turnRight();
