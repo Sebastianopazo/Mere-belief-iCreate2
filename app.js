@@ -1,36 +1,3 @@
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-app.use(express.static(__dirname + '/node_modules'));
-app.get('/', function(req, res,next) {
-    res.sendFile(__dirname + '/index.html');
-});
-
-
-  io.on('connection', function(client) {
-    console.log('Client connected...');
-
-    client.on('move', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        moveForward();
-    });
-    client.on('stop', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        stop();
-    });
-  });
-
-server.listen(8080, function(){
-  console.log('listening on *:8080');
-});
-
-
-
-
 //ROBOT STUFF
 
 var create = require('create2');
@@ -163,7 +130,40 @@ function handleInput(robot) {
 
 
 start();
-//
+
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.use(express.static(__dirname + '/node_modules'));
+app.get('/', function(req, res,next) {
+    res.sendFile(__dirname + '/index.html');
+});
+
+
+  io.on('connection', function(client) {
+    console.log('Client connected...');
+
+    client.on('move', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        moveForward();
+    });
+    client.on('stop', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        stop();
+    });
+  });
+
+server.listen(8080, function(){
+  console.log('listening on *:8080');
+});
+
+
+
+
 //
 // const player = require('play-sound')(opts = {});
 // player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
