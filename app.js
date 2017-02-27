@@ -107,7 +107,7 @@ moveForward = function() {
   }
 
 moveBackward = function() {
-      robot.driveSpeed(robot.data.dropLeft?100:100,robot.data.dropRight?100:100);
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
     }
 stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
