@@ -1,7 +1,7 @@
 //ROBOT STUFF
 
 var create = require('create2');
-var robot, turnRobot, stopTurn, moveForward;
+var robot, turnRobot, stopTurn, moveForward; stop;
 
 function start() {
 	create.prompt(function(p){create.open(p,main)});
