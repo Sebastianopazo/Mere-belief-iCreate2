@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NAO CONTROL</title>
+    <title>Roomba CONTROL</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <nav class="nav-extended purple darken-3">
+  <div class="container">
+    <nav class="nav-extended green">
       <div class="nav-wrapper">
-        <a href="naokita.html" class="brand-logo center"><img id="logo" src="naokita.png" width="30px">NAOKITA Control</a>
+        <a href="roombokita.html" class="brand-logo center"><img id="logo" src="img/roomba2.jpg" width="30px">RoombOkita Control</a>
       </div>
-      <div class="nav-content purple darken-3">
+      <div class="nav-content green">
         <ul class="tabs tabs-transparent">
           <li class="tab"><a class="active" href="#manualControl">Manual Control</a></li>
-          <li id="tab2" class="tab disabled"><a href="#mereBelief">Mere Belief Answers</a></li>
-          <li id="tab3" class="tab disabled"><a href="#textToSpeech">Text to Speech</a></li>
+          <li id="tab2" class="tab"><a href="#mereBelief">Mere Belief Answers</a></li>
         </ul>
       </div>
       </nav>
@@ -26,9 +26,9 @@
           <h4 class="purple-text text-darken-3 center-align">Manual Control</h4>
           <div class="row">
             <div class="col s6 center">
-              <a id="connect" class="waves-effect waves-light btn-large green lighten-2"><i class="material-icons left">settings_input_antenna</i>Connect to NAO</a>
-              <a id="disconnect" class="waves-effect waves-light btn-large red disabled"><i class="material-icons left">highlight_off</i>Disconnect NAO</a>
-              <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="green_light.png" alt=""><img id="redLight"class="light" src="red_light.png" alt=""></div>
+              <a id="connect" class="waves-effect waves-light btn-large green lighten-2"><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
+              <a id="disconnect" class="waves-effect waves-light btn-large red disabled"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
+              <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
             <div  id="controls"class="col s6 center">
               <a id="sleep" class="waves-effect waves-purple btn-large purple darken-2" onclick= "sleep()"><i class="material-icons left">brightness_3</i>Sleep</a>
@@ -41,11 +41,11 @@
                   <h5 class="purple-text text-darken-3 center-align">Movement Control</h5>
                   <div class="grid-container">
                     <div class="grid">
-                      <a id="rotateLeft" class="btn-floating btn-large waves-effect waves-light purple darken-3"><i class="material-icons">replay</i></a>
+                      <a id="rotateLeft" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">replay</i></a>
                       <a id="forward" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">keyboard_arrow_up</i></a>
-                      <a id="rotateRight" class="btn-floating btn-large waves-effect waves-light purple darken-3"><i class="material-icons">replay</i></a>
+                      <a id="rotateRight" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">replay</i></a>
                       <a id="left" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">keyboard_arrow_left</i></a>
-                      <img id="logo2" src="naokita.png" width="50px" height="50px">
+                      <img id="logo2" src="img/roomba2.jpg" width="50px" height="50px">
                       <a id="right" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">keyboard_arrow_right</i></a>
                       <div class="cell"></div>
                       <a id="back" class="btn-floating btn-large waves-effect waves-light orange lighten-1"><i class="material-icons">keyboard_arrow_down</i></a>
@@ -108,6 +108,13 @@
               <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer1()"><i class="material-icons left">play_arrow</i>Answer 1</a>
               <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer2()"><i class="material-icons left">play_arrow</i>Answer 2</a>
               <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer3()"><i class="material-icons left">play_arrow</i>Answer 3</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer4()"><i class="material-icons left">play_arrow</i>Answer 4</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer5()"><i class="material-icons left">play_arrow</i>Answer 5</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer6()"><i class="material-icons left">play_arrow</i>Answer 6</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer7()"><i class="material-icons left">play_arrow</i>Answer 7</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer8()"><i class="material-icons left">play_arrow</i>Answer 8</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer9()"><i class="material-icons left">play_arrow</i>Answer 9</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer10()"><i class="material-icons left">play_arrow</i>Answer 10</a>
             </div>
           </div>
           <div class="divider"></div>
@@ -119,33 +126,11 @@
           <div class="divider"></div>
         </div>
       </div>
-      <!-- THIRD TAB  -->
-      <div id="textToSpeech">
-        <div class="container">
-          <h4 class="purple-text text-darken-3 center-align">Write message on the form</h4>
-          <div class="col 12 center">
-            <input id="inputText" type="text"/>
-            <a id="submitText" class="waves-effect waves-purple btn-large purple darken-2" onclick= "sleep()"><i class="material-icons left">unarchive</i>Submit</a>
-          </div>
-          <div class="col s6">
-            <div class="col s8 center">
-              <form action="#">
-                <h5 class="purple-text text-darken-3 center-align">Voice Control</h5>
-                <span>VOLUME</span>
-                <p class="range-field">
-                  <input type="range" id="speechVolume" min="0" max="100" onchange="updateSpeechVolume(this.value)"/>
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
 
 //make click events also touch events
@@ -162,302 +147,25 @@ function touchEvents (button, move1) {
   button.on("touchend", stopMove);
 }
 
-touchEvents(forward, moveForward);
-touchEvents(left, moveLeft);
-touchEvents(right, moveRight);
-touchEvents(back, moveBackward);
-touchEvents(rotateLeft, leftRotation);
-touchEvents(rotateRight, rightRotation);
-
-var textToSpeech;
-var session;
-var inputMessage;
-var session;
-
-//Connecting to nao
-//declare function to start QiSession
-function connect()
-{
-  session = new QiSession('192.168.10.102:80');
-  session.socket().on('connect', function()
-  {
-    console.log("Connected!");
-    $("#connect").addClass('disabled');
-    $("#disconnect").removeClass('disabled');
-    $("#tab2").removeClass('disabled');
-    $("#tab3").removeClass('disabled');
-    $('#controls').slideDown('slow');
-    $('#controls2').slideDown('slow');
-    $('#redLight').fadeOut('fast');
-    $('#status').text('Connected');
-    session.service("ALTextToSpeech").done(function(tts)
-    {
-      tts.say("Link established");
-    });
-  }).on('disconnect', function(){
-    $("#disconnect").addClass('disabled');
-    $("#connect").removeClass('disabled');
-    $('#controls').slideUp('slow');
-    $('#controls2').slideUp('slow');
-    $('#status').html('Disconnected');
-    $('#redLight').fadeIn('slow');
-    $("#tab2").addClass('disabled');
-    $("#tab3").addClass('disabled');
-    console.log("QiSession disconnect");
-  });
-}
-
-function disconnect(){
-  session.socket().disconnect();
-}
-
-// Access the Robot
-$('#connect').on( 'click', function() {
-    $.getScript( 'http://nao:nao@192.168.10.102/libs/qimessaging/1.0/qimessaging.js', function( data, textStatus, jqxhr ) {
-      //Create QiSession
-      connect();
-      // openCamera();
-    });
-} );
-
-$('#disconnect').on('click', function(){
-    disconnect();
-})
-//Robot behavior functions
-
-//Set Global volume
-$('#globalVolume').change(function() {
-  var currentVolume = $('#globalVolume').val();
-  var volumeNumber = Number(currentVolume);
-  session.service("ALAudioDevice").done(function(tts)
-  {
-    tts.setOutputVolume(volumeNumber);
-  });
-})
-
-//Set Speech volume
-
-function updateSpeechVolume(amount) {
-  var volumeNumber = Number(amount);
-        session.service("ALTextToSpeech").done(function(tts)
-        {
-          tts.setVolume(volumeNumber/100);
-        });
-    }
-
-function updatePitch(amount) {
-  var amountNumber = Number(amount);
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.setParameter("pitchShift", amountNumber);
-  });
-}
-
-function updateDoubleVoice(amount) {
-  var amountNumber = Number(amount);
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.setParameter("doubleVoice", amountNumber);
-  });
-}
-
-function updateDoubleVoiceLevel(amount) {
-  var amountNumber = Number(amount);
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.setParameter("doubleVoiceLevel", amountNumber);
-  });
-}
-
-function updatedoubleVoiceTimeShift(amount) {
-  var amountNumber = Number(amount);
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.setParameter("doubleVoiceTimeShift", amountNumber);
-  });
-}
-
-function testVoice(){
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.say("Testing voice!");
-  });
-}
-
-
-//text on form to speech
-function speak(){
-
-  session.service("ALTextToSpeech").done(function(tts)
-  {
-    tts.say(inputMessage);
-  });
-}
-
-$("#submitText").click(function() {
-  inputMessage = $("#inputText").val();
-  speak();
-})
-
-//stops all behaviors being executed
-function stopBehavior() {
-  session.service("ALBehaviorManager").done(function(tts)
-  {
-    tts.stopAllBehaviors();
-    $('#stopAll').addClass("disabled");
-  });
-}
-
-//just a test to acces memory
-function touchHead() {
-  session.service("ALMemory").done(function (ALMemory) {
-    ALMemory.subscriber("FrontTactilTouched").done(function (subscriber) {
-      // subscriber.signal is a signal associated to "FrontTactilTouched"
-      subscriber.signal.connect(function (state) {
-        state == 1 ? speak() : speak2();
-      });
-    });
-  });
-}
-
-
-//Loading behaviors from memory
-function answer1() {
-  session.service("ALBehaviorManager").done(function(tts)
-  {
-    tts.runBehavior("answer3");
-  });
-  $('#stopAll').removeClass("disabled");
-}
-
-function answer2() {
-  session.service("ALBehaviorManager").done(function(tts)
-  {
-    tts.runBehavior("answer2");
-  });
-  $('#stopAll').removeClass("disabled");
-}
-
-
-function answer3() {
-  session.service("ALBehaviorManager").done(function(tts)
-  {
-    tts.runBehavior("answer1");
-  });
-  $('#stopAll').removeClass("disabled");
-}
-
-//sleep and wake up.
-function sleep() {
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.rest();
-    $('#wakeUp').removeClass("disabled");
-    $('#sleep').addClass("disabled");
-  });
-}
-
-function wakeUp() {
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.wakeUp();
-    $('#sleep').removeClass("disabled");
-    $('#wakeUp').addClass("disabled");
-  });
-}
-
-//Detect robot status and enable/disable sleep/wakeUp buttons
-function getStatus() {
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.getStiffnesses("body");
-    });
-  }
-
-
-//Movement keys
-function moveForward(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(.2, 0, 0);
-  });
-}
-
-function moveBackward(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(-.2, 0, 0);
-  });
-}
-
-function moveLeft(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(0, .2, 0);
-  });
-}
-
-function moveRight(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(0, -.2, 0);
-  });
-}
-
-function leftRotation(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(0, 0, .2);
-  });
-}
-
-function rightRotation(){
-  //pressing on cell changes opacity
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.move(0, 0, -.2);
-  });
-}
-
-function stopMove() {
-  //pressing on cell changes opacity
-  $(".cell").css('opacity', '1');
-  session.service("ALMotion").done(function(tts)
-  {
-    tts.stopMove();
-  });
-}
-
-// function openCamera(){
-//     session.service("ALVideoDevice").done(function(video)
-//     {
-//         var handle = video.subscribeCamera("Vision", 0, 0, 3,10);
-//         video.getImageRemote(handle).then(function (image) {
-//         if (image) {
-//             var width = image[0];
-//             var height = image[1];
-//             var imageData = image[6];
-//             var read = 0;
-//             for(var y = 0; y < height; y++) {
-//                 for(var x = 0; x < width; x++) {
-//                     var luminosity = imageData[read++];
-//                     // (then, do something with this point, e.g. put it in a buffer
-//                     // that you can put in the canvas...)
+// touchEvents(forward, moveForward);
+// touchEvents(left, moveLeft);
+// touchEvents(right, moveRight);
+// touchEvents(back, moveBackward);
+// touchEvents(rotateLeft, leftRotation);
+// touchEvents(rotateRight, rightRotation);
 //
-//                 }
-//             }
-//           }
-//         });
-//     });
+// //Initialize socket.io and connect to localhost robot.
+// var socket = io.connect('http://192.168.10.103:8080');
+// socket.on('connect', function(data) {
+//    socket.emit('join', 'Hello World from client');
+// });
+// socket.on('messages', function(data) {
+//       console.log(data);
+// });
 //
-// }
-
-
+// $('#forward').click(function(){
+//   socket.emit('move', 'Requesting action...')
+// });
 
 </script>
 </body>
