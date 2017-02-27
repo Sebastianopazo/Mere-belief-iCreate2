@@ -175,5 +175,5 @@ var gpio = require('rpi-gpio');
 gpio.setup(12, gpio.DIR_OUT, changeMode);
 
 function changeMode() {
-    setMode(MODE_RPI);
+    this.setMode(MODE_RPI);
 };
