@@ -24,7 +24,6 @@
     "play-sound": "^1.1.1",
     "socket.io": "^1.7.3",
     "node-rpi-rgb-led-matrix": "^0.1.0",
-    "matrixroomba": "^1.0.0"
   },
   "devDependencies": {}
 }
