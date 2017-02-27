@@ -135,11 +135,11 @@
 
 //make click events also touch events
 var forward = $('#forward');
-var left = $('#left');
-var right = $('#right');
-var back = $('#back');
-var rotateLeft = $('#rotateLeft');
-var rotateRight = $('#rotateRight');
+// var left = $('#left');
+// var right = $('#right');
+// var back = $('#back');
+// var rotateLeft = $('#rotateLeft');
+// var rotateRight = $('#rotateRight');
 
 
 function touchEvents (button, move1) {
@@ -147,25 +147,31 @@ function touchEvents (button, move1) {
   button.on("touchend", stopMove);
 }
 
-// touchEvents(forward, moveForward);
+touchEvents(forward, moveForward);
 // touchEvents(left, moveLeft);
 // touchEvents(right, moveRight);
 // touchEvents(back, moveBackward);
 // touchEvents(rotateLeft, leftRotation);
 // touchEvents(rotateRight, rightRotation);
 //
-// //Initialize socket.io and connect to localhost robot.
-// var socket = io.connect('http://192.168.10.103:8080');
-// socket.on('connect', function(data) {
-//    socket.emit('join', 'Hello World from client');
-// });
-// socket.on('messages', function(data) {
-//       console.log(data);
-// });
-//
-// $('#forward').click(function(){
-//   socket.emit('move', 'Requesting action...')
-// });
+//Initialize socket.io and connect to localhost robot.
+var socket = io.connect('http://192.168.10.103:8080');
+socket.on('connect', function(data) {
+   socket.emit('join', 'Hello World from client');
+});
+socket.on('messages', function(data) {
+      console.log(data);
+});
+
+
+function moveForward () {
+  socket.emit('move', 'Requesting action...')
+}
+
+function stopMove () {
+  socket.emit('stop', 'Requesting action...')
+}
+
 
 </script>
 </body>
