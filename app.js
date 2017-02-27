@@ -161,19 +161,7 @@
 // start();
 //
 //
-// const player = require('play-sound')(opts = {});
-// player.play('monkeys.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-//   if (err) throw err
-// })
-
-var gpio = require('rpi-gpio');
-
-var gpio = require('rpi-gpio');
-
-var gpio = require('rpi-gpio');
-
-gpio.setup(12, gpio.DIR_OUT, changeMode);
-
-function changeMode() {
-    gpio.setMode(12 ALT0);
-};
+const player = require('play-sound')(opts = {});
+player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
+  if (err) throw err
+})
