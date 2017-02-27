@@ -124,7 +124,7 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-			turnRobot(); //Turn Robot.
+			moveBackward(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
 		}
