@@ -109,16 +109,15 @@
           <h4 class="purple-text text-darken-3 center-align">Mere Belief Answers</h4>
           <div class="row">
             <div class="col s12 center">
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer1()"><i class="material-icons left">play_arrow</i>Answer 1</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer2()"><i class="material-icons left">play_arrow</i>Answer 2</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer3()"><i class="material-icons left">play_arrow</i>Answer 3</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer4()"><i class="material-icons left">play_arrow</i>Answer 4</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer5()"><i class="material-icons left">play_arrow</i>Answer 5</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer6()"><i class="material-icons left">play_arrow</i>Answer 6</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer7()"><i class="material-icons left">play_arrow</i>Answer 7</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer8()"><i class="material-icons left">play_arrow</i>Answer 8</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer9()"><i class="material-icons left">play_arrow</i>Answer 9</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer10()"><i class="material-icons left">play_arrow</i>Answer 10</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer1Client()"><i class="material-icons left">play_arrow</i>Answer 1</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer2Client()"><i class="material-icons left">play_arrow</i>Answer 2</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer3Client()"><i class="material-icons left">play_arrow</i>Answer 3</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer4Client()"><i class="material-icons left">play_arrow</i>Answer 4</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer5Client()"><i class="material-icons left">play_arrow</i>Answer 5</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer6Client()"><i class="material-icons left">play_arrow</i>Answer 6</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer7Client()"><i class="material-icons left">play_arrow</i>Answer 7</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer8Client()"><i class="material-icons left">play_arrow</i>Answer 8</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer9Client()"><i class="material-icons left">play_arrow</i>Answer 9</a>
               <audio id="myAudio" src="audio/answer1.mp3"></audio>
             </div>
           </div>
@@ -136,8 +135,6 @@
 
 //make click events also touch events
 var forward = $('#forward');
-// var left = $('#left');
-// var right = $('#right');
 var back = $('#back');
 var rotateLeft = $('#rotateLeft');
 var rotateRight = $('#rotateRight');
@@ -149,8 +146,7 @@ function touchEvents (button, move1) {
 }
 
 touchEvents(forward, moveForward);
-// touchEvents(left, moveLeft);
-// touchEvents(right, moveRight);
+touchEvents(forward, moveForward);
 touchEvents(back, moveBackward);
 touchEvents(rotateLeft, leftRotation);
 touchEvents(rotateRight, rightRotation);
@@ -185,6 +181,40 @@ function leftRotation () {
   socket.emit('turn_left', 'Requesting action...')
 }
 
+function answer1Client() {
+  socket.emit('play_answer1', 'Requesting answer1...')
+}
+
+function answer2Client() {
+  socket.emit('play_answer2', 'Requesting answer2...')
+}
+
+function answer3Client() {
+  socket.emit('play_answer3', 'Requesting answer3...')
+}
+function answer4Client() {
+  socket.emit('play_answer4', 'Requesting answer4...')
+}
+
+function answer5Client() {
+  socket.emit('play_answer5', 'Requesting answer5...')
+}
+
+function answer6Client() {
+  socket.emit('play_answer6', 'Requesting answer6...')
+}
+
+function answer7Client() {
+  socket.emit('play_answer7', 'Requesting answer7...')
+}
+
+function answer8Client() {
+  socket.emit('play_answer8', 'Requesting answer8...')
+}
+
+function answer9Client() {
+  socket.emit('play_answer9', 'Requesting answer9...')
+}
 
 </script>
 </body>
