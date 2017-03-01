@@ -34,7 +34,7 @@ function main(r) {
 	//setTimeout(function(){robot.showText("Hello World!", 500, true)}, 500);
 
 	//We'll play this song whenever entering user-control:
-	robot.setSong(0, [[76,16],[76,16],[76,16],[76,32],[72,16],[74,32],[76,32],[74,8],[76,32],]);
+	robot.setSong(0, [[76,16],[76,16],[76,16],[76,32],[72,32],[74,32],[76,16],[74,16],[76,32],]);
 
 	//Handle First onChange:
 	robot.onChange = function() {
