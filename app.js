@@ -140,8 +140,8 @@ answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
     });
-    var text = "10101011110101010111110001111100101110101";
-  robot.showText(text, 500, false);
+    var text = "1010101111010101011111001101010101001111100101110101";
+  robot.showText(text, 700, false);
   moveForward();
   setTimeout(function(){
     stop(); }, 1000);
