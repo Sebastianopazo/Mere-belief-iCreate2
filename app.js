@@ -142,19 +142,25 @@ answer1Server = function() {
     });
     var text = "1010101111010101011111001101010101001111100101110101";
   robot.showText(text, 700, false);
-  moveForward();
-  setTimeout(function(){
-    stop(); }, 1000);
-
-  setTimeout(function(){
-    moveForward(); }, 1100);
-
-  setTimeout(function(){
-    turnRight(); }, 1500);
-  setTimeout(function(){
-    stop(); }, 2000);
+  behaviorRandomizer(22, 5);
   }
 }
+
+function behaviorRandomizer(duration, gestureQuantity) {
+  var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+  var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
+  var time = duration*1000;
+  var gestureDuration = time/gestureQuantity;
+
+  for (var i = 0; i < gestureQuantity; i++) {
+    setTimeout(function() {
+      randomBehavior; }, gestureDuration);
+    })
+  }
+}
+
+
+
 
 function handleInput(robot) {
 	//Process user input, quit on 'exit'
