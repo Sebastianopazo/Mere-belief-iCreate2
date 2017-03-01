@@ -154,12 +154,14 @@ function behaviorRandomizer(duration, gestureQuantity) {
 
   for (var i = 0; i < gestureQuantity; i++) {
     setTimeout(function() {
-      randomBehavior; }, gestureDuration);
-    })
+    randomBehavior();
+    setTimeout(function() {
+    stop()
+        }, 1);
+    }, gestureDuration);
+
+    }
   }
-}
-
-
 
 
 function handleInput(robot) {
