@@ -145,23 +145,23 @@ answer1Server = function() {
   behaviorRandomizer(22, 5);
   }
 }
-// 
-// function behaviorRandomizer(duration, gestureQuantity) {
-//   var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
-//   var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
-//   var time = duration*1000;
-//   var gestureDuration = time/gestureQuantity;
-//
-//   for (var i = 0; i < gestureQuantity; i++) {
-//     setTimeout(function() {
-//     randomBehavior();
-//     setTimeout(function() {
-//     stop()
-//         }, 1);
-//     }, gestureDuration);
-//
-//     }
-//   }
+
+function behaviorRandomizer(duration, gestureQuantity) {
+  var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+  var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
+  var time = duration*1000;
+  var gestureDuration = time/gestureQuantity;
+
+  for (var i = 0; i < gestureQuantity; i++) {
+    setTimeout(function() {
+    randomBehavior();
+    setTimeout(function() {
+    stop()
+        }, 1);
+    }, gestureDuration);
+
+    }
+  }
 
 
 function handleInput(robot) {
