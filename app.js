@@ -140,12 +140,20 @@ answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
     });
-    var text = "1010101110101110101";
+    var text = "10101011110101010111110001111100101110101";
   robot.showText(text, 500, false);
-  robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-  setTimeout(function(){ stop(); }, 1000);
-  }
+  moveForward();
+  setTimeout(function(){
+    stop(); }, 1000);
 
+  setTimeout(function(){
+    moveForward(); }, 1100);
+
+  setTimeout(function(){
+    turnRight(); }, 1500);
+  setTimeout(function(){
+    stop(); }, 2000);
+  }
 }
 
 function handleInput(robot) {
