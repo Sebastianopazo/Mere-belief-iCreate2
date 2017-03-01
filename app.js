@@ -141,8 +141,8 @@ answer1Server = function() {
     if (err) throw err
     });
     var text = "So they don’t sweat and they don’t have hair but I guess they do have feathers. Since piloerection, helps contain heat, maybe it lets the feathers stand up creating some kind of area within the bird’s body to keep the warmness from escaping. Since piloerection is supposed to help generate heat.";
-  robot.showText(text, 220, true);
-  robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+  robot.showText(text, 220, false);
+  robot.driveSpeed(robot.data.dropLeft?100:0,robot.data.dropRight?100:0);
   setTimeout(function(){ stop(); }, 1000);
   }
 
