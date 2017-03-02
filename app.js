@@ -166,10 +166,10 @@ function main(r) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
         },
       turnRight = function() {
-                      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
         },
       turnLeft = function() {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
     ];
 
@@ -177,7 +177,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
-            // gesture[r.get()];
+            gesture[r.get()];
             console.log('executing'+ r.get());
             }, addedTime);
       }
