@@ -181,7 +181,7 @@ function main(r) {
     //     // setTimeout(function(){console.log(randomHouse)}, addedTime);
     //     // setTimeout(stop(), 1000*i);
     //     }
-    //   }
+      }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
