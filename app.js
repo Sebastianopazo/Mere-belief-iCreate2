@@ -217,7 +217,7 @@ function handleInput(robot) {
     client.on('connect', function(data) {
         console.log(data);
         client.emit('messages', 'Connecting...');
-        start();
+        create.prompt(function(p){create.open(p,main)});
     });
   });
 
