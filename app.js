@@ -158,15 +158,13 @@ function main(r) {
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    console.log(gestureDuration);
+    var house = ["poto", "caca", "pipi", "pene", "peo"];
+    var r = new randomGenerator(house.length);
+    for (var i = 0; i < 10; i++) {
+    console.log(r.get());
+    }
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
-      var house = ["poto", "caca", "pipi", "pene", "peo"];
-      var r = new randomGenerator(house.length);
-      for (var i = 0; i < 10; i++) {
-      console.log(r.get());
-      }
-
 
         //console.log(randomHouse);
         // setTimeout(function(){console.log(randomHouse)}, addedTime);
