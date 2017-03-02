@@ -19,7 +19,7 @@ void yellowscreen()
    {
     int j;
     int x = 1;
-    static uint8_t poto[8] = {0x00};
+    static uint8_t heart[8] = {0x00, 0x66, 0xFF, 0xFF, 0xFF, 0x7E, 0x3C, 0x18};
     for ( j=0;j<8;j++)
                 {
           data[0] = 0x00;
@@ -88,13 +88,13 @@ while(1){
          matrixoff();
      for ( m=10; m>0; m--)
         {
-         yellowscreen();
+         bluescreen();
          };
          matrixoff();
 
      for ( m=10; m>0; m--)
          {
-         yellowscreen();
+         whitescreen();
          };
          matrixoff();
 
