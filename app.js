@@ -181,6 +181,7 @@ function main(r) {
             console.log('executing'+ r.get());
             }, addedTime);
       }
+      stop();
     };
 
 
