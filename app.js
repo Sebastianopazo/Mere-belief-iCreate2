@@ -156,9 +156,10 @@ function behaviorRandomizer(duration, gestureQuantity) {
     var addedTime = gestureDuration*i;
     setTimeout(function() {
     moveForward();
-    console.log("hi!")
+    console.log("hi!");
     setTimeout(function() {
-    stop()
+    stop();
+    console.log("bye!");
         }, 1);
     }, addedTime);
 
