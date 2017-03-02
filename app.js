@@ -171,15 +171,14 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-			start(); //Turn Robot.
+		   turnRobot(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
+		} else if(text == "x") {
+			start(); //start script.
 		}
 	});
 }
-
-
-
 
 
 
