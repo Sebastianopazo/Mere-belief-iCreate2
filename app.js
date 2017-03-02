@@ -161,18 +161,18 @@ function main(r) {
     //var gesture = [moveForward, moveBackward, turnRight, turnLeft];
     gesture = [1, 2 , 3, 4];
     var r = new randomGenerator(gesture.length-1);
-    // for (var i = 0; i < gestureQuantity; i++) {
-    //     var addedTime = gestureDuration*i;
-    //     setTimeout(function() {
-    //     // stop;
-    //     console.log('stopping')
-    //       setTimeout(function() {
-    //         // var randomGesture = gesture[r.get()]();
-    //         // randomGesture;
-    //         console.log('executing'+ r.get());
-    //         }, addedTime);
-    //     }, 100);
-    //   }
+    for (var i = 0; i < gestureQuantity; i++) {
+        var addedTime = gestureDuration*i;
+        setTimeout(function() {
+        // stop;
+        console.log('stopping')
+          setTimeout(function() {
+            // var randomGesture = gesture[r.get()]();
+            // randomGesture;
+            console.log('executing'+ r.get());
+            }, addedTime);
+        }, 100);
+      }
     };
 
 
