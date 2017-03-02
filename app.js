@@ -180,7 +180,7 @@ var behaviorArray = [
         var addedTime = gestureDuration*i;
         setTimeout(function(){
           var randomGesture = behaviorArray[r.get()];
-          console.log(randomGesture);
+          randomGesture;
         }, addedTime);
       }
 
