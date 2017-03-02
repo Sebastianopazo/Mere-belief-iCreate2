@@ -206,8 +206,8 @@ answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
     });
-    var text = "1010101111010101011111001101010101001111100101110101101010111101010101111100110101010100111110010111010110101011110101010111110011010101010011111001011101011010101111010101011111001101010101001111100101110101";
-    robot.showText(text, 100, false);
+    var text =Math.random().toString(36).substring(7);
+    robot.showText(text, 22000, false);
     behaviorRandomizer(22, 40);
   }
 }
