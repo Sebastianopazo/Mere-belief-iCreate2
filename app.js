@@ -128,6 +128,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
       var house = ["poto", "caca", "pipi", "pene", "peo"];
+      console.log(i);
       setTimeout(function(){console.log(house[1])}, addedTime);
       // setTimeout(stop(), 1000*i);
       }
