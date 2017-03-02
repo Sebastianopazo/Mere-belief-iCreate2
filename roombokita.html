@@ -187,6 +187,7 @@ function leftRotation () {
 
 function answer1Client() {
   socket.emit('play_answer1', 'Requesting answer1...')
+  $("#stopAll").removeClass('disabled');
 }
 
 function answer2Client() {
@@ -221,7 +222,8 @@ function answer9Client() {
 }
 
 function stopAllClient() {
-  socket.emit('stopAll', 'Stopping All...')
+  socket.emit('stopAll', 'Stopping All...');
+  $("#stopAll").addClass('disabled');
 }
 
 </script>
