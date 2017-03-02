@@ -190,6 +190,7 @@ function main(r) {
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+    caca();
   }
 
 moveBackward = function() {
@@ -244,7 +245,6 @@ function handleInput(robot) {
         console.log(data);
         client.emit('messages', 'Connected!');
         start();
-        caca();
     });
     client.on('move', function(data) {
         console.log(data);
