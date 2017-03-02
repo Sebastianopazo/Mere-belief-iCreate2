@@ -207,12 +207,16 @@ stop = function() {
 
 answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-    if (err) throw err
+    if (err && !err.killed) throw err
     });
-    behaviorRandomizer(22, 40);
+    behaviorRandomizer(22, 35);
   }
 }
 
+stopAll = function() {
+  audio.kill();
+  }
+}
 
 
 
@@ -272,6 +276,11 @@ function handleInput(robot) {
         console.log(data);
         client.emit('messages', 'Requesting Answer1...');
         answer1Server();
+    });
+    client.on('stopAll', function(data) {
+        console.log(data);
+        client.emit('messages', 'Aborting...');
+        stopAll();
     });
   });
 
