@@ -30,7 +30,7 @@
           <h4 class="purple-text text-darken-3 center-align">Manual Control</h4>
           <div class="row">
             <div class="col s6 center">
-              <a id="connect" onclick = "connectClient()" class="waves-effect waves-light btn-large green lighten-2"><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
+              <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "poto()" ><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
               <a id="disconnect" class="waves-effect waves-light btn-large red disabled"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
@@ -137,6 +137,9 @@ var back = $('#back');
 var rotateLeft = $('#rotateLeft');
 var rotateRight = $('#rotateRight');
 
+function poto () {
+  console.log('poto');
+}
 function touchEvents (button, move1) {
   button.on("touchstart", move1);
   button.on("touchend", stopMove);
@@ -157,8 +160,9 @@ socket.on('messages', function(data) {
       console.log(data);
 });
 
-function connectClient() {
-  socket.emit('connect', 'Connecting...')
+function clientConnect() {
+  console.log('poto');
+  // socket.emit('connect', 'Connecting...')
 }
 
 function moveForward () {
