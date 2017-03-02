@@ -126,15 +126,10 @@ function main(r) {
     console.log(gestureDuration);
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
-      setTimeout(function() {
       moveForward();
-      console.log("hi!");
-      setTimeout(function() {
-      stop();
-      console.log("bye!");
-          }, addedTime);
-      }, 1000);
-
+      setTimeout(function(){
+        stop();
+      }), 1000);
       }
     }
 
