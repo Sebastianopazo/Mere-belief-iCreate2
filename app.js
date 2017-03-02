@@ -177,7 +177,7 @@ function main(r) {
             console.log('executing'+ r.get());
             }, addedTime);
       }
-          setTimeout(function {
+          setTimeout(function() {
             stop();
           }, time+1);
 
