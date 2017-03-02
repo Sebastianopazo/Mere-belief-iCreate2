@@ -154,37 +154,36 @@ function main(r) {
   }
 
 
-  // //randomize behaviors for sound files
-  // function behaviorRandomizer(duration, gestureQuantity) {
-  //   var time = duration*1000;
-  //   var gestureDuration = time/gestureQuantity;
+  //randomize behaviors for sound files
+  function behaviorRandomizer(duration, gestureQuantity) {
+    var time = duration*1000;
+    var gestureDuration = time/gestureQuantity;
+    var gesture = [
+        moveForward1 = function() {
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+          },
+        moveBackward1 = function() {
+            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+          },
+        turnRight1 = function() {
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+          },
+        turnLeft1 = function() {
+            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+          }
+        ];
+    var r = new randomGenerator(gesture.length-1);
+    for (var i = 0; i < gestureQuantity; i++) {
+        var addedTime = gestureDuration*i;
+          setTimeout(function() {
+            gesture[r.get()]();
+            console.log('executing'+ r.get());
+            }, addedTime);
+      }
+      stop();
+    };
 
-  //
-  //   var r = new randomGenerator(gesture.length-1);
-  //   for (var i = 0; i < gestureQuantity; i++) {
-  //       var addedTime = gestureDuration*i;
-  //         setTimeout(function() {
-  //           gesture[r.get()]();
-  //           console.log('executing'+ r.get());
-  //           }, addedTime);
-  //     }
-  //     stop();
-  //   };
 
-  var gesture = [
-      moveForward1 = function() {
-          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-        },
-      moveBackward1 = function() {
-          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-        },
-      turnRight1 = function() {
-          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-        },
-      turnLeft1 = function() {
-          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-        }
-];
 stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
