@@ -167,7 +167,8 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function() {
-        stop;
+        // stop;
+        console.log('stopping')
           setTimeout(function() {
             // var randomGesture = gesture[r.get()]();
             // randomGesture;
