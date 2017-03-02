@@ -121,13 +121,14 @@ function main(r) {
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+    var house = ["poto", "caca", "pipi", "pene", "peo"];
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     console.log(gestureDuration);
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
-      setTimeout(function(){console.log(addedTime)}, addedTime);
+      setTimeout(function(){console.log(house[i])}, addedTime);
       // setTimeout(stop(), 1000*i);
       }
     }
