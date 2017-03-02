@@ -158,7 +158,7 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = [turnLeft, turnRight];
+    var gesture = [turnLeft(), turnRight()];
     var r = new randomGenerator(gesture.length-1);
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
