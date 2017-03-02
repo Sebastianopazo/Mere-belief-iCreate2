@@ -178,8 +178,8 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function(){
-          var randomGesture = gesture[r.get()];
-          randomGesture.shift().call();
+          var randomGesture = gesture[r.get()]();
+          randomGesture;
         }, addedTime);
       }
 
