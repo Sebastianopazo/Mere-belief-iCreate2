@@ -209,9 +209,7 @@ answer1Server = function() {
   audio = player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
    if (err) throw err
   })
-  stopAll = function() {
     audio.kill();
-  };
     behaviorRandomizer(22, 35);
   };
 
