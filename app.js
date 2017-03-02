@@ -164,8 +164,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
-            // var randomGesture = gesture[r.get()]();
-            // randomGesture;
+
             console.log('executing'+ r.get());
             }, addedTime);
       }
@@ -181,7 +180,9 @@ moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
     }
 turnRight = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      if(robot.data.mode == 3 && drRun) { //If already turning:
+        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      } 
     }
 turnLeft = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
