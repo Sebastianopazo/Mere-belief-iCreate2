@@ -244,7 +244,7 @@ function handleInput(robot) {
     });
     client.on('stop', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        //client.emit('messages', 'Executing...');
         stop();
     });
     client.on('back', function(data) {
