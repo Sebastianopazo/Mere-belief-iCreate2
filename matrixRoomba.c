@@ -19,8 +19,8 @@ void heartbig()
    {
     int j;
     int x = 2;
-    static uint8_t heart[1] = {0x7E};
-    for ( j=0;j<1;j++)
+    static uint8_t heart[8] = {0x80, 0x60, 0x18, 0x14, 0x13, 0x3C, 0xC0, 0x00};
+    for ( j=0;j<8;j++)
                 {
           data[0] = ~heart[j];
           data[2] = 0xFF;
