@@ -172,22 +172,36 @@ function main(r) {
   //   };
 
   var gesture = [
-      moveForward = function() {
+      moveForward1 = function() {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
         },
-      moveBackward = function() {
+      moveBackward1 = function() {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
         },
-      turnRight = function() {
+      turnRight1 = function() {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
         },
-      turnLeft = function() {
+      turnLeft1 = function() {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
 ];
 stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
+
+  moveForward = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+    },
+  moveBackward = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+    },
+  turnRight = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+    },
+  turnLeft = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+    }
+
 answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
@@ -231,7 +245,7 @@ function handleInput(robot) {
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        gesture[0]();
+        moveForward();
     });
     client.on('stop', function(data) {
         console.log(data);
@@ -241,17 +255,17 @@ function handleInput(robot) {
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        gesture[1]();
+        moveBackward();
     });
     client.on('turn_right', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gesture[2]();
+        turnRight();
     });
     client.on('turn_left', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gesture[3]();
+        turnLeft();
     });
     client.on('play_answer1', function(data) {
         console.log(data);
