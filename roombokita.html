@@ -162,7 +162,7 @@ socket.on('messages', function(data) {
 
 function clientConnect() {
   console.log('poto');
-  // socket.emit('connect', 'Connecting...')
+  socket.emit('connect', 'Connecting...')
 }
 
 function moveForward () {
