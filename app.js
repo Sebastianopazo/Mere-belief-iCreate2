@@ -177,7 +177,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
-            gesture[r.get()];
+            gesture[r.get()]();
             console.log('executing'+ r.get());
             }, addedTime);
       }
