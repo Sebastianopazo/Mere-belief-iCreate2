@@ -184,39 +184,39 @@ function handleInput(robot) {
   io.on('connection', function(client) {
     console.log('Client connected...');
 
-    client.on('move', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        moveForward();
-    });
-    client.on('stop', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        // stop();
-    });
-    client.on('back', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        moveBackward();
-    });
-    client.on('turn_right', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        turnRight();
-    });
-    client.on('turn_left', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        turnLeft();
-    });
-    client.on('play_answer1', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        answer1Server();
-    });
+    // client.on('move', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     moveForward();
+    // });
+    // client.on('stop', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     // stop();
+    // });
+    // client.on('back', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     moveBackward();
+    // });
+    // client.on('turn_right', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     turnRight();
+    // });
+    // client.on('turn_left', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     turnLeft();
+    // });
+    // client.on('play_answer1', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     answer1Server();
+    // });
     client.on('connect', function(data) {
         console.log(data);
-        client.emit('messages', 'Connecting...');
+        client.emit('messages', 'Connecting to Roomba...');
         create.prompt(function(p){create.open(p,main)});
     });
   });
