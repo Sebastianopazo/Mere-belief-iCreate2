@@ -151,11 +151,12 @@ function behaviorRandomizer(duration, gestureQuantity) {
   var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
   var time = duration*1000;
   var gestureDuration = time/gestureQuantity;
-
+  console.log(gestureDuration);
   for (var i = 0; i < gestureQuantity; i++) {
     var addedTime = gestureDuration*i;
     setTimeout(function() {
     moveForward();
+    console.log("hi!")
     setTimeout(function() {
     stop()
         }, 1);
