@@ -158,20 +158,7 @@ function main(r) {
   // function behaviorRandomizer(duration, gestureQuantity) {
   //   var time = duration*1000;
   //   var gestureDuration = time/gestureQuantity;
-  //   var gesture = [
-  //     moveForward = function() {
-  //         robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-  //       },
-  //     moveBackward = function() {
-  //         robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-  //       },
-  //     turnRight = function() {
-  //         robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-  //       },
-  //     turnLeft = function() {
-  //         robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-  //       }
-  //   ];
+
   //
   //   var r = new randomGenerator(gesture.length-1);
   //   for (var i = 0; i < gestureQuantity; i++) {
@@ -184,11 +171,7 @@ function main(r) {
   //     stop();
   //   };
 
-
-
-stop = function() {
-    robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-  }
+  var gesture = [
       moveForward = function() {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
         },
@@ -201,7 +184,11 @@ stop = function() {
       turnLeft = function() {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
+];
 
+stop = function() {
+    robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+  }
 answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
@@ -245,7 +232,7 @@ function handleInput(robot) {
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        moveForward();
+        gesture[0];
     });
     client.on('stop', function(data) {
         console.log(data);
@@ -255,17 +242,17 @@ function handleInput(robot) {
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        moveBackward();
+        gestures[1];
     });
     client.on('turn_right', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        turnRight();
+        gestures[2];
     });
     client.on('turn_left', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        turnLeft();
+        gestures[3];
     });
     client.on('play_answer1', function(data) {
         console.log(data);
