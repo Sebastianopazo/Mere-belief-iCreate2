@@ -154,11 +154,41 @@ function main(r) {
   }
 
 
-  //randomize behaviors for sound files
-  function behaviorRandomizer(duration, gestureQuantity) {
-    var time = duration*1000;
-    var gestureDuration = time/gestureQuantity;
-    var gesture = [
+  // //randomize behaviors for sound files
+  // function behaviorRandomizer(duration, gestureQuantity) {
+  //   var time = duration*1000;
+  //   var gestureDuration = time/gestureQuantity;
+  //   var gesture = [
+  //     moveForward = function() {
+  //         robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+  //       },
+  //     moveBackward = function() {
+  //         robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+  //       },
+  //     turnRight = function() {
+  //         robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+  //       },
+  //     turnLeft = function() {
+  //         robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+  //       }
+  //   ];
+  //
+  //   var r = new randomGenerator(gesture.length-1);
+  //   for (var i = 0; i < gestureQuantity; i++) {
+  //       var addedTime = gestureDuration*i;
+  //         setTimeout(function() {
+  //           gesture[r.get()]();
+  //           console.log('executing'+ r.get());
+  //           }, addedTime);
+  //     }
+  //     stop();
+  //   };
+
+
+
+stop = function() {
+    robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+  }
       moveForward = function() {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
         },
@@ -171,25 +201,6 @@ function main(r) {
       turnLeft = function() {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
-    ];
-
-    var r = new randomGenerator(gesture.length-1);
-    for (var i = 0; i < gestureQuantity; i++) {
-        var addedTime = gestureDuration*i;
-          setTimeout(function() {
-            gesture[r.get()]();
-            console.log('executing'+ r.get());
-            }, addedTime);
-      }
-      stop();
-    };
-
-
-
-stop = function() {
-    robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-  }
-
 
 answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
