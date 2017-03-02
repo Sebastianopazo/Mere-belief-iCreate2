@@ -162,16 +162,13 @@ function main(r) {
         moveForward1 = function() {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
           },
-        moveBackward1 = function() {
-            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-          },
         turnRight1 = function() {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
           },
         turnLeft1 = function() {
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
           },
-          stop = function() {
+          stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           }
         ];
@@ -194,6 +191,9 @@ stop = function() {
   moveForward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
     },
+  moveBackward = function() {
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+    },
   turnRight = function() {
       robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
     },
@@ -207,7 +207,7 @@ answer1Server = function() {
     });
     var text = "1010101111010101011111001101010101001111100101110101";
     robot.showText(text, 700, false);
-    behaviorRandomizer(22, 30);
+    behaviorRandomizer(22, 15);
   }
 }
 
