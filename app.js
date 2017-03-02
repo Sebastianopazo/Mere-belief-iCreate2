@@ -129,7 +129,8 @@ function main(r) {
       var addedTime = gestureDuration*i;
       var house = ["poto", "caca", "pipi", "pene", "peo"];
       var randomHouse = house[Math.floor(Math.random()* house.length)];
-      setTimeout(function(){console.log(randomHouse)}, addedTime);
+      console.log(randomHouse);
+      // setTimeout(function(){console.log(randomHouse)}, addedTime);
       // setTimeout(stop(), 1000*i);
       }
     }
