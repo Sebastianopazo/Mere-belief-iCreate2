@@ -194,9 +194,6 @@ stop = function() {
   moveForward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
     },
-  moveBackward = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-    },
   turnRight = function() {
       robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
     },
@@ -210,7 +207,7 @@ answer1Server = function() {
     });
     var text = "1010101111010101011111001101010101001111100101110101";
     robot.showText(text, 700, false);
-    behaviorRandomizer(22, 15);
+    behaviorRandomizer(22, 30);
   }
 }
 
