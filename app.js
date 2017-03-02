@@ -132,8 +132,8 @@ function main(r) {
       setTimeout(function() {
       stop();
       console.log("bye!");
-          }, 1);
-      }, addedTime);
+          }, addedTime);
+      }, 1);
 
       }
     }
@@ -166,17 +166,6 @@ answer1Server = function() {
 }
 
 
-function poto(){
-  for (var i = 0; i < 5; i++) {
-    setTimeout(function() {
-        moveForward();
-    setTimeout(function() {
-        stop();
-    }, 1000);
-}, 1);
-
- }
-}
 
 
 function handleInput(robot) {
