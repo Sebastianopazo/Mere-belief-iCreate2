@@ -186,8 +186,6 @@ function main(r) {
   }, 1000)
     }
 
-    caca();
-
 
 
 moveForward = function() {
