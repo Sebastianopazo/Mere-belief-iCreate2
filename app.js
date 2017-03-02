@@ -128,7 +128,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
       var house = ["poto", "caca", "pipi", "pene", "peo"];
-      var randomHouse = behaviorCycle[Math.floor(Math.random()* house.length)]();
+      var randomHouse = house[Math.floor(Math.random()* house.length)]();
       setTimeout(function(){console.log(randomHouse)}, addedTime);
       // setTimeout(stop(), 1000*i);
       }
