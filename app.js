@@ -197,12 +197,12 @@ stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
 answer1Server = function() {
-  player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-    if (err) throw err
-    });
-    var text = "1010101111010101011111001101010101001111100101110101";
-  robot.showText(text, 700, false);
-  behaviorRandomizer(22, 9);
+  // player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
+  //   if (err) throw err
+  //   });
+  //   var text = "1010101111010101011111001101010101001111100101110101";
+  //   robot.showText(text, 700, false);
+    behaviorRandomizer(22, 9);
   }
 }
 
