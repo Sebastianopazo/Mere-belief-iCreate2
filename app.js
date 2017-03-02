@@ -133,7 +133,7 @@ function main(r) {
       stop();
       console.log("bye!");
           }, addedTime);
-      }, 1);
+      }, 100);
 
       }
     }
