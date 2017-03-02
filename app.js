@@ -158,13 +158,14 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    //var gesture = [moveForward, moveBackward, turnRight, turnLeft];
-    gesture = [1, 2 , 3, 4];
+    var x = turnRight;
+    var y = turnLeft;
+    var gesture = [x, y];
     var r = new randomGenerator(gesture.length-1);
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
-
+            gesture[r.get()];
             console.log('executing'+ r.get());
             }, addedTime);
       }
@@ -187,7 +188,12 @@ turnRight = function() {
       }
     }
 turnLeft = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+      if (obot.data.mode == 3 && drRun) { //If already turning:
+        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+      } else {
+        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+      }
+
     }
 
 stop = function() {
