@@ -152,15 +152,21 @@ function main(r) {
           return val;
       }
   }
+
+var behaviorArray = [
   function pene () {
     console.log('pene1');
-  }
+  },
   function caca () {
     console.log('caca1');
-  }
+  },
   function poto () {
     console.log('poto1');
   }
+];
+
+
+
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
@@ -169,15 +175,12 @@ function main(r) {
     var gestureDuration = time/gestureQuantity;
     var gesture = ["caca2", "pene2", "poto2"];
     var r = new randomGenerator(gesture.length-1);
-    // for (var i = 0; i < gestureQuantity; i++) {
-    //     var randomGesture = gesture[r.get()];
-    //     randomGesture;
-    // }
+
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function(){
-          var randomGesture = gesture[r.get()];
-          console.log(randomGesture)
+          var randomGesture = behaviorArray[r.get()];
+          console.log(randomGesture);
         }, addedTime);
       }
 
