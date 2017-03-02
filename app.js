@@ -160,7 +160,7 @@ function main(r) {
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = [moveForward, moveBackward, turnRight, turnLeft];
+    //var gesture = [moveForward, moveBackward, turnRight, turnLeft];
     var r = new randomGenerator(gesture.length-1);
     // for (var i = 0; i < gestureQuantity; i++) {
     //     var addedTime = gestureDuration*i;
