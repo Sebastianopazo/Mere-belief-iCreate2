@@ -210,7 +210,7 @@ answer1Server = function() {
     if (err && !err.killed) throw err
   })
   stopAll = function() {
-    audio.kill('SIGINT');
+    audio.kill('SIGSTOP');
   }
     behaviorRandomizer(22, 35);
   };
