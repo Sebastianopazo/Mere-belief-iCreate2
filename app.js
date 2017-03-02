@@ -153,13 +153,13 @@ function main(r) {
       }
   }
   function pene () {
-    console.log('pene');
+    console.log('pene1');
   }
   function caca () {
-    console.log('caca');
+    console.log('caca1');
   }
   function poto () {
-    console.log('poto');
+    console.log('poto1');
   }
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
@@ -168,13 +168,17 @@ function main(r) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     var gesture = [caca(), pene(), poto()];
-    var house = ["caca", "pene", "poto"];
+    var house = ["caca2", "pene2", "poto2"];
     console.log(gesture.length, house.length);
     var r = new randomGenerator(gesture.length-1);
-    // for (var i = 0; i < gestureQuantity; i++) {
-    //     var randomGesture = gesture[r.get()];
-    //     randomGesture;
-    // }
+    for (var i = 0; i < gestureQuantity; i++) {
+        var randomGesture = gesture[r.get()];
+        randomGesture;
+    }
+    for (var i = 0; i < gestureQuantity; i++) {
+        var randomHouse = house[r.get()];
+        console.log(randomHouse);
+    }
     // for (var i = 0; i < gestureQuantity; i++) {
     //   var addedTime = gestureDuration*i;
     //
