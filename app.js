@@ -167,7 +167,6 @@ function main(r) {
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = [caca(), pene(), poto()];
     var house = ["caca2", "pene2", "poto2"];
     var r = new randomGenerator(gesture.length-1);
     // for (var i = 0; i < gestureQuantity; i++) {
