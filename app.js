@@ -206,15 +206,15 @@ stop = function() {
     }
 
 answer1Server = function() {
-  player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
+  var audio = player.play('audio/answer1.mp3', function(err){
     if (err && !err.killed) throw err
-    });
+  })
     behaviorRandomizer(22, 35);
-  }
+  };
   stopAll = function() {
     audio.kill();
-    }
-  
+  };
+
 }
 
 
