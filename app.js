@@ -206,8 +206,8 @@ answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
     });
-    var text =Math.random().toString(36).substring(7);
-    robot.showText(text, 22000, true);
+    var text =Math.random().toString(36).substring(2200);
+    robot.showText(text, 100, true);
     behaviorRandomizer(22, 40);
   }
 }
