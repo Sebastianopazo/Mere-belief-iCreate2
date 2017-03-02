@@ -34,7 +34,7 @@ function main(r) {
 	//setTimeout(function(){robot.showText("Hello World!", 500, true)}, 500);
 
 	//We'll play this song whenever entering user-control:
-	robot.setSong(0, [[76,12],[76,12],[76,12],[76,36],[72,36],[74,36],[76,24],[74,12],[76,48],]);
+	// robot.setSong(0, [[76,12],[76,12],[76,12],[76,36],[72,36],[74,36],[76,24],[74,12],[76,48],]);
 
 	//Handle First onChange:
 	robot.onChange = function() {
@@ -163,7 +163,7 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
-            gesture[r.get()];
+            // gesture[r.get()];
             console.log('executing'+ r.get());
             }, addedTime);
       }
