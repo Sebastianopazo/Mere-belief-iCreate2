@@ -179,6 +179,7 @@ function main(r) {
       }
           setTimeout(function() {
             stop();
+            console.log('done!');
           }, time+1);
 
     };
