@@ -160,7 +160,7 @@ function main(r) {
     var gestureDuration = time/gestureQuantity;
     var house = ["poto", "caca", "pipi", "pene", "peo"];
     var r = new randomGenerator(house.length);
-    for (var i = 0; i <= house.length; i++) {
+    for (var i = 0; i < house.length; i++) {
       var item = house[r.get()];
     console.log(item);
     }
