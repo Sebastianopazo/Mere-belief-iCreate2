@@ -170,6 +170,8 @@ function main(r) {
           var randomGesture = gesture[r.get()]();
           randomGesture;
         }, addedTime);
+
+
       }
 
 
@@ -180,7 +182,7 @@ function main(r) {
       console.log('poto')
       setTimeout(function() {
           console.log('pene')
-      }, 1000);
+      }, 3000);
   }, 1000)
     }
 
@@ -244,6 +246,7 @@ function handleInput(robot) {
         console.log(data);
         client.emit('messages', 'Connected!');
         start();
+        caca();
     });
     client.on('move', function(data) {
         console.log(data);
