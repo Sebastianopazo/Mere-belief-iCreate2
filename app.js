@@ -211,11 +211,10 @@ answer1Server = function() {
     });
     behaviorRandomizer(22, 35);
   }
-}
-
-stopAll = function() {
-  audio.kill();
-  }
+  stopAll = function() {
+    audio.kill();
+    }
+  
 }
 
 
