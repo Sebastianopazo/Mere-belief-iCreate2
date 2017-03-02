@@ -167,7 +167,6 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function() {
-        // stop;
         console.log('executing'+ r.get());
       }
     };
@@ -179,6 +178,7 @@ function main(r) {
     //     console.log('executing'+ r.get());
     //     }, addedTime);
     // }, 100);
+
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
