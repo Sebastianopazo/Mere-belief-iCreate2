@@ -165,7 +165,7 @@ function main(r) {
 
       var r = new randomGenerator(0, 9);
       for (var i = 0; i < 10; i++) {
-      log(r.get());
+      console.log(r.get());
       }
 
 
