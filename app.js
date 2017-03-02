@@ -171,7 +171,7 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-			poto(); //Turn Robot.
+			turnRobot(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
 		}
