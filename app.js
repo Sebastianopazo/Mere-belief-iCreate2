@@ -118,6 +118,40 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
+
+
+  //GENERAL RANDOMIZER
+  // if only one argument is passed, it will assume that is the high
+  // limit and the low limit will be set to zero
+  // so you can use either r = new randomeGenerator(9);
+  // or r = new randomGenerator(0, 9);
+  function randomGenerator(low, high) {
+      if (arguments.length < 2) {
+          high = low;
+          low = 0;
+      }
+      this.low = low;
+      this.high = high;
+      this.reset();
+  }
+
+  randomGenerator.prototype = {
+      reset: function() {
+          this.remaining = [];
+          for (var i = this.low; i <= this.high; i++) {
+              this.remaining.push(i);
+          }
+      },
+      get: function() {
+          if (!this.remaining.length) {
+              this.reset();
+          }
+          var index = Math.floor(Math.random() * this.remaining.length);
+          var val = this.remaining[index];
+          this.remaining.splice(index, 1);
+          return val;
+      }
+  }
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
@@ -128,12 +162,18 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
       var house = ["poto", "caca", "pipi", "pene", "peo"];
-      var randomHouse = house[Math.floor(Math.random()* house.length)];
-      console.log(randomHouse);
-      // setTimeout(function(){console.log(randomHouse)}, addedTime);
-      // setTimeout(stop(), 1000*i);
+
+      var r = new randomGenerator(0, 9);
+      for (var i = 0; i < 10; i++) {
+      log(r.get());
       }
-    }
+
+
+        //console.log(randomHouse);
+        // setTimeout(function(){console.log(randomHouse)}, addedTime);
+        // setTimeout(stop(), 1000*i);
+        }
+      }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
