@@ -168,7 +168,14 @@ answer1Server = function() {
 
 function poto(){
   for (var i = 0; i < 5; i++) {
-    moveForward()  }
+    setTimeout(function() {
+        moveForward();
+    setTimeout(function() {
+        stop();
+    }, 1);
+}, 1000);
+
+ }
 }
 
 
