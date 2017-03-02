@@ -179,7 +179,7 @@ function handleInput(robot) {
 }
 
 
-start();
+// start();
 
 
 
