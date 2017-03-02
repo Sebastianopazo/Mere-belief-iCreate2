@@ -176,14 +176,14 @@ function main(r) {
     // }
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
-        var randomHouse = house[r.get()];
-        setTimeout(function(){console.log(randomHouse)}, addedTime);
-    }
-
-
-        // setTimeout(stop(), 1000*i);
-
+        setTimeout(function(){
+          var randomHouse = house[r.get()];
+          console.log(randomHouse)
+        }, addedTime);
       }
+
+
+    }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
