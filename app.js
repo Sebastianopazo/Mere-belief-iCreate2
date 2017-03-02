@@ -118,7 +118,7 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
-  //randomize behaviors for sound
+  //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
@@ -127,10 +127,8 @@ function main(r) {
     console.log(gestureDuration);
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
-      moveForward();
-      setTimeout(function(){
-        stop();
-      }, 1000*i);
+      setTimeout(moveForward(), i*1000);
+      setTimeout(stop(), 1000*i);
       }
     }
 
@@ -188,7 +186,7 @@ function handleInput(robot) {
 
     client.on('start', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Connected!');
         start();
     });
     client.on('move', function(data) {
