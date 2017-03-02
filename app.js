@@ -205,6 +205,11 @@ stop = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
 
+    var audio = player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
+      if (err && !err.killed) throw err
+    })
+
+
 answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
    if (err) throw err
@@ -214,11 +219,9 @@ answer1Server = function() {
   };
 
   stopAll = function() {
-    var audio = player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-      if (err && !err.killed) throw err
-    })
     audio.kill();
   };
+
 
 }
 
