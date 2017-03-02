@@ -154,17 +154,6 @@ function main(r) {
   }
 
 
-  var a = function pene () {
-    console.log('pene1');
-  }
-  var b = function caca () {
-    console.log('caca1');
-  }
-  var c = function poto () {
-    console.log('poto1');
-  }
-
-
 
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
@@ -172,7 +161,7 @@ function main(r) {
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = [a, b, c];
+    var gesture = [moveForward, moveBackward, turnRight, turnLeft];
     var r = new randomGenerator(gesture.length-1);
 
     for (var i = 0; i < gestureQuantity; i++) {
@@ -185,6 +174,19 @@ function main(r) {
 
 
     }
+
+    function caca() {
+      setTimeout(function() {
+      console.log('poto')
+      setTimeout(function() {
+          console.log('pene')
+      }, 1000);
+  }, 1000)
+    }
+
+    caca();
+
+
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
