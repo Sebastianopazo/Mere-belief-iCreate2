@@ -156,8 +156,6 @@ function main(r) {
 
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
-    var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
-    var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     //var gesture = [moveForward, moveBackward, turnRight, turnLeft];
