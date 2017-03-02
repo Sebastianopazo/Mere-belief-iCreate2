@@ -63,6 +63,15 @@ void bluescreen()
                 }
 };
 
+void testScreen()
+   {
+    int j;
+    int x = 1;
+    static uint8_t data  = {0x00, 0x66, 0xFF, 0xFF, 0xFF, 0x7E, 0x3C, 0x18};
+    wiringPiSPIDataRW(0,data,sizeof(data));	
+};
+
+
 void matrixoff()
 {
  int j;
@@ -88,7 +97,7 @@ while(1){
          matrixoff();
      for ( m=10; m>0; m--)
         {
-         bluescreen();
+         testScreen();
          };
          matrixoff();
 
