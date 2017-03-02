@@ -18,7 +18,7 @@ const player = require('play-sound')(opts = {});
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var audio, start, stopAll, robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start, stopAll, robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
