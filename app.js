@@ -154,11 +154,11 @@ function behaviorRandomizer(duration, gestureQuantity) {
 
   for (var i = 0; i < gestureQuantity; i++) {
     setTimeout(function() {
-    randomBehavior();
+    randomBehavior();//this is not a function
     setTimeout(function() {
     stop()
         }, 1);
-    }, gestureDuration);
+    }, gestureDuration);//comeup with something that adds more time each round (gestureduration = previous gesture duration)
 
     }
   }
