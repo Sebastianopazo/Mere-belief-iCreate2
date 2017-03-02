@@ -130,7 +130,7 @@ function main(r) {
       moveForward();
       setTimeout(function(){
         stop();
-        }, 1000);
+      }, 1000*i);
       }
     }
 
