@@ -162,6 +162,8 @@ socket.on('messages', function(data) {
 
 function clientConnect() {
   socket.emit('start', 'Connecting...')
+  $("#connect").addClass('disabled');
+  $("#disconnect").removeClass('disabled');
 }
 
 function moveForward () {
