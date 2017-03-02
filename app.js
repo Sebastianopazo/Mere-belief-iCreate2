@@ -182,7 +182,9 @@ moveBackward = function() {
 turnRight = function() {
       if(robot.data.mode == 3 && drRun) { //If already turning:
         robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-      } 
+      } else {
+        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      }
     }
 turnLeft = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
