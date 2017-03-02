@@ -242,17 +242,17 @@ function handleInput(robot) {
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        gestures[1];
+        gesture[1];
     });
     client.on('turn_right', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gestures[2];
+        gesture[2];
     });
     client.on('turn_left', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gestures[3];
+        gesture[3];
     });
     client.on('play_answer1', function(data) {
         console.log(data);
