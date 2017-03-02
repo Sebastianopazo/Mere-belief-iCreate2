@@ -179,19 +179,10 @@ moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
     }
 turnRight = function() {
-      if(robot.data.mode == 3 && drRun) { //If already turning:
-        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-      } else {
-        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-      }
+              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
     }
 turnLeft = function() {
-      if (obot.data.mode == 3 && drRun) { //If already turning:
-        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-      } else {
-        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-      }
-
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
 
 stop = function() {
