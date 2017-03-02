@@ -189,11 +189,11 @@ function handleInput(robot) {
         client.emit('messages', 'Executing...');
         moveForward();
     });
-    client.on('stop', function(data) {
-        console.log(data);
-        client.emit('messages', 'Executing...');
-        stop();
-    });
+    // client.on('stop', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'Executing...');
+    //     stop();
+    // });
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Executing...');
