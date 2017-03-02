@@ -152,7 +152,8 @@ function main(r) {
           return val;
       }
   }
-
+  //Characters for messages
+  var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
@@ -170,11 +171,13 @@ function main(r) {
           }
         ];
     var r = new randomGenerator(gesture.length-1);
+    var text = new randomGenerator(characters.length-1);
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
             gesture[r.get()]();
             console.log('executing'+ r.get());
+            robot.showText(characters[text.get()], 100, true);
             }, addedTime);
       }
           setTimeout(function() {
@@ -206,8 +209,6 @@ answer1Server = function() {
   player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
     if (err) throw err
     });
-    var text =Math.random().toString(36).substring(2200);
-    robot.showText(text, 100, true);
     behaviorRandomizer(22, 40);
   }
 }
