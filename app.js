@@ -18,7 +18,7 @@ const player = require('play-sound')(opts = {});
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start,robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight, turnLeft, answer1, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start,robot, turnRobot, stopTurn, moveForward, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -118,6 +118,7 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
+  //randomize behaviors for sound
   function behaviorRandomizer(duration, gestureQuantity) {
     var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
