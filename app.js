@@ -109,7 +109,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; console.log("Angle:", angle);
+		angle += robot.delta.angle; //console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
@@ -171,6 +171,7 @@ function main(r) {
           setTimeout(function() {
             var randomGesture = gesture[r.get()]();
             randomGesture;
+            console.log('executing'+ r.get());
             }, addedTime);
         }, 100);
       }
