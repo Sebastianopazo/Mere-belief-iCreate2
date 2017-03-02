@@ -185,7 +185,6 @@ function main(r) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
 ];
-
 stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
@@ -232,7 +231,7 @@ function handleInput(robot) {
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        gesture[0];
+        gesture[0]();
     });
     client.on('stop', function(data) {
         console.log(data);
@@ -242,17 +241,17 @@ function handleInput(robot) {
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
-        gesture[1];
+        gesture[1]();
     });
     client.on('turn_right', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gesture[2];
+        gesture[2]();
     });
     client.on('turn_left', function(data) {
         console.log(data);
         client.emit('messages', 'Turning...');
-        gesture[3];
+        gesture[3]();
     });
     client.on('play_answer1', function(data) {
         console.log(data);
