@@ -158,6 +158,9 @@ socket.on('messages', function(data) {
       console.log(data);
 });
 
+function startClient() {
+  socket.emit('connect', 'Connecting...')
+}
 
 function moveForward () {
   socket.emit('move', 'Requesting action...')

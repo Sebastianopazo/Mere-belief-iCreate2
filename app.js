@@ -179,10 +179,6 @@ function handleInput(robot) {
 }
 
 
-start();
-
-
-
 //Functions from client (browser app)
 
   io.on('connection', function(client) {
@@ -217,6 +213,11 @@ start();
         console.log(data);
         client.emit('messages', 'Executing...');
         answer1Server();
+    });
+    client.on('connect', function(data) {
+        console.log(data);
+        client.emit('messages', 'Connecting...');
+        start();
     });
   });
 
