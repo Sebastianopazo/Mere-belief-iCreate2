@@ -153,12 +153,13 @@ function behaviorRandomizer(duration, gestureQuantity) {
   var gestureDuration = time/gestureQuantity;
 
   for (var i = 0; i < gestureQuantity; i++) {
+    var addedTime = gestureDuration*i;
     setTimeout(function() {
-    randomBehavior();//this is not a function
+    moveForward();
     setTimeout(function() {
     stop()
         }, 1);
-    }, gestureDuration);//comeup with something that adds more time each round (gestureduration = previous gesture duration)
+    }, addedTime);
 
     }
   }
