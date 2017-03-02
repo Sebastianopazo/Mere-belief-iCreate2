@@ -161,6 +161,7 @@ function main(r) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     //var gesture = [moveForward, moveBackward, turnRight, turnLeft];
+    gesture = [1, 2 , 3, 4];
     var r = new randomGenerator(gesture.length-1);
     // for (var i = 0; i < gestureQuantity; i++) {
     //     var addedTime = gestureDuration*i;
