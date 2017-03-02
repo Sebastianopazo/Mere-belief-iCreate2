@@ -237,7 +237,7 @@ function handleInput(robot) {
     });
     client.on('move', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Moving...');
         moveForward();
     });
     client.on('stop', function(data) {
@@ -247,22 +247,22 @@ function handleInput(robot) {
     });
     client.on('back', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Moving...');
         moveBackward();
     });
     client.on('turn_right', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Turning...');
         turnRight();
     });
     client.on('turn_left', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Turning...');
         turnLeft();
     });
     client.on('play_answer1', function(data) {
         console.log(data);
-        client.emit('messages', 'Executing...');
+        client.emit('messages', 'Requesting Answer1...');
         answer1Server();
     });
   });
