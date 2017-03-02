@@ -207,7 +207,7 @@ answer1Server = function() {
     if (err) throw err
     });
     var text =Math.random().toString(36).substring(7);
-    robot.showText(text, 22000, false);
+    robot.showText(text, 22000, true);
     behaviorRandomizer(22, 40);
   }
 }
