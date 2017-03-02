@@ -177,7 +177,10 @@ function main(r) {
             console.log('executing'+ r.get());
             }, addedTime);
       }
-      stop();
+          setTimeout(function {
+            stop();
+          }, time+1);
+
     };
 
 
@@ -204,7 +207,7 @@ answer1Server = function() {
     });
     var text = "1010101111010101011111001101010101001111100101110101101010111101010101111100110101010100111110010111010110101011110101010111110011010101010011111001011101011010101111010101011111001101010101001111100101110101";
     robot.showText(text, 100, false);
-    behaviorRandomizer(22, 35);
+    behaviorRandomizer(22, 40);
   }
 }
 
