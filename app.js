@@ -214,7 +214,7 @@ answer1Server = function() {
   };
 
   stopAll = function() {
-    var audio = player.play('audio/answer1.mp3', function(err){
+    var audio = player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
       if (err && !err.killed) throw err
     })
     audio.kill();
