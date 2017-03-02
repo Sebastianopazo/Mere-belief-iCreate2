@@ -207,7 +207,7 @@ answer1Server = function() {
     });
     var text = "1010101111010101011111001101010101001111100101110101";
     robot.showText(text, 700, false);
-    behaviorRandomizer(22, 15);
+    behaviorRandomizer(22, 35);
   }
 }
 
