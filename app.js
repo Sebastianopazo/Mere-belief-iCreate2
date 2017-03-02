@@ -168,17 +168,17 @@ function main(r) {
         var addedTime = gestureDuration*i;
         setTimeout(function() {
         // stop;
-        console.log('stopping')
-          setTimeout(function() {
-            // var randomGesture = gesture[r.get()]();
-            // randomGesture;
-            console.log('executing'+ r.get());
-            }, addedTime);
-        }, 100);
+        console.log('executing'+ r.get());
       }
     };
 
-
+    // console.log('stopping')
+    //   setTimeout(function() {
+    //     // var randomGesture = gesture[r.get()]();
+    //     // randomGesture;
+    //     console.log('executing'+ r.get());
+    //     }, addedTime);
+    // }, 100);
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
