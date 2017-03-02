@@ -127,7 +127,7 @@ function main(r) {
     console.log(gestureDuration);
     for (var i = 0; i < gestureQuantity; i++) {
       var addedTime = gestureDuration*i;
-      console.log(gestureDuration);
+      console.log(i);
       //setTimeout(function(){console.log(addedTime)}, i*1000);
       // setTimeout(stop(), 1000*i);
       }
