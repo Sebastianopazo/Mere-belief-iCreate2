@@ -137,7 +137,7 @@ function main(r) {
 
       }
     }
-    
+
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
   }
@@ -166,6 +166,10 @@ answer1Server = function() {
 }
 
 
+function poto(){
+  for (var i = 0; i < 5; i++) {
+    moveForward()  }
+}
 
 
 function handleInput(robot) {
@@ -176,7 +180,7 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-			turnRobot(); //Turn Robot.
+			poto(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
 		}
