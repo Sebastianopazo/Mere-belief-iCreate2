@@ -118,20 +118,20 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
-  function behaviorRandomizer(duration, gestureQuantity) {
-    var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
-    var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
-    var time = duration*1000;
-    var gestureDuration = time/gestureQuantity;
-    console.log(gestureDuration);
-    for (var i = 0; i < gestureQuantity; i++) {
-      var addedTime = gestureDuration*i;
-      moveForward();
-      setTimeout(function(){
-        stop();
-        }, 1000);
-      }
-    }
+  // function behaviorRandomizer(duration, gestureQuantity) {
+  //   var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+  //   var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
+  //   var time = duration*1000;
+  //   var gestureDuration = time/gestureQuantity;
+  //   console.log(gestureDuration);
+  //   for (var i = 0; i < gestureQuantity; i++) {
+  //     var addedTime = gestureDuration*i;
+  //     moveForward();
+  //     setTimeout(function(){
+  //       stop();
+  //       }, 1000);
+  //     }
+  //   }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
@@ -189,11 +189,11 @@ function handleInput(robot) {
         client.emit('messages', 'Executing...');
         moveForward();
     });
-    // client.on('stop', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     stop();
-    // });
+    client.on('stop', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        stop();
+    });
     client.on('back', function(data) {
         console.log(data);
         client.emit('messages', 'Executing...');
