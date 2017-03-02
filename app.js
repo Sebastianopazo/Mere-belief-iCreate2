@@ -166,31 +166,20 @@ function main(r) {
 
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
-        setTimeout(function(){
-          var randomGesture = gesture[r.get()]();
-          randomGesture;
-        }, addedTime);
-
-
+        setTimeout(function() {
+        stop;
+          setTimeout(function() {
+            var randomGesture = gesture[r.get()]();
+            randomGesture;
+            }, addedTime);
+        }, 100);
       }
-
-
-    }
-
-    function caca() {
-      setTimeout(function() {
-      console.log('poto');
-      setTimeout(function() {
-          console.log('pene');
-        }, 3000);
-      }, 1000)
     };
 
 
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-    caca();
   }
 
 moveBackward = function() {
