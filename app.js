@@ -158,7 +158,21 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = [turnLeft(), turnRight()];
+    var gesture = [
+      moveForward = function() {
+          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+        },
+      moveBackward = function() {
+          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+        },
+      turnRight = function() {
+                      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+        },
+      turnLeft = function() {
+              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+        }
+    ];
+
     var r = new randomGenerator(gesture.length-1);
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
@@ -170,20 +184,6 @@ function main(r) {
     };
 
 
-
-moveForward = function() {
-    robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-  }
-
-moveBackward = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-    }
-turnRight = function() {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-    }
-turnLeft = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-    }
 
 stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
