@@ -176,8 +176,8 @@ function main(r) {
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function(){
-          var randomHouse = house[r.get()];
-          console.log(randomHouse)
+          var randomGesture = gesture[r.get()];
+          console.log(randomGesture)
         }, addedTime);
       }
 
