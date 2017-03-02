@@ -118,7 +118,26 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
+  function behaviorRandomizer(duration, gestureQuantity) {
+    var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+    var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
+    var time = duration*1000;
+    var gestureDuration = time/gestureQuantity;
+    console.log(gestureDuration);
+    for (var i = 0; i < gestureQuantity; i++) {
+      var addedTime = gestureDuration*i;
+      setTimeout(function() {
+      moveForward();
+      console.log("hi!");
+      setTimeout(function() {
+      stop();
+      console.log("bye!");
+          }, 1);
+      }, addedTime);
 
+      }
+    }
+    
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
   }
@@ -146,25 +165,7 @@ answer1Server = function() {
   }
 }
 
-function behaviorRandomizer(duration, gestureQuantity) {
-  var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
-  var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
-  var time = duration*1000;
-  var gestureDuration = time/gestureQuantity;
-  console.log(gestureDuration);
-  for (var i = 0; i < gestureQuantity; i++) {
-    var addedTime = gestureDuration*i;
-    setTimeout(function() {
-    moveForward();
-    console.log("hi!");
-    setTimeout(function() {
-    stop();
-    console.log("bye!");
-        }, 1);
-    }, addedTime);
 
-    }
-  }
 
 
 function handleInput(robot) {
