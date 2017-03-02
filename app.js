@@ -169,8 +169,8 @@ function main(r) {
         setTimeout(function() {
         stop;
           setTimeout(function() {
-            var randomGesture = gesture[r.get()]();
-            randomGesture;
+            // var randomGesture = gesture[r.get()]();
+            // randomGesture;
             console.log('executing'+ r.get());
             }, addedTime);
         }, 100);
