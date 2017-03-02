@@ -207,7 +207,7 @@ stop = function() {
 
 answer1Server = function() {
   audio = player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-   if (err) throw err
+   if (err && !err.killed) throw err
   })
     setTimeout(function(){
         audio.kill();
