@@ -168,18 +168,20 @@ function main(r) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     var gesture = [caca(), pene(), poto()];
+    var house = ["caca", "pene", "poto"];
+    console.log(gesture.length, house.length);
     var r = new randomGenerator(gesture.length-1);
-    for (var i = 0; i < gestureQuantity; i++) {
-        var randomGesture = gesture[r.get()];
-        randomGesture;
-    }
-    for (var i = 0; i < gestureQuantity; i++) {
-      var addedTime = gestureDuration*i;
-
-        // setTimeout(function(){console.log(randomHouse)}, addedTime);
-        // setTimeout(stop(), 1000*i);
-        }
-      }
+    // for (var i = 0; i < gestureQuantity; i++) {
+    //     var randomGesture = gesture[r.get()];
+    //     randomGesture;
+    // }
+    // for (var i = 0; i < gestureQuantity; i++) {
+    //   var addedTime = gestureDuration*i;
+    //
+    //     // setTimeout(function(){console.log(randomHouse)}, addedTime);
+    //     // setTimeout(stop(), 1000*i);
+    //     }
+    //   }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
