@@ -118,20 +118,20 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
-  // function behaviorRandomizer(duration, gestureQuantity) {
-  //   var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
-  //   var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
-  //   var time = duration*1000;
-  //   var gestureDuration = time/gestureQuantity;
-  //   console.log(gestureDuration);
-  //   for (var i = 0; i < gestureQuantity; i++) {
-  //     var addedTime = gestureDuration*i;
-  //     moveForward();
-  //     setTimeout(function(){
-  //       stop();
-  //       }, 1000);
-  //     }
-  //   }
+  function behaviorRandomizer(duration, gestureQuantity) {
+    var behaviorCycle = [moveForward, moveBackward, turnRight, turnLeft];
+    var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
+    var time = duration*1000;
+    var gestureDuration = time/gestureQuantity;
+    console.log(gestureDuration);
+    for (var i = 0; i < gestureQuantity; i++) {
+      var addedTime = gestureDuration*i;
+      moveForward();
+      setTimeout(function(){
+        stop();
+        }, 1000);
+      }
+    }
 
 moveForward = function() {
     robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
@@ -171,7 +171,7 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-			turnRobot(); //Turn Robot.
+			poto(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
 		}
@@ -179,45 +179,44 @@ function handleInput(robot) {
 }
 
 
+start();
+
+
+
 //Functions from client (browser app)
 
   io.on('connection', function(client) {
     console.log('Client connected...');
 
-    // client.on('move', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     moveForward();
-    // });
-    // client.on('stop', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     // stop();
-    // });
-    // client.on('back', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     moveBackward();
-    // });
-    // client.on('turn_right', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     turnRight();
-    // });
-    // client.on('turn_left', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     turnLeft();
-    // });
-    // client.on('play_answer1', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'Executing...');
-    //     answer1Server();
-    // });
-    client.on('connect', function(data) {
+    client.on('move', function(data) {
         console.log(data);
-        client.emit('messages', 'Connecting to Roomba...');
-        create.prompt(function(p){create.open(p,main)});
+        client.emit('messages', 'Executing...');
+        moveForward();
+    });
+    client.on('stop', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        stop();
+    });
+    client.on('back', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        moveBackward();
+    });
+    client.on('turn_right', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        turnRight();
+    });
+    client.on('turn_left', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        turnLeft();
+    });
+    client.on('play_answer1', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        answer1Server();
     });
   });
 
