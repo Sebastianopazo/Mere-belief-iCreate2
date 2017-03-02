@@ -209,7 +209,7 @@ answer1Server = function() {
   var audio = player.play('audio/answer1.mp3', function(err){
     if (err && !err.killed) throw err
   })
-  audio.kill();
+audio.kill('SIGINT');
 
     behaviorRandomizer(22, 35);
   };
