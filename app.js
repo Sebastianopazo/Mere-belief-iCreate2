@@ -174,8 +174,6 @@ function handleInput(robot) {
 		   turnRobot(); //Turn Robot.
 		} else if(text == "s") {
 			stopTurn(); //Stop Turning.
-		} else if(text == "x") {
-			start(); //start script.
 		}
 	});
 }
@@ -187,6 +185,11 @@ function handleInput(robot) {
   io.on('connection', function(client) {
     console.log('Client connected...');
 
+    client.on('start', function(data) {
+        console.log(data);
+        client.emit('messages', 'Executing...');
+        start();
+    });
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Executing...');
