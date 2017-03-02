@@ -153,17 +153,16 @@ function main(r) {
       }
   }
 
-var behaviorArray = [
-  function pene () {
+
+  var a = function pene () {
     console.log('pene1');
-  },
-  function caca () {
+  }
+  var b = function caca () {
     console.log('caca1');
-  },
-  function poto () {
+  }
+  var c = function poto () {
     console.log('poto1');
   }
-];
 
 
 
@@ -173,14 +172,14 @@ var behaviorArray = [
     var randomBehavior = behaviorCycle[Math.floor(Math.random()* behaviorCycle.length)]();
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
-    var gesture = ["caca2", "pene2", "poto2"];
+    var gesture = [a, b, c];
     var r = new randomGenerator(gesture.length-1);
 
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
         setTimeout(function(){
-          var randomGesture = behaviorArray[r.get()];
-          randomGesture;
+          var randomGesture = gesture[r.get()];
+          randomGesture.shift().call();
         }, addedTime);
       }
 
