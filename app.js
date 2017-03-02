@@ -177,7 +177,7 @@ function main(r) {
           setTimeout(function() {
             gesture[r.get()]();
             console.log('executing'+ r.get());
-            robot.showText(characters[text.get()], 100, true);
+            robot.showText(characters[text.get()], 50, true);
             }, addedTime);
       }
           setTimeout(function() {
