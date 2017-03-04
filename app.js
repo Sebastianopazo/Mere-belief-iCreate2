@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, disconnectClient, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, disconnectClient, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -225,6 +225,41 @@ function main(r) {
     behaviorRandomizer(12, 10);
   };
 
+  answer3Server = function() {
+    player = Omx('audio/answer3.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer4Server = function() {
+    player = Omx('audio/answer4.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer5Server = function() {
+    player = Omx('audio/answer5.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer6Server = function() {
+    player = Omx('audio/answer6.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer7Server = function() {
+    player = Omx('audio/answer7.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer8Server = function() {
+    player = Omx('audio/answer8.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
+  answer9Server = function() {
+    player = Omx('audio/answer9.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
   stopAll = function(){
     player.quit();
   };
@@ -292,9 +327,46 @@ function handleInput(robot) {
 
     client.on('play_answer2', function(data) {
         console.log(data);
-        client.emit('messages', 'Requesting Answer1...');
+        client.emit('messages', 'Requesting Answer2...');
         answer2Server();
     });
+    client.on('play_answer3', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer3...');
+        answer3Server();
+    });
+    client.on('play_answer4', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer4...');
+        answer4Server();
+    });
+    client.on('play_answer5', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer5...');
+        answer5Server();
+    });
+    client.on('play_answer6', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer6...');
+        answer6Server();
+    });
+    client.on('play_answer7', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer7...');
+        answer7Server();
+    });
+    client.on('play_answer8', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer8...');
+        answer8Server();
+    });
+    client.on('play_answer9', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer9...');
+        answer9Server();
+    });
+
+
 
     client.on('stopAll', function(data) {
         console.log(data);
