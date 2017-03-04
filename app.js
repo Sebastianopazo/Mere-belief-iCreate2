@@ -215,6 +215,7 @@ function main(r) {
   stopAll = function(){
     player.quit();
   };
+  
   hola = function() {
     robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     // robot = r; handleInput(robot);
