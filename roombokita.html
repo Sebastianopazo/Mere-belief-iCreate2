@@ -224,7 +224,10 @@ function answer9Client() {
 
 function stopAllClient() {
   socket.emit('stopAll', 'Stopping All...');
-  // $("#stopAll").addClass('disabled');
+  socket.on('Aborted!', function(){
+  $("#stopAll").addClass('disabled');
+  })
+
 }
 
 </script>
