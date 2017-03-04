@@ -24,9 +24,6 @@ start = function () {
 	create.prompt(function(p){create.open(p,main)});
 }
 
-disconnect = function() {
-  robot.stop();
-}
 
 //Main Program:
 function main(r) {
@@ -34,7 +31,10 @@ function main(r) {
 
 	//Enter Full Mode:
 	robot.full(); var run = 1;
-
+  //stop communication
+  disconnect = function() {
+    robot.stop();
+  }
 	//We'll play this song whenever entering user-control:
 	robot.setSong(0, [[72,12],[72,12],[72,12],[72,36],[68,36],[70,36],[72,24],[70,12],[72,48],]);
 
