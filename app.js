@@ -253,9 +253,9 @@ function handleInput(robot) {
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
-    client.on('disconnect', function(data) {
+    client.on('hola', function(data) {
         console.log(data);
-        client.emit('messages', 'disconnected');
+        client.emit('messages', 'holiiii');
         disconnect();
     });
     client.on('move', function(data) {
