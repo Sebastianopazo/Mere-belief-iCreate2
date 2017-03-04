@@ -45,8 +45,8 @@
           <h4 class="purple-text text-darken-3 center-align">Manual Control</h4>
           <div class="row">
             <div class="col s12 center">
-              <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "clientConnect()" ><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
-              <a id="disconnect" class="waves-effect waves-light btn-large red disabled"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
+              <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "clientConnect()"><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
+              <a id="disconnect" class="waves-effect waves-light btn-large red" onclick = "disconnect()"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
           </div>
@@ -165,7 +165,7 @@ function clientConnect() {
   socket.emit('start', 'Connecting...')
 }
 
-function clientDisconnect() {
+function disconnect() {
   socket.emit('disconnecting', 'Disconnecting...');
 }
 function moveForward () {
@@ -228,9 +228,6 @@ function stopAllClient() {
   socket.emit('stopAll', 'Stopping All...');
 }
 
-$("#disconnect").click(function(){
-  clientDisconnect();
-})
 
 </script>
 </body>
