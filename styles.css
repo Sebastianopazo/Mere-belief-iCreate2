@@ -12,7 +12,7 @@
   -webkit-transform: scaleX(-1);
 }
 
-#connectMsg {
+.connectMsg  {
   display: none;
 }
 
