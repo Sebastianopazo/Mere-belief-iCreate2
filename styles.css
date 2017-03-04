@@ -49,12 +49,15 @@
   flex-wrap: wrap;                     /* enable flex items to wrap */
   justify-content: space-around;
   max-width: 200px;
-  border: solid black 2px;
   }
+.grid a {
+    border: solid black 2px;
+  }
+  
 .cell {
   flex: 0 0 32%;
-  border: solid black 2px;
 }
+
 
 input[type=range]::-webkit-slider-thumb {
   background-color: #7b1fa2;
