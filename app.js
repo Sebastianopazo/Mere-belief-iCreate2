@@ -233,6 +233,7 @@ function handleInput(robot) {
 		} else if(text == "t") {
 		   //turnRobot(); //Turn Robot.
        start();
+       console.log('started!');
 		} else if(text == "s") {
 			// stopTurn(); //Stop Turning.
       robot.stop();
