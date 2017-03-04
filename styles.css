@@ -11,7 +11,9 @@
 #rotateRight {
   -webkit-transform: scaleX(-1);
 }
-
+#manualControl{
+  display: none;
+}
 .connectMsg  {
   display: none;
 }
