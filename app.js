@@ -249,11 +249,11 @@ function handleInput(robot) {
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
-    client.on('disconnect', function(data) {
-        console.log(data);
-        client.emit('messages', 'disconnected');
-        disconnect();
-    });
+    // client.on('disconnect', function(data) {
+    //     console.log(data);
+    //     client.emit('messages', 'disconnected');
+    //     disconnect();
+    // });
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
