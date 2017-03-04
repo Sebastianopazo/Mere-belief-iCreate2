@@ -264,7 +264,9 @@ function main(r) {
 
   stopAll = function(){
     player.quit();
-    console.log(timeouts);
+    for (var i=0; i<timeouts.length; i++) {
+      clearTimeout(timeouts[i]);
+    }
   };
 
 }
