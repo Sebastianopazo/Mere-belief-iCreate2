@@ -176,7 +176,7 @@ function main(r) {
     var text = new randomGenerator(characters.length-1);
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
-          var timeoutMgr = setTimeout(function() {
+          var timeoutMgr+""+[i]+"" = setTimeout(function() {
             gesture[r.get()]();
             console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
@@ -262,7 +262,7 @@ function main(r) {
 
   stopAll = function(){
     player.quit();
-     clearTimeout(timeoutMgr); 
+     clearTimeout(timeoutMgr);
   };
 
 }
