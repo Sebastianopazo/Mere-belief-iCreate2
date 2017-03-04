@@ -49,12 +49,8 @@
               <a id="disconnect" class="waves-effect waves-light btn-large red disabled" onclick = "clientDisconnect()"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
-            <div  id="controls"class="col s6 center">
-              <a id="sleep" class="waves-effect waves-purple btn-large purple darken-2" onclick= "sleep()"><i class="material-icons left">brightness_3</i>Sleep</a>
-              <a id="wakeUp" class="waves-effect waves-purple btn-large  yellow darken-1" onclick= "wakeUp()"><i class="material-icons left">brightness_7</i>Wake Up</a>
-            </div>
           </div>
-            <div id="controls2">
+            <div id="controls">
               <div class="row">
                 <div class="col s6">
                   <h5 class="purple-text text-darken-3 center-align">Movement Control</h5>
@@ -148,7 +144,7 @@
 <script>
 
 //hide divs cause css is giving me a hard time
-$('#controls2').hide();
+$('#controls').hide();
 $('#connectMsg').hide();
 
 //make click events also touch events
@@ -187,6 +183,7 @@ socket.on('messages', function(data){
 if (data == 'Roombokita Session Connected!') {
   $("#connect").addClass('disabled');
   $("#disconnect").removeClass('disabled');
+  $('#controls').fadeIn('fast');
 } else if (data == "Disconnected") {
   $("#connect").removeClass('disabled');
   $("#disconnect").addClass('disabled');
