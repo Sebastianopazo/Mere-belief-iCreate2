@@ -52,6 +52,7 @@
   }
 .cell {
   flex: 0 0 32%;
+  border: solid black 2px;
 }
 
 input[type=range]::-webkit-slider-thumb {
