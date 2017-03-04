@@ -19,7 +19,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start, disconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -221,6 +221,9 @@ function main(r) {
     player.quit();
   }
 
+  disconnect = function() {
+    robot.stop();
+  }
 
 }
 
@@ -251,8 +254,13 @@ function handleInput(robot) {
 
     client.on('start', function(data) {
         console.log(data);
-        client.emit('messages', 'Connected!');
+        client.emit('messages', 'Roombokita Session Connected!');
         start();
+    });
+    client.on('disconnect', function(data) {
+        console.log(data);
+        client.emit('messages', 'disconnected');
+        disconnect();
     });
     client.on('move', function(data) {
         console.log(data);
