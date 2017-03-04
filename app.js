@@ -190,7 +190,7 @@ function main(r) {
     };
 
 
-stop = function() {
+  stop = function() {
     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
   }
 
@@ -207,7 +207,7 @@ stop = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
 
-answer1Server = function() {
+  answer1Server = function() {
   // player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
   //   if (err) throw err
   // })
@@ -217,7 +217,13 @@ answer1Server = function() {
   behaviorRandomizer(22, 35);
   };
 
+  stopAll = function(){
+    player.quit();
+  }
+
+
 }
+
 
 
 
@@ -281,7 +287,7 @@ function handleInput(robot) {
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborting...');
-        player.quit();
+        stopAll();
     });
   });
 
