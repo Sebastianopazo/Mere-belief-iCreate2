@@ -216,7 +216,7 @@ function main(r) {
     player.quit();
   };
   hola = function() {
-    console.log('poto!');
+    robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     // robot = r; handleInput(robot);
     // //robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
     // setTimeout(function(){
@@ -254,10 +254,10 @@ function handleInput(robot) {
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
-    client.on('hola', function(data) {
+    client.on('disconnect', function(data) {
         console.log(data);
         client.emit('messages', 'Disconnected!');
-        moveForward();
+        hola();
     });
     client.on('move', function(data) {
         console.log(data);
