@@ -20,7 +20,7 @@
       <div class="nav-content green">
         <ul class="tabs tabs-transparent">
           <li class="tab"><a class="active" href="#manualControl">Manual Control</a></li>
-          <li id="tab2" class="tab"><a href="#mereBelief">Mere Belief Answers</a></li>
+          <li id="tab2" class="tab disabled"><a href="#mereBelief">Mere Belief Answers</a></li>
         </ul>
       </div>
       </nav>
@@ -139,6 +139,8 @@ if (data == 'Aborted!') {
 
 socket.on('messages', function(data){
 if (data == 'Roombokita Session Connected!') {
+  $("#tab2").addClass('disabled');
+  $("#tab3").removeClass('disabled');
   $("#connect").addClass('disabled');
   $("#disconnect").removeClass('disabled');
   $('#controls').fadeIn('fast');
@@ -156,6 +158,8 @@ socket.io.on('connect_error', function(err) {
   $('#connectMsg').fadeIn('slow');
   $('#status').html('Disconnected');
   $('#redLight').fadeIn('slow');
+  $('#controls').hide();
+  $("#tab2").addClass('disabled');
 });
 
 function clientConnect() {
