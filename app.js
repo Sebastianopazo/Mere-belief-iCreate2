@@ -177,12 +177,12 @@ function main(r) {
     var timeouts = [];
     for (var i = 0; i < gestureQuantity; i++) {
         var addedTime = gestureDuration*i;
-          var timeouts[i] = setTimeout(function() {
+          timeouts.push(setTimeout(function() {
             gesture[r.get()]();
             console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
             }, addedTime);
-      }
+      });
           setTimeout(function() {
             stop();
             console.log('done!');
