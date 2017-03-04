@@ -222,8 +222,6 @@ function main(r) {
 }
 
 
-
-
 function handleInput(robot) {
 	//Process user input, quit on 'exit'
 	const rl = require('readline').createInterface

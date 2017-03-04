@@ -165,11 +165,11 @@ function clientConnect() {
   $("#disconnect").removeClass('disabled');
 }
 
-function clientDisconnect() {
-  socket.emit('disconnect', 'Disconnecting...');
-  $("#connect").removeClass('disabled');
-  $("#disconnect").addClass('disabled');
-}
+// function clientDisconnect() {
+//   socket.emit('disconnect', 'Disconnecting...');
+//   $("#connect").removeClass('disabled');
+//   $("#disconnect").addClass('disabled');
+// }
 function moveForward () {
   socket.emit('move', 'Requesting action...')
 }
