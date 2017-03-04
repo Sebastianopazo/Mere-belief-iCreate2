@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, disconnectClient, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server;
+var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, clientDisconnect, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server;
 
 var timeouts = [];
 
@@ -270,6 +270,9 @@ function main(r) {
     };
     stop();
   };
+  clientDisconnect = function() {
+    console.log('dadd!');
+  }
 
 }
 
@@ -373,17 +376,15 @@ function handleInput(robot) {
         answer9Server();
     });
 
-
-
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborted!');
         stopAll();
     });
-    client.on('disconnect', function(data) {
+    client.on('disconnecting', function(data) {
         console.log(data);
         client.emit('messages', 'Disconnected!');
-        console.log(disconnectClient);
+        clientDisconnect();
     });
   });
 
