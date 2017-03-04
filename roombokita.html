@@ -184,6 +184,8 @@ if (data == 'Roombokita Session Connected!') {
   $("#connect").addClass('disabled');
   $("#disconnect").removeClass('disabled');
   $('#controls').fadeIn('fast');
+  $('#status').html('Connected');
+  $('#redLight').fadeOut('fast');
 } else if (data == "Disconnected") {
   $("#connect").removeClass('disabled');
   $("#disconnect").addClass('disabled');
@@ -194,6 +196,8 @@ socket.io.on('connect_error', function(err) {
   $("#connect").addClass('disabled');
   $("#disconnect").addClass('disabled');
   $('#connectMsg').fadeIn('slow');
+  $('#status').html('Disconnected');
+  $('#redLight').fadeIn('slow');
 });
 
 function clientConnect() {
