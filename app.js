@@ -24,8 +24,11 @@ start = function () {
 	create.prompt(function(p){create.open(p,main)});
 }
 disconnect = function() {
-  robot.stop();
+  robot = r; handleInput(robot);
   robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
+  setTimeout(function(){
+    robot.stop();
+  }, 5000);
 }
 
 //Main Program:
