@@ -239,7 +239,6 @@ function handleInput(robot) {
 }
 
 
-
 //Functions from client (browser app)
 
   io.on('connection', function(client) {
