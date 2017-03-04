@@ -208,14 +208,13 @@ function main(r) {
     }
 
   answer1Server = function() {
-  player = Omx('audio/answer1.mp3');
-
-  behaviorRandomizer(22, 35);
+    player = Omx('audio/answer1.mp3');
+    behaviorRandomizer(22, 35);
   };
 
   stopAll = function(){
     player.quit();
-  }
+  };
   hola = function() {
     console.log('poto!');
     // robot = r; handleInput(robot);
