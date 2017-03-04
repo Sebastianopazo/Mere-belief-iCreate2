@@ -154,6 +154,13 @@ var socket = io.connect('http://192.168.10.103:8080');
 socket.on('messages', function(data) {
       console.log(data);
 });
+socket.on('messages', function(data){
+if (data == 'Aborted!') {
+  $("#stopAll").addClass('disabled');
+} else if (data.includes("Requesting answer")) {
+  $("#stopAll").removeClass('disabled');
+  }
+});
 
 function clientConnect() {
   socket.emit('start', 'Connecting...')
@@ -224,10 +231,6 @@ function answer9Client() {
 
 function stopAllClient() {
   socket.emit('stopAll', 'Stopping All...');
-  socket.on('messages', function(data){
-  if (data == 'Aborted!') {
-    $("#stopAll").addClass('disabled');
-    }
   })
 
 }
