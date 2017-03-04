@@ -281,7 +281,7 @@ function handleInput(robot) {
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborting...');
-        stopAll();
+        player.quit();
     });
   });
 
