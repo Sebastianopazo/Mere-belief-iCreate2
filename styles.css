@@ -49,6 +49,7 @@
   flex-wrap: wrap;                     /* enable flex items to wrap */
   justify-content: space-around;
   max-width: 200px;
+  border: solid black 2px;
   }
 .cell {
   flex: 0 0 32%;
