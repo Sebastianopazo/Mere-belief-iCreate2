@@ -270,6 +270,9 @@ function main(r) {
     };
     stop();
   };
+  function clientDisconnect() {
+    console.log('dadd!');
+  };
 
 }
 
@@ -290,9 +293,7 @@ function handleInput(robot) {
 	});
 }
 
-function clientDisconnect() {
-  console.log('dadd!');
-}
+
 
 //Functions from client (browser app)
 
