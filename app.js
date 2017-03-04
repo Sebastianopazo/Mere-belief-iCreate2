@@ -34,7 +34,8 @@ function main(r) {
   //stop communication
 
 	//We'll play this song whenever entering user-control:
-  robot.setSong(0, [[72,12],[72,12],[72,12],[72,36],[68,36],[70,36],[72,24],[70,12],[72,48]]);
+  // robot.setSong(0, [[72,12],[72,12],[72,12],[72,36],[68,36],[70,36],[72,24],[70,12],[72,48]]);
+  robot.setSong(0, [[60,48]]);
 
 
 	//Handle First onChange:
