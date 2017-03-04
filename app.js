@@ -163,6 +163,7 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
+    timeouts = [];
     var gesture = [
         turnRight1 = function() {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
