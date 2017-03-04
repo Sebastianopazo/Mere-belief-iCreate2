@@ -112,7 +112,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; //console.log("Angle:", angle);
+		angle += robot.delta.angle; console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
@@ -274,7 +274,7 @@ function handleInput(robot) {
 		   turnRobot(); //Turn Robot.
 
 		} else if(text == "s") {
-			robot.drive(100, -1);
+			turnRobot();//stop turn.
 		}
 	});
 }
