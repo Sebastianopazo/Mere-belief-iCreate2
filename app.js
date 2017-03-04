@@ -185,10 +185,10 @@ function main(r) {
             robot.showText(characters[text.get()], 50, true);
           }, addedTime));
       };
-          setTimeout(function() {
+          timeouts.push(setTimeout(function() {
             stop();
             console.log('done!');
-          }, time+1);
+          }, time+1));
 
     };
 
@@ -377,7 +377,7 @@ function handleInput(robot) {
 
     client.on('stopAll', function(data) {
         console.log(data);
-        client.emit('messages', 'Aborting...');
+        client.emit('messages', 'Aborted!');
         stopAll();
     });
     client.on('disconnect', function(data) {
