@@ -23,7 +23,10 @@ var start, disconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player,
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
 }
-
+disconnect = function() {
+  robot.stop();
+  robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
+}
 
 //Main Program:
 function main(r) {
@@ -32,10 +35,7 @@ function main(r) {
 	//Enter Full Mode:
 	robot.full(); var run = 1;
   //stop communication
-  disconnect = function() {
-    robot.stop();
-    robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
-  }
+
 	//We'll play this song whenever entering user-control:
   robot.setSong(0, [[72,12],[72,12],[72,12],[72,36],[68,36],[70,36],[72,24],[70,12],[72,48]]);
 
@@ -249,11 +249,11 @@ function handleInput(robot) {
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
-    // client.on('disconnect', function(data) {
-    //     console.log(data);
-    //     client.emit('messages', 'disconnected');
-    //     disconnect();
-    // });
+    client.on('disconnect', function(data) {
+        console.log(data);
+        client.emit('messages', 'disconnected');
+        disconnect();
+    });
     client.on('move', function(data) {
         console.log(data);
         client.emit('messages', 'Moving...');
