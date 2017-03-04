@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, disconnectClient, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start, stopAll, robot, turnRobot, stopTurn, moveForward, player, disconnectClient, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -220,6 +220,11 @@ function main(r) {
     behaviorRandomizer(22, 35);
   };
 
+  answer2Server = function() {
+    player = Omx('audio/answer2.mp3');
+    behaviorRandomizer(12, 10);
+  };
+
   stopAll = function(){
     player.quit();
   };
@@ -284,6 +289,13 @@ function handleInput(robot) {
         client.emit('messages', 'Requesting Answer1...');
         answer1Server();
     });
+
+    client.on('play_answer2', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer1...');
+        answer2Server();
+    });
+
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborting...');

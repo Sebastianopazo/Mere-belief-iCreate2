@@ -136,9 +136,7 @@ var back = $('#back');
 var rotateLeft = $('#rotateLeft');
 var rotateRight = $('#rotateRight');
 
-function poto () {
-  console.log('poto');
-}
+
 function touchEvents (button, move1) {
   button.on("touchstart", move1);
   button.on("touchend", stopMove);
@@ -152,9 +150,7 @@ touchEvents(rotateRight, rightRotation);
 //
 //Initialize socket.io and connect to localhost robot.
 var socket = io.connect('http://192.168.10.103:8080');
-socket.on('connect', function(data) {
-   socket.emit('join', 'Hello World from client');
-});
+
 socket.on('messages', function(data) {
       console.log(data);
 });
