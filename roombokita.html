@@ -165,10 +165,10 @@ if (data == 'Aborted!') {
 socket.on('messages', function(data){
 if (data == 'Roombokita Session Connected!') {
   $("#connect").removeClass('disabled');
-} else if (data == "Disconnected")) {
+} else if (data == "Disconnected") {
   $("#connect").addClass('disabled');
   }
-};
+});
 
 socket.io.on('connect_error', function(err) {
   $("#connect").addClass('disabled');
