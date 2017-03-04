@@ -194,7 +194,7 @@ function main(r) {
 
   clientDisconnect = function() {
      console.log('dadd!');
-    };
+    }
 
   disconnectClient = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
