@@ -217,7 +217,7 @@ function main(r) {
     player.quit();
   }
   disconnect = function() {
-    player = Omx('audio/answer2.mp3');
+    console.log('poto!');
     // robot = r; handleInput(robot);
     // //robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
     // setTimeout(function(){
