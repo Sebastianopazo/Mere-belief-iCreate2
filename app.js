@@ -34,10 +34,10 @@ function main(r) {
   //stop communication
   disconnect = function() {
     robot.stop();
-    robot.setSong(0, [[72,12],[72,12],[72,12],[72,12],[68,12],[70,12],[72,12],[70,12],[72,12],]);
+    robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
   }
 	//We'll play this song whenever entering user-control:
-	robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
+  robot.setSong(0, [[72,12],[72,12],[72,12],[72,12],[68,12],[70,12],[72,12],[70,12],[72,12],]);
 
 
 	//Handle First onChange:
