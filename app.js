@@ -263,16 +263,6 @@ function main(r) {
     stop();
   };
 
-  clientDisconnect = function(r) {
-      robot.setSong(1, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
-      setTimeout(function(){
-      robot.stop();
-      }, 1000);
-  };
-}
-
-
-
 
 function handleInput(robot) {
 	//Process user input, quit on 'exit'

@@ -161,9 +161,6 @@ function clientConnect() {
   socket.emit('start', 'Connecting...')
 }
 
-function disconnect() {
-  socket.emit('disconnecting', 'Disconnecting...');
-}
 function moveForward () {
   socket.emit('move', 'Requesting action...')
 }
