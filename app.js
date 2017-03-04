@@ -266,7 +266,8 @@ function main(r) {
     player.quit();
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
-    }
+    };
+    stop();
   };
 
 }
