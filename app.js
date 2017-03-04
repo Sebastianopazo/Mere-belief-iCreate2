@@ -192,6 +192,10 @@ function main(r) {
 
     };
 
+  clientDisconnect = function() {
+     console.log('dadd!');
+    };
+
   disconnectClient = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
       // robot = r; handleInput(robot);
@@ -269,9 +273,6 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-  };
- clientDisconnect = function() {
-    console.log('dadd!');
   };
 
 }
