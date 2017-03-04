@@ -23,7 +23,7 @@ var start, disconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player,
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
 }
-disconnect = function() {
+disconnect = function(r) {
   robot = r; handleInput(robot);
   robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
   setTimeout(function(){
