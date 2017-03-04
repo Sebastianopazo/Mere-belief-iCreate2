@@ -178,7 +178,7 @@ function main(r) {
         var addedTime = gestureDuration*i;
           setTimeout(function() {
             gesture[r.get()]();
-            console.log('executing'+ r.get());
+            console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
             }, addedTime);
       }
@@ -227,37 +227,37 @@ function main(r) {
 
   answer3Server = function() {
     player = Omx('audio/answer3.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(14, 12);
   };
 
   answer4Server = function() {
     player = Omx('audio/answer4.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(5, 10);
   };
 
   answer5Server = function() {
     player = Omx('audio/answer5.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(25, 20);
   };
 
   answer6Server = function() {
     player = Omx('audio/answer6.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(16, 13);
   };
 
   answer7Server = function() {
     player = Omx('audio/answer7.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(17, 14);
   };
 
   answer8Server = function() {
     player = Omx('audio/answer8.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(9, 10);
   };
 
   answer9Server = function() {
     player = Omx('audio/answer9.mp3');
-    behaviorRandomizer(12, 10);
+    behaviorRandomizer(31, 28);
   };
 
   stopAll = function(){
