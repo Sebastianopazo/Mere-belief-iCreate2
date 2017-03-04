@@ -166,7 +166,6 @@ function clientConnect() {
 }
 
 function clientDisconnect() {
-  console.log('disconnecting...');
   socket.emit('disconnect', 'Disconnecting...');
   $("#connect").removeClass('disabled');
   $("#disconnect").addClass('disabled');
