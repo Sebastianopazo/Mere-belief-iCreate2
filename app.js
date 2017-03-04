@@ -262,7 +262,7 @@ function main(r) {
     };
     stop();
   };
-
+}
 
 function handleInput(robot) {
 	//Process user input, quit on 'exit'
