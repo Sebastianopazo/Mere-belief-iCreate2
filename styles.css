@@ -12,6 +12,9 @@
   -webkit-transform: scaleX(-1);
 }
 
+#connectMsg {
+  display: none;
+}
 
 .btn-large {
   margin: 15px;
