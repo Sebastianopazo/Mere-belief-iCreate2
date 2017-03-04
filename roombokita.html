@@ -4,8 +4,8 @@
     <title>Roomba CONTROL</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
@@ -131,7 +131,7 @@
       </div>
     </div>
 
-    <div class="col s12 m7 connectMsg">
+    <div id="connectMsg" class="col s12 m7">
       <div class="card horizontal">
         <div class="card-image">
           <img src="http://lorempixel.com/100/190/nature/6">
@@ -147,6 +147,10 @@
       </div>
     </div>
 <script>
+
+//hide divs cause css is giving me a hard time
+$('manualControl').hide();
+$('connectMsg').hide();
 
 //make click events also touch events
 var forward = $('#forward');

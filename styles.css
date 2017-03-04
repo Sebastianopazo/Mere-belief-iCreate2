@@ -11,12 +11,6 @@
 #rotateRight {
   -webkit-transform: scaleX(-1);
 }
-#manualControl{
-  display: none;
-}
-.connectMsg  {
-  display: none;
-}
 
 .btn-large {
   margin: 15px;
