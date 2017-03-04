@@ -12,7 +12,8 @@ app.get('/', function(req, res,next) {
 
 
 //Create audio player for behaviors
-const player = require('play-sound')(opts = {});
+// const player = require('play-sound')(opts = {});
+var Omx = require('node-omxplayer');
 
 
 //ROBOT Communication and Behaviors
@@ -207,9 +208,12 @@ stop = function() {
     }
 
 answer1Server = function() {
-  player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-    if (err) throw err
-  })
+  // player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
+  //   if (err) throw err
+  // })
+
+  var player = Omx('audio/answer1.mp3');
+
   behaviorRandomizer(22, 35);
   };
 
