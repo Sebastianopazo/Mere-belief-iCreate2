@@ -162,10 +162,22 @@ if (data == 'Aborted!') {
   }
 });
 
+socket.on('messages', function(data){
+if (data == 'Roombokita Session Connected!') {
+  $("#connect").removeClass('disabled');
+} else if (data == "Disconnected")) {
+  $("#connect").addClass('disabled');
+  }
+});
+
+socket.io.on('connect_error', function(err) {
+  $("#connect").addClass('disabled');
+  $("#disconnect").addClass('disabled');
+  window.alert('Server is down! Boot and reload page!');
+});
+
 function clientConnect() {
   socket.emit('start', 'Connecting...')
-  // $("#connect").addClass('disabled');
-  // $("#disconnect").removeClass('disabled');
 }
 
 function clientDisconnect() {
