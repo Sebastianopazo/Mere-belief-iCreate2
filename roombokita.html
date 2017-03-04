@@ -46,7 +46,6 @@
           <div class="row">
             <div class="col s12 center">
               <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "clientConnect()"><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
-              <a id="disconnect" class="waves-effect waves-light btn-large red" onclick = "disconnect()"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
           </div>
@@ -141,19 +140,16 @@ socket.on('messages', function(data){
 if (data == 'Roombokita Session Connected!') {
   $("#tab2").removeClass('disabled');
   $("#connect").addClass('disabled');
-  $("#disconnect").removeClass('disabled');
   $('#controls').fadeIn('fast');
   $('#status').html('Connected');
   $('#redLight').fadeOut('fast');
 } else if (data == "Disconnected!") {
   $("#connect").removeClass('disabled');
-  $("#disconnect").addClass('disabled');
   }
 });
 
 socket.io.on('connect_error', function(err) {
   $("#connect").addClass('disabled');
-  $("#disconnect").addClass('disabled');
   $('#connectMsg').fadeIn('slow');
   $('#status').html('Disconnected');
   $('#redLight').fadeIn('slow');
