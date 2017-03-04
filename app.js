@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, hola, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
+var start, disconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2, answer3, answer4, answer5, answer6, answer7, amswer8, answer9;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -215,8 +215,8 @@ function main(r) {
   stopAll = function(){
     player.quit();
   };
-  
-  hola = function() {
+
+  disconnect = function() {
     robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     // robot = r; handleInput(robot);
     // //robot.setSong(0, [[71,12],[77,12],[77,12],[77,36],[76,36],[74,36],[72,24],[67,12],[64,48], [60,48]]);
@@ -258,7 +258,7 @@ function handleInput(robot) {
     client.on('disconnect', function(data) {
         console.log(data);
         client.emit('messages', 'Disconnected!');
-        hola();
+        disconnect();
     });
     client.on('move', function(data) {
         console.log(data);
