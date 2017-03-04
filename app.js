@@ -186,6 +186,7 @@ function main(r) {
           setTimeout(function() {
             stop();
             console.log('done!');
+            console.log(timeouts[1]);
           }, time+1);
 
     };
@@ -263,7 +264,6 @@ function main(r) {
 
   stopAll = function(){
     player.quit();
-    console.log(timeouts[1]);
   };
 
 }
