@@ -186,7 +186,7 @@ function main(r) {
           setTimeout(function() {
             stop();
             console.log('done!');
-            console.log(timeouts[1]);
+            console.log(timeouts);
           }, time+1);
 
     };
