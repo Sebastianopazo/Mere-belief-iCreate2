@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col s12 center">
               <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "clientConnect()" ><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
-              <a id="disconnect" class="waves-effect waves-light btn-large red disabled" onclick = "clientDisconnect()"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
+              <a id="disconnect" class="waves-effect waves-light btn-large red disabled"><i class="material-icons left">highlight_off</i>Disconnect Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
             </div>
           </div>
@@ -167,8 +167,6 @@ function clientConnect() {
 
 function clientDisconnect() {
   socket.emit('disconnecting', 'Disconnecting...');
-  // $("#connect").removeClass('disabled');
-  // $("#disconnect").addClass('disabled');
 }
 function moveForward () {
   socket.emit('move', 'Requesting action...')
@@ -230,6 +228,9 @@ function stopAllClient() {
   socket.emit('stopAll', 'Stopping All...');
 }
 
+$("#disconnect").click(function(){
+  clientDisconnect();
+})
 
 </script>
 </body>
