@@ -274,7 +274,7 @@ function handleInput(robot) {
 		   turnRobot(); //Turn Robot.
 
 		} else if(text == "s") {
-			robot.drive(100, -500);
+			robot.drive(100, -1);
 		}
 	});
 }
