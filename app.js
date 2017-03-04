@@ -256,7 +256,7 @@ function handleInput(robot) {
     client.on('hola', function(data) {
         console.log(data);
         client.emit('messages', 'Disconnected!');
-        //disconnect();
+        disconnect();
     });
     client.on('move', function(data) {
         console.log(data);
