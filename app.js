@@ -24,6 +24,10 @@ start = function () {
 	create.prompt(function(p){create.open(p,main)});
 }
 
+disconnect = function() {
+  robot.stop();
+}
+
 //Main Program:
 function main(r) {
 	robot = r; handleInput(robot);
@@ -212,10 +216,6 @@ function main(r) {
 
   stopAll = function(){
     player.quit();
-  }
-
-  disconnect = function() {
-    robot.stop();
   }
 
 }
