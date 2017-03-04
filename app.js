@@ -12,7 +12,6 @@ app.get('/', function(req, res,next) {
 
 
 //Create audio player for behaviors
-// const player = require('play-sound')(opts = {});
 var Omx = require('node-omxplayer');
 
 
@@ -31,8 +30,6 @@ function main(r) {
 
 	//Enter Full Mode:
 	robot.full(); var run = 1;
-
-	//setTimeout(function(){robot.showText("Hello World!", 500, true)}, 500);
 
 	//We'll play this song whenever entering user-control:
 	robot.setSong(0, [[72,12],[72,12],[72,12],[72,36],[68,36],[70,36],[72,24],[70,12],[72,48],]);
@@ -208,10 +205,6 @@ function main(r) {
     }
 
   answer1Server = function() {
-  // player.play('audio/answer1.mp3', { omxplayer: ['-o', 'local' ]}, function(err){
-  //   if (err) throw err
-  // })
-
   player = Omx('audio/answer1.mp3');
 
   behaviorRandomizer(22, 35);
@@ -269,7 +262,6 @@ function handleInput(robot) {
     });
     client.on('stop', function(data) {
         console.log(data);
-        //client.emit('messages', 'Executing...');
         stop();
     });
     client.on('back', function(data) {
