@@ -50,10 +50,8 @@
   justify-content: space-around;
   max-width: 200px;
   }
-.grid a {
-    border: solid black 2px;
-  }
-  
+
+
 .cell {
   flex: 0 0 32%;
 }
