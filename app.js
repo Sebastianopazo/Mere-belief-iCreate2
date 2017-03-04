@@ -235,6 +235,7 @@ function handleInput(robot) {
 		} else if(text == "s") {
 			// stopTurn(); //Stop Turning.
       robot.stop();
+      console.log('disconnected!');
 		}
 	});
 }
