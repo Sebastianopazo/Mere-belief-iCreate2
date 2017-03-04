@@ -369,12 +369,7 @@ function handleInput(robot) {
         client.emit('messages', 'Aborted!');
         stopAll();
     });
-    client.on('disconnecting', function(data) {
-        console.log(data);
-        client.emit('messages', 'Disconnected!');
-        clientDisconnect();
 
-    });
   });
 
 server.listen(8080, function(){
