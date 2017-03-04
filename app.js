@@ -233,7 +233,8 @@ function handleInput(robot) {
 		} else if(text == "t") {
 		   turnRobot(); //Turn Robot.
 		} else if(text == "s") {
-			stopTurn(); //Stop Turning.
+			// stopTurn(); //Stop Turning.
+      robot.stop();
 		}
 	});
 }
