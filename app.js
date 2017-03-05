@@ -168,18 +168,14 @@ function main(r) {
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
-          if (angle <= 50 && angle >= -50) {
+          if (angle >= -50) {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-            } else {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
             }
           },
         turnLeft1 = function() {
-          if (angle <= 50 && angle >= -50) {
+          if (angle <= 50 ) {
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-            } else {
-            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-            }
+            } 
           },
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
