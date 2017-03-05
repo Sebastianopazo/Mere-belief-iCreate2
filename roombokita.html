@@ -136,6 +136,7 @@ if (data == 'Aborted!') {
   $("#stopAll").removeClass('disabled');
   } else if (data == "Done!") {
     $("#stopAll").addClass('disabled');
+    $("answer").removeClass('disabled');
   }
 });
 
