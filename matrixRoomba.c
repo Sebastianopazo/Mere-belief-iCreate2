@@ -19,7 +19,7 @@ int main(void)
     int j;
     int x = 2;
     static uint8_t heart[1] = {0xFF};             // this is a array of heart
-    for ( j=0;j<8;j++)
+    for ( j=7;j<8;j++)
 {
           data[0] = ~heart[j];
           data[2] = 0xFF;
