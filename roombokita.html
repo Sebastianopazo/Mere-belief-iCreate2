@@ -185,45 +185,10 @@ function leftRotation () {
   socket.emit('turn_left', 'Requesting action...')
 }
 
-function answer1Client() {
-  socket.emit('play_answer1', 'Requesting answer1...')
+function answerClient(number) {
+  socket.emit('play_answer'+ number +'', 'Requesting answer' + number + '...');
   $("#stopAll").removeClass('disabled');
   $('.answer').addClass('disabled');
-}
-
-function answer2Client() {
-  socket.emit('play_answer2', 'Requesting answer2...')
-}
-
-function answer3Client() {
-  socket.emit('play_answer3', 'Requesting answer3...')
-}
-function answer4Client() {
-  socket.emit('play_answer4', 'Requesting answer4...')
-}
-
-function answer5Client() {
-  socket.emit('play_answer5', 'Requesting answer5...')
-}
-
-function answer6Client() {
-  socket.emit('play_answer6', 'Requesting answer6...')
-}
-
-function answer7Client() {
-  socket.emit('play_answer7', 'Requesting answer7...')
-}
-
-function answer8Client() {
-  socket.emit('play_answer8', 'Requesting answer8...')
-}
-
-function answer9Client() {
-  socket.emit('play_answer9', 'Requesting answer9...')
-}
-
-function answerClient(number) {
-  socket.emit('play_answer'+ number +'', 'Requesting answer' + number + '...')
 }
 
 function stopAllClient() {
