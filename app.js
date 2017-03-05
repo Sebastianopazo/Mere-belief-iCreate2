@@ -188,7 +188,7 @@ function main(r) {
         var addedTime = gestureDuration*i;
           timeouts.push(setTimeout(function() {
             gesture[r.get()]();
-            console.log('executing gesture'+ r.get());
+            // console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
           }, addedTime));
       };
