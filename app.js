@@ -181,9 +181,9 @@ function main(r) {
             robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
             }
           },
-          // stop1 = function() {
-          //     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-          // }
+          stop1 = function() {
+              robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+          }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
