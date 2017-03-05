@@ -18,10 +18,10 @@ int main(void)
   while(1){
     int j;
     int x = 2;
-    static uint8_t heart[1] = {0xFF};             // this is a array of heart
+    static uint8_t pixel[1] = {0x66};             // this is a array of heart
     for ( j=0;j<8;j++)
 {
-          data[0] = ~heart[j];
+          data[0] = ~pixel[j];
           data[2] = 0xFF;
           data[1] = 0xFF;
           data[3] = 0x01 << j ;
