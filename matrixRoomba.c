@@ -95,11 +95,11 @@ int main(void)
              };
              matrixoff();
             delay(100);
-         for ( m=10; m>0; m--)
-             {
-              mid();
-             };
-           matrixoff();
-           delay(100);
+        //  for ( m=10; m>0; m--)
+        //      {
+        //       mid();
+        //      };
+        //    matrixoff();
+        //    delay(100);
         }
 }
