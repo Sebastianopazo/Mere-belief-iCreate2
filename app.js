@@ -185,10 +185,19 @@ function main(r) {
           },
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+          },
+          backAndForth = function () {
+            //go back an inch andthen move forward an inch. Inch will be encoded as angle.
+            for (var i = distance; i > -20; i--) {
+              robot.drive(-100, 32767);
+              if (i <= -20) {break;}
+              for (var i = distance; i < 20; i++) {
+                robot.drive(100, 32767);
+                if (i >= 20) {break;}
+                stop();
+              }
+            }
           }
-          // backAndForth () {
-          //   //go back an inch andthen move forward an inch. Inch will be encoded as angle.
-          // }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
