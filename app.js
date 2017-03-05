@@ -219,7 +219,7 @@ function main(r) {
 
   answer1Server = function() {
     player = Omx('audio/answer1.mp3');
-    behaviorRandomizer(22, 40);
+    behaviorRandomizer(22, 25);
   };
 
   answer2Server = function() {
