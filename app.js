@@ -117,6 +117,12 @@ function main(r) {
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
 
+  var distance = 0; //Count distance "units" Changes Using Encoders:
+	robot.onMotion = function() {
+    distance += robot.delta.distance;
+		console.log(distance);
+	}
+
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
@@ -179,6 +185,9 @@ function main(r) {
           },
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+          }
+          backAndForth {
+            //go back an inch andthen move forward an inch. Inch will be encoded as angle.
           }
         ];
     var r = new randomGenerator(gesture.length-1);
