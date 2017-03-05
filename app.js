@@ -186,7 +186,7 @@ function main(r) {
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           }
-          backAndForth {
+          backAndForth () {
             //go back an inch andthen move forward an inch. Inch will be encoded as angle.
           }
         ];
