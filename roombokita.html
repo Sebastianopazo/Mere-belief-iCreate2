@@ -103,8 +103,7 @@
 //hide divs cause css is giving me a hard time
 $('#controls').hide();
 $('#connectMsg').hide();
-//Answers will diactivate on touch to avoid problems.
-$('.answer').addClass('disabled');
+
 
 //make click events also touch events
 var forward = $('#forward');
@@ -188,6 +187,7 @@ function leftRotation () {
 function answer1Client() {
   socket.emit('play_answer1', 'Requesting answer1...')
   $("#stopAll").removeClass('disabled');
+  $('.answer').addClass('disabled');
 }
 
 function answer2Client() {
