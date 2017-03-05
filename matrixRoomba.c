@@ -67,13 +67,13 @@ int main(void)
 
 
     while(1){
-         int m = 10;
-         for ( m=10; m>0; m--)
+         int m = 1;
+         for ( m=1; m>0; m--)
             {
              out();
              };
              mid();
-         for ( m=10; m>0; m--)
+         for ( m=1; m>0; m--)
              {
              in();
              };
