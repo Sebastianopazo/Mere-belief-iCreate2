@@ -67,23 +67,23 @@ int main(void)
 
 
     while(1){
-         int m = 5;
-         for ( m=5; m>0; m--)
+         int m = 3;
+         for ( m=3; m>0; m--)
             {
              out();
              };
-        for ( m=5; m>0; m--)
+        for ( m=3; m>0; m--)
              {
              mid();
              };
-         for ( m=5; m>0; m--)
+         for ( m=3; m>0; m--)
              {
              in();
              };
-             for ( m=5; m>0; m--)
-                  {
-                  mid();
-                  };
+         for ( m=3; m>0; m--)
+             {
+             mid();
+             };
 
         }
 }
