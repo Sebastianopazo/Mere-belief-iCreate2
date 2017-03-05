@@ -233,9 +233,9 @@ function main(r) {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
 
-  answer1Server = function() {
-    player = Omx('audio/answer1.mp3');
-    behaviorRandomizer(22, 25);
+  answerServer = function(answerNum, duration, gestureQuantity) {
+    player = Omx('audio/answer'+ answerNum +'.mp3');
+    behaviorRandomizer(duration, gestureQuantity);
   };
 
   answer2Server = function() {
@@ -349,7 +349,7 @@ function handleInput(robot) {
     client.on('play_answer1', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer1...');
-        answer1Server();
+        answerServer(1, 22, 25);
     });
 
     client.on('play_answer2', function(data) {
