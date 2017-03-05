@@ -72,7 +72,10 @@ int main(void)
             {
              out();
              };
+        for ( m=5; m>0; m--)
+             {
              mid();
+             };
          for ( m=5; m>0; m--)
              {
              in();
