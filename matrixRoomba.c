@@ -87,19 +87,19 @@ int main(void)
             {
              out();
              };
-             matrixoff();
+             mid();
             delay(10);
          for ( m=10; m>0; m--)
              {
              in();
              };
-             matrixoff();
+             mid();
             delay(10);
-         for ( m=10; m>0; m--)
-             {
-              mid();
-             };
-           matrixoff();
-           delay(10);
+        //  for ( m=10; m>0; m--)
+        //      {
+        //       mid();
+        //      };
+        //    matrixoff();
+        //    delay(10);
         }
 }
