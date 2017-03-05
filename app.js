@@ -194,18 +194,21 @@ function main(r) {
           timeouts.push(setTimeout(function() {
             if (angle > 0) {
               while (angle > 0) {
-                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-                if (angle === 0) { break; }
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+                if (angle == 0) { break; }
                 stop();
                 done();
               };
             } else if (angle < 0) {
               while(angle > 0) {
-                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-                if (angle ===0) {break}
+                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+                if (angle == 0) {break}
                 stop();
                 done();
               }
+            } else if (angle == 0) {
+              stop();
+              done();
             }
 
           }, time+100));
