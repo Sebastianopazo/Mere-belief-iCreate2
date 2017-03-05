@@ -197,15 +197,17 @@ function main(r) {
                 robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
                 if (angle === 0) { break; }
                 stop();
+                done();
               };
             } else if (angle < 0) {
               while(angle > 0) {
                 robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
                 if (angle ===0) {break}
                 stop();
+                done();
               }
             }
-            done();
+
           }, time+100));
 
     };
