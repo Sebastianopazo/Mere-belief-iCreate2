@@ -133,6 +133,8 @@ if (data == 'Aborted!') {
   $("#stopAll").addClass('disabled');
 } else if (data.includes("Requesting answer")) {
   $("#stopAll").removeClass('disabled');
+  } else if (data == "Done!") {
+    $("#stopAll").addClass('disabled');  
   }
 });
 
@@ -143,8 +145,8 @@ if (data == 'Roombokita Session Connected!') {
   $('#controls').fadeIn('fast');
   $('#status').html('Connected');
   $('#redLight').fadeOut('fast');
-} else if (data == "Disconnected!") {
-  $("#connect").removeClass('disabled');
+  } else if (data == "Disconnected!") {
+    $("#connect").removeClass('disabled');
   }
 });
 

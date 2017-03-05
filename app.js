@@ -195,8 +195,8 @@ function main(r) {
       };
           timeouts.push(setTimeout(function() {
             stop();
-            console.log('done!');
-          }, time+1));
+            client.emit('messages', 'Done!');
+          }, time+100));
 
     };
 
