@@ -195,9 +195,7 @@ function main(r) {
       };
           timeouts.push(setTimeout(function() {
             stop();
-            io.on('connection', function(client) {
-              client.emit('messages', 'Done!');
-            });
+            done();
           }, time+100));
 
     };
@@ -298,6 +296,10 @@ function handleInput(robot) {
 
   io.on('connection', function(client) {
     console.log('Client connected...');
+
+    done = function(){
+      client.emit('messages', 'Done!');
+    };
 
     client.on('start', function(data) {
         console.log(data);

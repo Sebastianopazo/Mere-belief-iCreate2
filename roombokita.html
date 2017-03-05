@@ -77,15 +77,15 @@
           <h4 class="purple-text text-darken-3 center-align">Mere Belief Answers</h4>
           <div class="row">
             <div class="col s12 center">
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer1Client()"><i class="material-icons left">play_arrow</i>Answer 1</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer2Client()"><i class="material-icons left">play_arrow</i>Answer 2</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer3Client()"><i class="material-icons left">play_arrow</i>Answer 3</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer4Client()"><i class="material-icons left">play_arrow</i>Answer 4</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer5Client()"><i class="material-icons left">play_arrow</i>Answer 5</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer6Client()"><i class="material-icons left">play_arrow</i>Answer 6</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer7Client()"><i class="material-icons left">play_arrow</i>Answer 7</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer8Client()"><i class="material-icons left">play_arrow</i>Answer 8</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1" onclick= "answer9Client()"><i class="material-icons left">play_arrow</i>Answer 9</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer1Client()"><i class="material-icons left">play_arrow</i>Answer 1</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer2Client()"><i class="material-icons left">play_arrow</i>Answer 2</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer3Client()"><i class="material-icons left">play_arrow</i>Answer 3</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer4Client()"><i class="material-icons left">play_arrow</i>Answer 4</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer5Client()"><i class="material-icons left">play_arrow</i>Answer 5</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer6Client()"><i class="material-icons left">play_arrow</i>Answer 6</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer7Client()"><i class="material-icons left">play_arrow</i>Answer 7</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer8Client()"><i class="material-icons left">play_arrow</i>Answer 8</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer9Client()"><i class="material-icons left">play_arrow</i>Answer 9</a>
             </div>
           </div>
           <div class="divider"></div>
@@ -103,6 +103,8 @@
 //hide divs cause css is giving me a hard time
 $('#controls').hide();
 $('#connectMsg').hide();
+//Answers will diactivate on touch to avoid problems.
+$('.answer').addClass('disabled');
 
 //make click events also touch events
 var forward = $('#forward');
@@ -134,7 +136,7 @@ if (data == 'Aborted!') {
 } else if (data.includes("Requesting answer")) {
   $("#stopAll").removeClass('disabled');
   } else if (data == "Done!") {
-    $("#stopAll").addClass('disabled');  
+    $("#stopAll").addClass('disabled');
   }
 });
 
