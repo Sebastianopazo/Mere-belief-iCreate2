@@ -37,7 +37,7 @@ int main(void)
      {
       int j;
       int x = 2;
-      static uint8_t heart[8] = {0x00,0x00,0x00,0x18,0x18,0x00,0x00,0x00};
+      static uint8_t heart[8] = {0x00,0x00,0x3c,0x3c,0x3c,0x3c,0x00,0x00};
       for ( j=0;j<8;j++)
                   {
             data[0] = ~heart[j];
@@ -65,21 +65,6 @@ int main(void)
                   }
     };
 
-    void matrixoff()
-    {
-     int j;
-     int x = 2;
-        static uint8_t heart[8] = {0x00,0x00,0x3c,0x3c,0x3c,0x3c,0x00,0x00};
-        for ( j=0;j<8;j++)
-         {
-              data[0] = ~heart[j];
-              data[2] = ~heart[j];
-              data[1] = ~heart[j];
-              data[3] = 0x01 << j ;
-              wiringPiSPIDataRW(0,data,sizeof(data));
-              delay(x);
-           }
-    };
 
     while(1){
          int m = 10;
@@ -88,13 +73,11 @@ int main(void)
              out();
              };
              mid();
-            delay(1);
          for ( m=10; m>0; m--)
              {
              in();
              };
              mid();
-             delay(1);
         //  for ( m=10; m>0; m--)
         //      {
         //       mid();
