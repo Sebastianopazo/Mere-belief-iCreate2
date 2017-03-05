@@ -18,7 +18,7 @@ int main(void)
   while(1){
     int j;
     int x = 2;
-    static uint8_t heart[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};             // this is a array of heart
+    static uint8_t heart[8] = {0x00, 0x66, 0xFF, 0xFF, 0xFF, 0x7E, 0x3C, 0x18};             // this is a array of heart
     for ( j=0;j<8;j++)
 {
           data[0] = ~heart[j];
