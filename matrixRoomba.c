@@ -24,7 +24,7 @@ int main(void)
     static uint8_t heart[8] = {0xff,0x81,0x81,0x81,0x81,0x81,0x81,0xff};
     for ( j=0;j<8;j++)
                 {
-          data[0] = 0x00;
+          data[0] = 0xFF;
           data[2] = ~heart[j];
           data[1] = ~heart[j];
           data[3] = 0x01 << j ;
@@ -40,7 +40,7 @@ int main(void)
       static uint8_t heart[8] = {0x00,0x00,0x3c,0x3c,0x3c,0x3c,0x00,0x00};
       for ( j=0;j<8;j++)
                   {
-            data[0] = 0x00;
+            data[0] = 0xFF;
             data[2] = ~heart[j];
             data[1] = ~heart[j];
             data[3] = 0x01 << j ;
@@ -56,9 +56,9 @@ int main(void)
       static uint8_t heart[8] = {0x00,0x7e,0x42,0x42,0x42,0x42,0x7e,0x00};
       for ( j=0;j<8;j++)
                   {
-            data[0] = 0x00;
+            data[0] = 0xFF;
             data[2] = ~heart[j];
-            data[1] = 0x00;
+            data[1] = 0xFF;
             data[3] = 0x01 << j ;
             wiringPiSPIDataRW(0,data,sizeof(data));
             delay(x);
