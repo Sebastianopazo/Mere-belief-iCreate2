@@ -227,7 +227,7 @@ function main(r) {
 
   answer2Server = function() {
     player = Omx('audio/answer2.mp3');
-    //behaviorRandomizer(12, 10);
+    behaviorRandomizer(12, 10);
   };
 
   answer3Server = function() {
