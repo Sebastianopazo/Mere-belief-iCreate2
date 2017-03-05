@@ -17,13 +17,13 @@ int main(void)
   wiringPiSPISetup(0,500000);           // initialize SPI  information, 0 is channel 0, 500000 is clock rate.
   while(1){
     int j;
-    int x = 20;
-    static uint8_t heart[8] = {0x80,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+    int x = 2;
+    static uint8_t pixel[8] = {0x80,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
     for ( j=0;j<8;j++)
 {
-          data[0] = ~heart[j];
-          data[1] = ~heart[j];
-          data[2] = ~heart[j];
+          data[0] = ~pixel[j];
+          data[1] = ~pixel[j];
+          data[2] = ~pixel[j];
           data[3] = 0x01 << j ;
           wiringPiSPIDataRW(0,data,sizeof(data));              // send data to SPI channel 0, and the length of the data
           delay(x);
