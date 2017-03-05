@@ -22,8 +22,8 @@ int main(void)
     for ( j=0;j<8;j++)
 {
           data[0] = ~heart[j];
-          data[2] = 0xFF;
-          data[1] = 0xFF;
+          data[2] = ~heart[j];
+          data[1] = ~heart[j];
           data[3] = 0x01 << j ;
           wiringPiSPIDataRW(0,data,sizeof(data));              // send data to SPI channel 0, and the length of the data
           delay(x);
