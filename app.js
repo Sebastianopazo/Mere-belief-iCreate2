@@ -169,6 +169,7 @@ function main(r) {
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     angle = 0;
+    distance = 0;
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
