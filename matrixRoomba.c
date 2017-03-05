@@ -79,7 +79,7 @@ int main(void)
               wiringPiSPIDataRW(0,data,sizeof(data));
               delay(x);
            }
-    }
+    };
 
     while(1){
          int m = 10;
@@ -100,4 +100,4 @@ int main(void)
               mid();
              };
         }
-    }
+}
