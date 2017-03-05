@@ -238,46 +238,6 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
   };
 
-  answer2Server = function() {
-    player = Omx('audio/answer2.mp3');
-    behaviorRandomizer(12, 10);
-  };
-
-  answer3Server = function() {
-    player = Omx('audio/answer3.mp3');
-    behaviorRandomizer(14, 12);
-  };
-
-  answer4Server = function() {
-    player = Omx('audio/answer4.mp3');
-    behaviorRandomizer(5, 10);
-  };
-
-  answer5Server = function() {
-    player = Omx('audio/answer5.mp3');
-    behaviorRandomizer(25, 20);
-  };
-
-  answer6Server = function() {
-    player = Omx('audio/answer6.mp3');
-    behaviorRandomizer(16, 13);
-  };
-
-  answer7Server = function() {
-    player = Omx('audio/answer7.mp3');
-    behaviorRandomizer(17, 14);
-  };
-
-  answer8Server = function() {
-    player = Omx('audio/answer8.mp3');
-    behaviorRandomizer(9, 10);
-  };
-
-  answer9Server = function() {
-    player = Omx('audio/answer9.mp3');
-    behaviorRandomizer(31, 28);
-  };
-
   stopAll = function(){
     if (player) {
       player.quit();
@@ -355,42 +315,42 @@ function handleInput(robot) {
     client.on('play_answer2', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer2...');
-        answer2Server();
+        answerServer(2, 12, 10);
     });
     client.on('play_answer3', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer3...');
-        answer3Server();
+        answerServer(3, 14, 12);
     });
     client.on('play_answer4', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer4...');
-        answer4Server();
+        answerServer(4, 5, 10);
     });
     client.on('play_answer5', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer5...');
-        answer5Server();
+        answerServer(5, 25, 20);
     });
     client.on('play_answer6', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer6...');
-        answer6Server();
+        answerServer(6, 16, 13);
     });
     client.on('play_answer7', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer7...');
-        answer7Server();
+        answerServer(7, 17, 14);
     });
     client.on('play_answer8', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer8...');
-        answer8Server();
+        answerServer(8, 9, 10);
     });
     client.on('play_answer9', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer9...');
-        answer9Server();
+        answerServer(9, 31, 28);
     });
 
     client.on('stopAll', function(data) {
