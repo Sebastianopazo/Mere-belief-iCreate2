@@ -131,6 +131,7 @@ socket.on('messages', function(data) {
 });
 socket.on('messages', function(data){
 if (data == 'Aborted!') {
+  $(".answer").removeClass('disabled');
   $("#stopAll").addClass('disabled');
 } else if (data.includes("Requesting answer")) {
   $("#stopAll").removeClass('disabled');
