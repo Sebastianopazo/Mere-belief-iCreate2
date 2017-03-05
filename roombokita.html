@@ -77,15 +77,15 @@
           <h4 class="purple-text text-darken-3 center-align">Mere Belief Answers</h4>
           <div class="row">
             <div class="col s12 center">
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer1Client()"><i class="material-icons left">play_arrow</i>Answer 1</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer2Client()"><i class="material-icons left">play_arrow</i>Answer 2</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer3Client()"><i class="material-icons left">play_arrow</i>Answer 3</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer4Client()"><i class="material-icons left">play_arrow</i>Answer 4</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer5Client()"><i class="material-icons left">play_arrow</i>Answer 5</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer6Client()"><i class="material-icons left">play_arrow</i>Answer 6</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer7Client()"><i class="material-icons left">play_arrow</i>Answer 7</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer8Client()"><i class="material-icons left">play_arrow</i>Answer 8</a>
-              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answer9Client()"><i class="material-icons left">play_arrow</i>Answer 9</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(1)"><i class="material-icons left">play_arrow</i>Answer 1</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(2)"><i class="material-icons left">play_arrow</i>Answer 2</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(3)"><i class="material-icons left">play_arrow</i>Answer 3</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(4)"><i class="material-icons left">play_arrow</i>Answer 4</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(5)"><i class="material-icons left">play_arrow</i>Answer 5</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(6)"><i class="material-icons left">play_arrow</i>Answer 6</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(7)"><i class="material-icons left">play_arrow</i>Answer 7</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(8)"><i class="material-icons left">play_arrow</i>Answer 8</a>
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "answerClient(9)"><i class="material-icons left">play_arrow</i>Answer 9</a>
             </div>
           </div>
           <div class="divider"></div>
@@ -220,6 +220,10 @@ function answer8Client() {
 
 function answer9Client() {
   socket.emit('play_answer9', 'Requesting answer9...')
+}
+
+function answerClient(number) {
+  socket.emit('play_answer'+ number +'', 'Requesting answer' + number + '...')
 }
 
 function stopAllClient() {
