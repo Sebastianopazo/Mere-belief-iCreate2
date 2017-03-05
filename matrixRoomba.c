@@ -15,12 +15,11 @@ int main(void)
 
   wiringPiSetup();                 // initialize wiringPi
   wiringPiSPISetup(0,500000);      // initialize SPI  information, 0 is channel 0, 500000 is clock rate.
-  int q = 3;
-  while(q>3){
+  while(1){
     int j;
     int x = 2;
-    static uint8_t heart[8] = {0x00, 0x66, 0xFF, 0xFF, 0xFF, 0x7E, 0x3C, 0x18};             // this is a array of heart
-    for ( j=6;j<8;j++)
+    static uint8_t heart[1] = {0x18};             // this is a array of heart
+    for ( j=0;j<8;j++)
 {
           data[0] = ~heart[j];
           data[2] = 0xFF;
