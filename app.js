@@ -155,6 +155,8 @@ function main(r) {
           return val;
       }
   }
+
+
   //Characters for messages
   var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
