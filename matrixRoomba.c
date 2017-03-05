@@ -73,8 +73,8 @@ int main(void)
         for ( j=0;j<8;j++)
          {
               data[0] = ~heart[j];
-              data[2] = 0xFF;
-              data[1] = 0xFF;
+              data[2] = ~heart[j];
+              data[1] = ~heart[j];
               data[3] = 0x01 << j ;
               wiringPiSPIDataRW(0,data,sizeof(data));
               delay(x);
@@ -88,18 +88,18 @@ int main(void)
              out();
              };
              matrixoff();
-            delay(100);
+            delay(10);
          for ( m=10; m>0; m--)
              {
              in();
              };
              matrixoff();
-            delay(100);
-        //  for ( m=10; m>0; m--)
-        //      {
-        //       mid();
-        //      };
-        //    matrixoff();
-        //    delay(100);
+            delay(10);
+         for ( m=10; m>0; m--)
+             {
+              mid();
+             };
+           matrixoff();
+           delay(10);
         }
 }
