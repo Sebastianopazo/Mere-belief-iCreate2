@@ -112,7 +112,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; //console.log("Angle:", angle);
+		angle += robot.delta.angle; console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
@@ -166,7 +166,6 @@ function main(r) {
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
-    console.log(timeouts);
     var gesture = [
         turnRight1 = function() {
           if (angle <= 50 && angle >= -50) {
@@ -192,7 +191,7 @@ function main(r) {
         var addedTime = gestureDuration*i;
           timeouts.push(setTimeout(function() {
             gesture[r.get()]();
-            console.log('executing gesture'+ r.get());
+            //console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
           }, addedTime));
       };
