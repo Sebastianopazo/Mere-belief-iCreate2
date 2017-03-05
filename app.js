@@ -192,11 +192,18 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            while (angle < 0) {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-            };
-            while(angle > 0) {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            if (angle > 0) {
+              while (angle > 0) {
+                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+                if (angle === 0) { break; }
+                stop();
+              };
+            } else if (angle < 0) {
+              while(angle > 0) {
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+                if (angle ===0) {break}
+                stop();
+              }
             }
             done();
           }, time+100));
