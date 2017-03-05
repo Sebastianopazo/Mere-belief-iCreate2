@@ -19,7 +19,7 @@ int main(void)
     int j;
     int x = 2;
     static uint8_t pixel[1] = {0x66};             // this is a array of heart
-    for ( j=1;j<8;j++)
+    for ( j=3;j<8;j++)
 {
           data[0] = ~pixel[j];
           data[2] = 0xFF;
