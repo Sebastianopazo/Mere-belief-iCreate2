@@ -88,13 +88,13 @@ int main(void)
              out();
              };
              mid();
-            delay(10);
+            delay(1);
          for ( m=10; m>0; m--)
              {
              in();
              };
              mid();
-            delay(10);
+            delay(1);
         //  for ( m=10; m>0; m--)
         //      {
         //       mid();
