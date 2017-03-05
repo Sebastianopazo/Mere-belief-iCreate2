@@ -99,5 +99,7 @@ int main(void)
              {
               mid();
              };
+           matrixoff();
+           delay(100);
         }
 }
