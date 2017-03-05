@@ -80,12 +80,10 @@ int main(void)
              {
              in();
              };
-             mid();
-        //  for ( m=10; m>0; m--)
-        //      {
-        //       mid();
-        //      };
-        //    matrixoff();
-        //    delay(10);
+             for ( m=5; m>0; m--)
+                  {
+                  mid();
+                  };
+
         }
 }
