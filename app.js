@@ -230,7 +230,7 @@ function main(r) {
   }
 
   moveForward = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+      robot.drive(100, 32767);
     },
   moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
