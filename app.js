@@ -186,9 +186,9 @@ function main(r) {
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           }
-          backAndForth () {
-            //go back an inch andthen move forward an inch. Inch will be encoded as angle.
-          }
+          // backAndForth () {
+          //   //go back an inch andthen move forward an inch. Inch will be encoded as angle.
+          // }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
