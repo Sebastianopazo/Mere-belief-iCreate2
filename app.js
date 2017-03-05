@@ -165,14 +165,22 @@ function main(r) {
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
+          if (angle > 70 && angle < -70) {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            } else {
+              robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+            }
           },
         turnLeft1 = function() {
+          if (angle > 70 && angle < -70) {
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+            } else {
+            robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+            }
           },
-          stop1 = function() {
-              robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-          }
+          // stop1 = function() {
+          //     robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+          // }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
@@ -211,7 +219,7 @@ function main(r) {
 
   answer1Server = function() {
     player = Omx('audio/answer1.mp3');
-    behaviorRandomizer(22, 35);
+    behaviorRandomizer(22, 40);
   };
 
   answer2Server = function() {
