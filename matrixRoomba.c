@@ -17,7 +17,7 @@ int main(void)
   wiringPiSPISetup(0,500000);           // initialize SPI  information, 0 is channel 0, 500000 is clock rate.
   while(1){
     int j;
-    int x = 2000;
+    int x = 20;
     static uint8_t heart[8] = {0x80,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
     for ( j=0;j<8;j++)
 {
