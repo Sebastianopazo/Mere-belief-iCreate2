@@ -53,7 +53,7 @@ int main(void)
      {
       int j;
       int x = 2;
-      static uint8_t heart[8] = {0x00,0x7e,0x7e,0x66,0x66,0x7e,0x7e,0x00};
+      static uint8_t heart[8] = {0x00,0x7e,0x42,0x42,0x42,0x42,0x7e,0x00};
       for ( j=0;j<8;j++)
                   {
             data[0] = ~heart[j];
@@ -69,7 +69,7 @@ int main(void)
     {
      int j;
      int x = 2;
-        static uint8_t heart[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+        static uint8_t heart[8] = {0x00,0x00,0x3c,0x3c,0x3c,0x3c,0x00,0x00};
         for ( j=0;j<8;j++)
          {
               data[0] = ~heart[j];
@@ -94,7 +94,7 @@ int main(void)
              in();
              };
              mid();
-            delay(1);
+             delay(1);
         //  for ( m=10; m>0; m--)
         //      {
         //       mid();
