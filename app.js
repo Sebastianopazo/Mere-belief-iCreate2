@@ -175,7 +175,7 @@ function main(r) {
         turnLeft1 = function() {
           if (angle <= 50 ) {
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-            } 
+            }
           },
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
@@ -192,7 +192,12 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            stop();
+            while (angle < 0) {
+              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+            };
+            while(angle > 0) {
+              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            }
             done();
           }, time+100));
 
