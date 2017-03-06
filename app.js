@@ -181,18 +181,8 @@ function main(r) {
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
-          backAndForth = function () {
-            var distance = 0; //Count distance "units" Changes Using Encoders:
-            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-          	robot.onMotion = function() {
-              distance += robot.delta.distance;
-              console.log(distance);
-              if (distance = -10) {
-                console.log('stop!');
-                stop();
-              }
-          	}
-          }
+          // backAndForth = function () {
+          // }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
@@ -234,7 +224,16 @@ function main(r) {
   }
 
   moveForward = function() {
-      robot.drive(100, 32767);
+      var distance = 0; //Count distance "units" Changes Using Encoders:
+      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      robot.onMotion = function() {
+        distance += robot.delta.distance;
+        console.log(distance);
+        if (distance = -10) {
+          console.log('stop!');
+          stop();
+        }
+      }
     },
   moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
