@@ -234,7 +234,9 @@ function main(r) {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
         } else if (distance >= 10) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-          console.log('back!');
+          if (distance == 0) {
+            stop();
+          }
         }
       }
     },
