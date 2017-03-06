@@ -190,13 +190,22 @@ function main(r) {
           backAndForth = function () {
             console.log('doing back and forth...')
             robot.drive(-100, 32767);
-            //go back an inch andthen move forward an inch.
-            while (distance >= -10) {
-              console.log('not yet enough distance...')
-              if (distance = -10) {break};
-              onsole.log('stop!');
+            if (distance = -20) {
               stop();
+              setTimeout(function(){
+                robot.drive(100, 32767);
+              },1);
+              if (distance = 20) {
+                stop();
+              }
             }
+            //go back an inch andthen move forward an inch.
+            // while (distance >= -10) {
+            //   console.log('not yet enough distance...')
+            //   if (distance = -10) {break};
+            //   onsole.log('stop!');
+            //   stop();
+            // }
           }
         ];
     var r = new randomGenerator(gesture.length-1);
