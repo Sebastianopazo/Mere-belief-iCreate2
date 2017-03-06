@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, printAngle, done;
+var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, done;
 
 var timeouts = [];
 
@@ -226,7 +226,7 @@ function main(r) {
   }
 
   moveForward = function() {
-
+    robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
     },
   moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
@@ -264,7 +264,7 @@ function handleInput(robot) {
 		if(text == "exit" || text == "quit") {
 			console.log("Exiting..."); process.exit();
 		} else if(text == "t") {
-		   printAngle(); //Turn Robot.
+		   turnRobot(); //Turn Robot.
 
 		} else if(text == "s") {
 			turnRobot();//stop turn.
