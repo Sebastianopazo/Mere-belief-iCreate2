@@ -120,7 +120,7 @@ function main(r) {
   var distance = 0; //Count distance "units" Changes Using Encoders:
 	robot.onMotion = function() {
     distance += robot.delta.distance;
-		console.log(distance);
+		console.log("Distance: " + distance);
 	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
@@ -188,13 +188,13 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForth = function () {
-            //go back an inch andthen move forward an inch. Inch will be encoded as angle.
+            //go back an inch andthen move forward an inch.
             for (var i = distance; i > -20; i--) {
               robot.drive(-100, 32767);
               if (i <= -20) {break;}
-              for (var i = distance; i < 20; i++) {
-                robot.drive(100, 32767);
-                if (i >= 20) {break;}
+              // for (var i = distance; i < 20; i++) {
+              //   robot.drive(100, 32767);
+              //   if (i >= 20) {break;}
                 stop();
               }
             }
