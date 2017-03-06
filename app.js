@@ -190,10 +190,10 @@ function main(r) {
           backAndForth = function () {
 
             //go back an inch andthen move forward an inch.
-            while (distance >= -20) {
+            while (distance >= -10) {
               robot.drive(-100, 32767);
               console.log('not yet enough distance...')
-              if (distance = -20) {break};
+              if (distance = -10) {break};
               onsole.log('stop!');
               stop();
             }
