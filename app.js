@@ -117,11 +117,6 @@ function main(r) {
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
 
-  var distance = 0; //Count distance "units" Changes Using Encoders:
-	robot.onMotion = function() {
-    distance += robot.delta.distance;
-    console.log('distance: ' + distance);
-	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
@@ -169,7 +164,6 @@ function main(r) {
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
     angle = 0;
-    distance = 0;
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
@@ -188,12 +182,16 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForth = function () {
-            // while (distance >= -10) {
-            //   console.log('not yet enough distance...')
-            //   if (distance = -10) {break};
-            //   onsole.log('stop!');
-            //   stop();
-            // }
+            var distance = 0; //Count distance "units" Changes Using Encoders:
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+          	robot.onMotion = function() {
+              distance += robot.delta.distance;
+              console.log(distance);
+              if (distance = -10) {
+                console.log('stop!');
+                stop();
+              }
+          	}
           }
         ];
     var r = new randomGenerator(gesture.length-1);
@@ -292,7 +290,7 @@ function handleInput(robot) {
     };
 
     client.on('start', function(data) {
-        //console.log(data);
+        console.log(data);
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
