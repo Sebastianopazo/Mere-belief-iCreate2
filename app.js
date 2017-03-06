@@ -190,9 +190,9 @@ function main(r) {
           backAndForth = function () {
             console.log('executing backandforth');
             //go back an inch andthen move forward an inch.
-            for (var i = distance; i > -20; i--) {
+            for (var i = distance; i > -40; i--) {
               robot.drive(-100, 32767);
-              if (i <= -20) {break;}
+              if (i <= -40) {break;}
               // for (var i = distance; i < 20; i++) {
               //   robot.drive(100, 32767);
               //   if (i >= 20) {break;}
