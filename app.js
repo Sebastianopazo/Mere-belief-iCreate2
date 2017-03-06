@@ -120,7 +120,12 @@ function main(r) {
   var distance = 0; //Count distance "units" Changes Using Encoders:
 	robot.onMotion = function() {
     distance += robot.delta.distance;
-		console.log("Distance: " + distance);
+    while (distance >= -10) {
+      console.log('not yet enough distance...')
+      if (distance = -10) {break};
+      console.log('stop!');
+
+    }
 	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
@@ -188,18 +193,6 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForth = function () {
-            console.log('doing back and forth...')
-            robot.drive(-100, 32767);
-            if (distance <= -5) {
-              stop();
-              setTimeout(function(){
-                robot.drive(100, 32767);
-              },1);
-              if (distance >= 5) {
-                stop();
-              }
-            }
-            //go back an inch andthen move forward an inch.
             // while (distance >= -10) {
             //   console.log('not yet enough distance...')
             //   if (distance = -10) {break};
