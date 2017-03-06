@@ -188,6 +188,7 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForth = function () {
+            console.log('executing backandforth');
             //go back an inch andthen move forward an inch.
             for (var i = distance; i > -20; i--) {
               robot.drive(-100, 32767);
