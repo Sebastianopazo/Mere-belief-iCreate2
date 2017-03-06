@@ -188,10 +188,10 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForth = function () {
-
+            console.log('doing back and forth...')
+            obot.drive(-100, 32767);
             //go back an inch andthen move forward an inch.
             while (distance >= -10) {
-              robot.drive(-100, 32767);
               console.log('not yet enough distance...')
               if (distance = -10) {break};
               onsole.log('stop!');
