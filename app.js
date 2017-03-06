@@ -18,7 +18,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, done;
+var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, printAngle, done;
 
 var timeouts = [];
 
@@ -115,7 +115,9 @@ function main(r) {
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
-
+  printAngle = function () {
+    console.log(angle);
+  }
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
@@ -191,23 +193,29 @@ function main(r) {
         var addedTime = gestureDuration*i;
           timeouts.push(setTimeout(function() {
             gesture[r.get()]();
-            //console.log('executing gesture'+ r.get());
             robot.showText(characters[text.get()], 50, true);
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            var angle = 0;
-            robot.onMotion = function() {
-              angle += robot.delta.angle;
-              if (angle > 0) {
-                  robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              } else if (angle < 0) {
+            if (angle > 0) {
+              while (angle > 0) {
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+                if (angle == 0) { break; }
+                stop();
+                done();
+              };
+            } else if (angle < 0) {
+              while(angle > 0) {
                 robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-              } else if (angle == 0) {
+                if (angle == 0) {break}
                 stop();
                 done();
               }
+            } else if (angle == 0) {
+              stop();
+              done();
             }
+
           }, time+100));
 
     };
