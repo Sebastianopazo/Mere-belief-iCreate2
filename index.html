@@ -161,23 +161,23 @@ function clientConnect() {
 }
 
 function moveForward () {
-  socket.emit('move', 'Requesting action...')
+  socket.emit('move')
 }
 
 function stopMove () {
-  socket.emit('stop', 'Requesting action...')
+  socket.emit('stop')
 }
 
 function moveBackward () {
-  socket.emit('back', 'Requesting action...')
+  socket.emit('back')
 }
 
 function rightRotation () {
-  socket.emit('turn_right', 'Requesting action...')
+  socket.emit('turn_right')
 }
 
 function leftRotation () {
-  socket.emit('turn_left', 'Requesting action...')
+  socket.emit('turn_left')
 }
 
 function answerClient(number) {
