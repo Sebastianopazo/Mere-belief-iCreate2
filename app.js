@@ -190,12 +190,12 @@ function main(r) {
           backAndForth = function () {
             console.log('doing back and forth...')
             robot.drive(-100, 32767);
-            if (distance = -20) {
+            if (distance = -5) {
               stop();
               setTimeout(function(){
                 robot.drive(100, 32767);
               },1);
-              if (distance = 20) {
+              if (distance = 5) {
                 stop();
               }
             }
