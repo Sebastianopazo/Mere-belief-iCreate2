@@ -120,7 +120,7 @@ function main(r) {
   var distance = 0; //Count distance "units" Changes Using Encoders:
 	robot.onMotion = function() {
     distance += robot.delta.distance;
-		console.log("Distance: " + distance);
+		//console.log("Distance: " + distance);
 	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
@@ -190,14 +190,15 @@ function main(r) {
           backAndForth = function () {
             robot.drive(-100, 32767);
             //go back an inch andthen move forward an inch.
-            for (var i = distance; i > -40; i--) {
-                console.log('not yet enough distance...')
-              if (i <= -40) {break;}
-              // for (var i = distance; i < 20; i++) {
-              //   robot.drive(100, 32767);
-              //   if (i >= 20) {break;}
-                stop();
-              //}
+            // for (var i = distance; i > -40; i--) {
+            //     console.log('not yet enough distance...')
+            //   if (i <= -40) {break;}
+            //   // for (var i = distance; i < 20; i++) {
+            //   //   robot.drive(100, 32767);
+            //   //   if (i >= 20) {break;}
+            //     stop();
+            //     console.log('stopping...')
+            //   //}
             }
           }
         ];
