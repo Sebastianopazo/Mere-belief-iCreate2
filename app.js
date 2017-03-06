@@ -229,9 +229,12 @@ function main(r) {
       robot.onMotion = function() {
         distance += robot.delta.distance;
         console.log(distance);
-        if (distance = -10) {
-          console.log('stop!');
-          stop();
+        if (distance <= -10) {
+          console.log('forward!');
+          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+        } else if (distance <= -10) {
+          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+          console.log('back!');
         }
       }
     },
