@@ -181,8 +181,23 @@ function main(r) {
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
-          // backAndForth = function () {
-          // }
+          backAndForthloop = function () {
+            var loops;
+            var distance = 0; //Count distance "units" Changes Using Encoders:
+            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+            robot.onMotion = function() {
+              distance += robot.delta.distance;
+              console.log(distance);
+              if (distance <= -10) {
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+              } else if (distance >= 10) {
+                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+                loops = 1;
+              } else if (loops == 1 && distance == 0) {
+                stop();
+              }
+            }
+          }
         ];
     var r = new randomGenerator(gesture.length-1);
     var text = new randomGenerator(characters.length-1);
@@ -224,21 +239,7 @@ function main(r) {
   }
 
   moveForward = function() {
-      var loops;
-      var distance = 0; //Count distance "units" Changes Using Encoders:
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-      robot.onMotion = function() {
-        distance += robot.delta.distance;
-        console.log(distance);
-        if (distance <= -10) {
-          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-        } else if (distance >= 10) {
-          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-          loops = 1;
-        } else if (loops == 1 && distance == 0) {
-          stop();
-        }
-      }
+
     },
   moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
