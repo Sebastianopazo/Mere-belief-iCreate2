@@ -179,7 +179,7 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForthloop = function () {
-            var loops =0;
+            var loops = 0;
             var distance = 0; //Count distance "units" Changes Using Encoders:
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
             robot.onMotion = function() {
@@ -192,6 +192,7 @@ function main(r) {
                 loops++;
                 console.log(loops);
               } else if (loops == 1 && distance == 0) {
+                console.log('stop!');
                 stop();
               }
             }
