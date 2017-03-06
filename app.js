@@ -190,13 +190,14 @@ function main(r) {
           backAndForth = function () {
             robot.drive(-100, 32767);
             //go back an inch andthen move forward an inch.
-            for (var i = distance; i > -40; i--) {
+            for (var i = distance; i > -20; i--) {
                 console.log('not yet enough distance...')
-              if (i <= -40) {break;}
+              if (i <= -20) {break;}
               // for (var i = distance; i < 20; i++) {
               //   robot.drive(100, 32767);
               //   if (i >= 20) {break;}
                 // stop();
+                console.log('stop!');
                 robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
               //}
             }
