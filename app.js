@@ -196,7 +196,7 @@ function main(r) {
               //   robot.drive(100, 32767);
               //   if (i >= 20) {break;}
                 stop();
-              }
+              //}
             }
           }
         ];
