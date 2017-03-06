@@ -121,28 +121,6 @@ function main(r) {
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
 	}
-
-
-  backAndForthloop = function () {
-    var loops;
-    var distance = 0; //Count distance "units" Changes Using Encoders:
-    robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-    robot.onMotion = function() {
-      distance += robot.delta.distance;
-      console.log(distance);
-      if (distance <= -10) {
-        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-      } else if (distance >= 10) {
-        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-        loops = 1;
-      } else if (loops == 1 && distance == 0) {
-        stop();
-      }
-    }
-  };
-  backAndForthloop();
-
-
   //GENERAL RANDOMIZER
   // if only one argument is passed, it will assume that is the high
   // limit and the low limit will be set to zero
