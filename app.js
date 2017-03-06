@@ -120,7 +120,7 @@ function main(r) {
   var distance = 0; //Count distance "units" Changes Using Encoders:
 	robot.onMotion = function() {
     distance += robot.delta.distance;
-		//console.log("Distance: " + distance);
+		console.log("Distance: " + distance);
 	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
