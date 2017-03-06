@@ -267,6 +267,8 @@ function main(r) {
   };
 }
 
+backAndForthloop();
+
 function handleInput(robot) {
 	//Process user input, quit on 'exit'
 	const rl = require('readline').createInterface
