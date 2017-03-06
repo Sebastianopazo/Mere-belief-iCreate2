@@ -225,7 +225,7 @@ function main(r) {
 
   moveForward = function() {
       var distance = 0; //Count distance "units" Changes Using Encoders:
-      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
       robot.onMotion = function() {
         distance += robot.delta.distance;
         console.log(distance);
