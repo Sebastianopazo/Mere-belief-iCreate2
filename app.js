@@ -189,7 +189,7 @@ function main(r) {
           },
           backAndForth = function () {
             robot.drive(-100, 32767);
-            //go back an inch andthen move forward an inch.
+            // //go back an inch andthen move forward an inch.
             // for (var i = distance; i > -40; i--) {
             //     console.log('not yet enough distance...')
             //   if (i <= -40) {break;}
@@ -199,7 +199,7 @@ function main(r) {
             //     stop();
             //     console.log('stopping...')
             //   //}
-            }
+            // }
           }
         ];
     var r = new randomGenerator(gesture.length-1);
