@@ -120,13 +120,14 @@ function main(r) {
   var distance = 0; //Count distance "units" Changes Using Encoders:
 	robot.onMotion = function() {
     distance += robot.delta.distance;
-    while (distance >= -10) {
-      console.log('not yet enough distance...')
-      if (distance = -10) {break};
-      console.log('stop!');
-
-    }
 	}
+
+  while (distance >= -10) {
+    console.log('not yet enough distance...')
+    if (distance = -10) {break};
+    console.log('stop!');
+
+  }
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
