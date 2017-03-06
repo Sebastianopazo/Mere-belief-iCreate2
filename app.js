@@ -292,7 +292,7 @@ function handleInput(robot) {
     };
 
     client.on('start', function(data) {
-        console.log(data);
+        //console.log(data);
         client.emit('messages', 'Roombokita Session Connected!');
         start();
     });
