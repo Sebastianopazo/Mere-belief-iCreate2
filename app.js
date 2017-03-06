@@ -232,7 +232,7 @@ function main(r) {
         if (distance <= -10) {
           console.log('forward!');
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-        } else if (distance <= -10) {
+        } else if (distance >= 10) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
           console.log('back!');
         }
