@@ -224,19 +224,19 @@ function main(r) {
   }
 
   moveForward = function() {
+      var loops;
       var distance = 0; //Count distance "units" Changes Using Encoders:
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
       robot.onMotion = function() {
         distance += robot.delta.distance;
         console.log(distance);
         if (distance <= -10) {
-          console.log('forward!');
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
         } else if (distance >= 10) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-          if (distance == 0) {
-            stop();
-          }
+          loops = 1;
+        } else if (loops == 1 && distance == 0) {
+          stop();
         }
       }
     },
