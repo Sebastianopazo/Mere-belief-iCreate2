@@ -179,22 +179,19 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForthloop = function () {
-            var loops = 0;
             var distance = 0; //Count distance "units" Changes Using Encoders:
-            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+            robot.driveSpeed(robot.data.dropLeft?0:-150,robot.data.dropRight?0:-150);
             robot.onMotion = function() {
               distance += robot.delta.distance;
               console.log(distance);
-              if (distance <= -5) {
-                robot.driveSpeed(robot.data.dropLeft?0:300,robot.data.dropRight?0:300);
-              } else if (distance >= 5) {
-                robot.driveSpeed(robot.data.dropLeft?0:-300,robot.data.dropRight?0:-300);
-                loops++;
-                console.log(loops);
-              } else if (loops == 1 && distance == 0) {
-                console.log('stop!');
-                stop();
-              }
+              // if (distance <= -5) {
+              //   robot.driveSpeed(robot.data.dropLeft?0:150,robot.data.dropRight?0:150);
+              // } else if (distance >= 5) {
+              //   robot.driveSpeed(robot.data.dropLeft?0:-150,robot.data.dropRight?0:-150);
+              // } else if (loops == 1 && distance == 0) {
+              //   console.log('stop!');
+              //   stop();
+              // }
             }
           }
         ];
