@@ -111,7 +111,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		// angle += robot.delta.angle; console.log("Angle:", angle);
+		angle += robot.delta.angle; console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
 	}
@@ -183,18 +183,6 @@ function main(r) {
             setTimeout(function(){
               robot.driveSpeed(robot.data.dropLeft?0:150,robot.data.dropRight?0:150);
             }, gestureDuration/2)
-            // robot.onMotion = function() {
-            //   distance += robot.delta.distance;
-            //   console.log(distance);
-            //   if (distance <= -5) {
-            //     robot.driveSpeed(robot.data.dropLeft?0:150,robot.data.dropRight?0:150);
-            //   } else if (distance >= 5) {
-            //     robot.driveSpeed(robot.data.dropLeft?0:-150,robot.data.dropRight?0:-150);
-            //   } else if (loops == 1 && distance == 0) {
-            //     console.log('stop!');
-            //     stop();
-            //   }
-            // }
           }
         ];
     var r = new randomGenerator(gesture.length-1);
