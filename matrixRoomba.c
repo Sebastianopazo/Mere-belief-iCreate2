@@ -82,7 +82,7 @@ int main(void)
              };
          for ( m=5; m>0; m--)
              {
-             out();
+             mid();
              };
 
         }
