@@ -4,9 +4,9 @@
 #include <wiringPiSPI.h>
 #include <stdint.h>
 
-// #define RED_DATA 0          //define the red data source
-// #define BLUE_DATA 1         //define the blue data source
-// #define GREEN_DATA 2    // define the green data source
+#define RED_DATA 0          //define the red data source
+#define BLUE_DATA 1         //define the blue data source
+#define GREEN_DATA 2    // define the green data source
 
 int main(void)
 {
@@ -67,20 +67,20 @@ int main(void)
 
 
     while(1){
-         int m = 4;
-         for ( m=4; m>0; m--)
+         int m = 5;
+         for ( m=5; m>0; m--)
             {
              out();
              };
-        for ( m=4; m>0; m--)
+         for ( m=5; m>0; m--)
              {
-             out();
+             mid();
              };
-         for ( m=4; m>0; m--)
+         for ( m=5; m>0; m--)
              {
-             out();
+             in();
              };
-         for ( m=4; m>0; m--)
+         for ( m=5; m>0; m--)
              {
              out();
              };
