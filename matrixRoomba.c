@@ -24,10 +24,10 @@ int main(void)
     static uint8_t heart[8] = {0xff,0x81,0x81,0x81,0x81,0x81,0x81,0xff};
     for ( j=0;j<8;j++)
                 {
-          data[0] = 0xFF;
+          data[0] = 0x00;
           data[2] = ~heart[j];
           data[1] = ~heart[j];
-          data[3] = 0x01;
+          data[3] = 0x01 << j ;
           wiringPiSPIDataRW(0,data,sizeof(data));
           delay(x);
                 }
