@@ -27,7 +27,7 @@ int main(void)
           data[0] = 0xFF;
           data[2] = ~heart[j];
           data[1] = ~heart[j];
-          data[3] = 0x01 << j ;
+          //data[3] = 0x01 << j ;
           wiringPiSPIDataRW(0,data,sizeof(data));
           delay(x);
                 }
@@ -74,15 +74,15 @@ int main(void)
              };
         for ( m=4; m>0; m--)
              {
-             mid();
+             out();
              };
          for ( m=4; m>0; m--)
              {
-             in();
+             out();
              };
          for ( m=4; m>0; m--)
              {
-             mid();
+             out();
              };
 
         }
