@@ -4,9 +4,9 @@
 #include <wiringPiSPI.h>
 #include <stdint.h>
 
-#define RED_DATA 0          //define the red data source
-#define BLUE_DATA 1         //define the blue data source
-#define GREEN_DATA 2    // define the green data source
+// #define RED_DATA 0          //define the red data source
+// #define BLUE_DATA 1         //define the blue data source
+// #define GREEN_DATA 2    // define the green data source
 
 int main(void)
 {
@@ -27,7 +27,7 @@ int main(void)
           data[0] = 0xFF;
           data[2] = ~out[j];
           data[1] = ~out[j];
-          //data[3] = 0x01 << j ;
+          data[3] = 0x01 << j ;
           wiringPiSPIDataRW(0,data,sizeof(data));
           delay(x);
                 }
