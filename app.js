@@ -239,18 +239,14 @@ function main(r) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
 
-    var options = {
-    mode: 'text',
-    pythonPath: '/usr/bin/python',
-    pythonOptions: ['--file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3'],
-    scriptPath: '/var/www/html/Rooomba/lightshowpi/py/',
-    };
-
-    PythonShell.run('synchronized_lights.py', {scriptPath: '/var/www/html/Rooomba/lightshowpi/py/'}, {pythonOptions: ['--file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3']}, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      console.log('results: %j', results);
-    });
+    function runSingleScript (callback) {
+      PythonShell.run('synchronized_lights.py', {scriptPath: '/var/www/html/Rooomba/lightshowpi/py/'}, {pythonOptions: ['--file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3']}, function (err, results) {
+        if (err) throw err;
+        // results is an array consisting of messages collected during execution
+        console.log('results: %j', results);
+      });
+      callback();
+    }
 
   };
 
