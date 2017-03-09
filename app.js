@@ -1,5 +1,5 @@
 //Initiate communication with robot via socket.io
-
+var PythonShell = require('python-shell');
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
@@ -238,6 +238,21 @@ function main(r) {
   answerServer = function(answerNum, duration, gestureQuantity) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
+
+    var options = {
+    mode: 'text',
+    pythonPath: '/usr/bin/python',
+    pythonOptions: ['--file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3'],
+    scriptPath: '/var/www/html/Rooomba/lightshowpi/py/',
+    args: []
+    };
+
+    PythonShell.run('synchronized_lights.py', options, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+      console.log('results: %j', results);
+    });
+
   };
 
   stopAll = function(){
