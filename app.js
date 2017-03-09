@@ -206,7 +206,9 @@ function main(r) {
             }
             while (1) {
               console.log("checking!");
-              if (angle <=5 && angle >= -5 ) {break;}
+              if (angle <=5 && angle >= -5 ) {
+                continue;
+              }
                 console.log('Stopped. Fully reset to position 0!');
                 stop();
                 done();
@@ -249,11 +251,11 @@ function main(r) {
     stop();
   };
 
-  while (1) {
-    console.log("checking!");
-    if (angle <=5 && angle >= -5 ) {break;}
-      console.log('Stopped. Fully reset to position 0!');
-  }
+  // while (1) {
+  //   console.log("checking!");
+  //   if (angle <=5 && angle >= -5 ) {break;}
+  //     console.log('Stopped. Fully reset to position 0!');
+  // }
 
 
 }
