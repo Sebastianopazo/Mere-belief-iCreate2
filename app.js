@@ -364,6 +364,13 @@ function handleInput(robot) {
         answerServer(9, 31, 28);
     });
 
+    client.on('play_answer10', function(data) {
+        console.log(data);
+        client.emit('messages', 'Requesting Answer10...');
+        answerServer(10, 248, 180);
+    });
+
+
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborted!');
