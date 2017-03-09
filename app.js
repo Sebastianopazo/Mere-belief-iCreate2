@@ -114,11 +114,11 @@ function main(r) {
 	robot.onMotion = function() {
 		angle += robot.delta.angle; //console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
-		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
-	} else if (tracker==true && angle < 5 && angle > -5) {
-	  console.log("Resetting Position");
+		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic();
+    }else if (tracker==true && angle < 5 && angle > -5) {
+  	  console.log("Resetting Position");
+  	}
 	}
-
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
 		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
