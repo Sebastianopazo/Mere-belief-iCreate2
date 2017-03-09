@@ -112,11 +112,20 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; //console.log("Angle:", angle);
+		angle += robot.delta.angle; console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic();
-    }else if (tracker==true && angle < 5 && angle > -5) {
+    }else if (tracker==true && (angle < 5 || angle > -5)) {
   	  console.log("Resetting Position");
+      if (angle > 5) {
+        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      } else if (angle > 5) {
+        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+      }
+      else if (angle <= 5 && angle >= -5) {
+        stop();
+        done();
+      }
   	}
 	}
 	//Prevent Default Behavior of Buttons in Passive Mode:
@@ -197,16 +206,10 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            // if (angle > 5) {
-            //   robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-            //     console.log("moving left!");
-            //
-            // } else if (angle < -5) {
-            //   robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-            //     console.log("moving right!");
-            //
-            // }
-            stop();
+            if (angle < 5 || angle < -5) {
+              stop();
+              done();
+            }
             tracker = true;
 
           }, time+100));
