@@ -249,7 +249,7 @@ function main(r) {
   };
 
   stopAll = function(){
-    child.kill('SIGHUP');
+    //child.kill('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
     };
