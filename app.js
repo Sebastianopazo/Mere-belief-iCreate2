@@ -194,23 +194,24 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            if (angle > 5) {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-                console.log("moving left!");
-
-            } else if (angle < -5) {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-                console.log("moving right!");
-
-            }
+            // if (angle > 5) {
+            //   robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+            //     console.log("moving left!");
+            //
+            // } else if (angle < -5) {
+            //   robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            //     console.log("moving right!");
+            //
+            // }
+            stop();
             while (1) {
               console.log(angle);
               if (angle <=5 || angle >= -5 ) {
                 continue;
               }
                 console.log('Stopped. Fully reset to position 0!');
-                stop();
-                done();
+                // stop();
+                // done();
             }
 
           }, time+100));
