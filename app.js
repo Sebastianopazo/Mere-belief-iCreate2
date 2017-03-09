@@ -241,11 +241,13 @@ function main(r) {
 
     var options = {
     mode: 'text',
+    pythonPath: '/usr/bin/python',
     pythonOptions: ['--file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3'],
     scriptPath: '/var/www/html/Rooomba/lightshowpi/py/',
+    args: []
     };
 
-    PythonShell.run('synchronized_lights.py', options, function (err, results) {
+    PythonShell.run('/lightshowpi/py/synchronized_lights.py --file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3', function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
