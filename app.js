@@ -194,24 +194,27 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
+            robot.onMotion = function() {
+              var angle2 = robot.delta.angle;
+              console.log("angle2 = " = angle2);
+
+            }
             if (angle > 0) {
               robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-              robot.onMotion = function() {
-                var angle2 = robot.delta.angle;
-                if (angle2 == 0) {
-                  stop();
-                  done();
-                }
-              }
+                console.log("moving left!");
+                // if (angle2 == 0) {
+                //   stop();
+                //   done();
+                // }
+
             } else if (angle < 0) {
               robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              robot.onMotion = function() {
-                var angle3 = robot.delta.angle;
-                if (angle3 == 0) {
-                  stop();
-                  done();
-                }
-              }
+                console.log("moving right!");
+                // if (angle3 == 0) {
+                //   stop();
+                //   done();
+                // }
+
             } else if (angle === 0) {
               stop();
               done();
