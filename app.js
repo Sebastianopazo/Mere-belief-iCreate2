@@ -240,7 +240,7 @@ function main(r) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
 
-      child_process.execFile('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
+      child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
         if (err) {
         console.log("child processes failed with error code: " + err.code);
       }
@@ -248,10 +248,10 @@ function main(r) {
   };
 
   stopAll = function(){
-      child_process.on('close', (code, signal) => {
-    console.log(
-      `child process terminated due to receipt of signal ${signal}`);
-  });
+        child_process.on('close', (code, signal) => {
+      console.log(
+        `child process terminated due to receipt of signal ${signal}`);
+    });
     child_process.kill('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
