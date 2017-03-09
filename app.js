@@ -194,7 +194,6 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            // console.log("angle = " + angle);
             if (angle > 5) {
               robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
                 console.log("moving left!");
@@ -206,7 +205,7 @@ function main(r) {
             }
             while (1) {
               console.log(angle);
-              if (angle <=5 && angle >= -5 ) {
+              if (angle <=5 || angle >= -5 ) {
                 continue;
               }
                 console.log('Stopped. Fully reset to position 0!');
@@ -250,13 +249,6 @@ function main(r) {
     };
     stop();
   };
-
-  // while (1) {
-  //   console.log("checking!");
-  //   if (angle <=5 && angle >= -5 ) {break;}
-  //     console.log('Stopped. Fully reset to position 0!');
-  // }
-
 
 }
 
