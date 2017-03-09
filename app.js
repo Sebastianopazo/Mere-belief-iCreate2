@@ -109,12 +109,12 @@ function main(r) {
 		}
 	}
 
-	var angle = 0; //Count Angle Changes Using Encoders:
-	robot.onMotion = function() {
-		angle += robot.delta.angle; console.log("Angle:", angle);
-		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
-		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
-	}
+	// var angle = 0; //Count Angle Changes Using Encoders:
+	// robot.onMotion = function() {
+	// 	angle += robot.delta.angle; console.log("Angle:", angle);
+	// 	if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
+	// 	<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
+	// }
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
@@ -199,25 +199,20 @@ function main(r) {
               console.log("angle2 = " + angle2);
 
             }
-            if (angle > 0) {
+            if (angle2 > 5) {
               robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
                 console.log("moving left!");
-                // if (angle2 == 0) {
-                //   stop();
-                //   done();
-                // }
 
-            } else if (angle < 0) {
+            } else if (angle2 < -5) {
               robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
                 console.log("moving right!");
-                // if (angle3 == 0) {
-                //   stop();
-                //   done();
-                // }
 
-            } else if (angle === 0) {
-              stop();
-              done();
+            }
+            while (1) {
+              if (angle2 <=5 && angle2 >= -5 ) {
+                stop();
+                done();
+              }
             }
 
           }, time+100));
