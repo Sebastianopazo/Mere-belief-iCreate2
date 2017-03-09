@@ -247,7 +247,7 @@ function main(r) {
       });
       callback();
     }
-
+    runSingleScript();
   };
 
   stopAll = function(){
