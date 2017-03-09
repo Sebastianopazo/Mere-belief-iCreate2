@@ -248,10 +248,7 @@ function main(r) {
   };
 
   stopAll = function(){
-        child_process.on('close', (code, signal) => {
-      console.log(
-        `child process terminated due to receipt of signal ${signal}`);
-    });
+
     child_process.kill('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
@@ -370,7 +367,7 @@ function handleInput(robot) {
     client.on('play_answer10', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer10...');
-        answerServer(10, 248, 400);
+        answerServer(10, 248, 800);
     });
 
 
