@@ -240,15 +240,18 @@ function main(r) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
 
-      child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
+      var child = child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
         if (err) {
         console.log("child processes failed with error code: " + err.code);
       }
     });
+
+
+
   };
 
   stopAll = function(){
-    child_process.kill('SIGHUP');
+    child.kill('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
     };
