@@ -28,7 +28,6 @@ int main(void)
           data[2] = ~out[j];
           data[1] = ~out[j];
           data[3] = 0x01 << j ;
-          printf(data);
           wiringPiSPIDataRW(0,data,sizeof(data));
           delay(x);
                 }
