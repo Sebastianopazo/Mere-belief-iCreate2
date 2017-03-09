@@ -21,7 +21,7 @@ var create = require('create2');
 var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, tracker, done;
 var timeouts = [];
 var tracker = false;
-const child;
+var child;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
