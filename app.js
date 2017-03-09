@@ -246,10 +246,6 @@ function main(r) {
       console.log(stdout);
     });
 
-    });
-
-
-
   };
 
   stopAll = function(){
