@@ -18,9 +18,10 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, done;
+var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, tracker, done;
 
 var timeouts = [];
+var tracker = false;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -114,6 +115,8 @@ function main(r) {
 		angle += robot.delta.angle; //console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic(); }
+	} else if (tracker==true && angle < 5 && angle > -5) {
+	  console.log("Resetting Position");
 	}
 
 	//Prevent Default Behavior of Buttons in Passive Mode:
@@ -204,15 +207,7 @@ function main(r) {
             //
             // }
             stop();
-            while (1) {
-              console.log(angle);
-              if (angle <=5 || angle >= -5 ) {
-                continue;
-              }
-                console.log('Stopped. Fully reset to position 0!');
-                // stop();
-                // done();
-            }
+            tracker = true;
 
           }, time+100));
 
