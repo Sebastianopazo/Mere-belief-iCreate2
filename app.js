@@ -247,7 +247,7 @@ function main(r) {
     args: []
     };
 
-    PythonShell.run('/py/synchronized_lights.py --file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3', function (err, results) {
+    PythonShell.run('/lightshowpi/synchronized_lights.py --file /var/www/html/Rooomba/audio/answer' + answerNum + '.mp3', function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
