@@ -196,7 +196,7 @@ function main(r) {
           timeouts.push(setTimeout(function() {
             robot.onMotion = function() {
               var angle2 = robot.delta.angle;
-              console.log("angle2 = " = angle2);
+              console.log("angle2 = " + angle2);
 
             }
             if (angle > 0) {
