@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var execFile = require('child_process').execFile();
+var child_process = require('child_process');
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -19,9 +19,9 @@ var Omx = require('node-omxplayer');
 
 var create = require('create2');
 var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, tracker, done;
+
 var timeouts = [];
 var tracker = false;
-var child;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -239,17 +239,20 @@ function main(r) {
   answerServer = function(answerNum, duration, gestureQuantity) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
-    child = execFile('sudo python lightshowpi/py/synchronized_lights.py', ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'], (error, stdout, stderr) => {
-      if (error) {
-        throw error;
-      }
-      console.log(stdout);
-    });
 
+      child_process.execFile('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
+        if (err) {
+        console.log("child processes failed with error code: " + err.code);
+      }
+    });
   };
 
   stopAll = function(){
-    //child.kill('SIGHUP');
+      child_process.on('close', (code, signal) => {
+    console.log(
+      `child process terminated due to receipt of signal ${signal}`);
+  });
+    child_process.kill('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
     };
