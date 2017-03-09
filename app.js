@@ -191,9 +191,9 @@ function main(r) {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
           },
           backAndForthloop = function () {
-            robot.driveSpeed(robot.data.dropLeft?0:150,robot.data.dropRight?0:150);
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
             setTimeout(function(){
-              robot.driveSpeed(robot.data.dropLeft?0:-150,robot.data.dropRight?0:-150);
+              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
             }, gestureDuration/2)
           }
         ];
