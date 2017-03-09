@@ -194,7 +194,7 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            console.log("angle = " + angle);
+            // console.log("angle = " + angle);
             if (angle > 5) {
               robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
                 console.log("moving left!");
@@ -205,7 +205,7 @@ function main(r) {
 
             }
             while (1) {
-              console.log("checking!");
+              console.log(angle);
               if (angle <=5 && angle >= -5 ) {
                 continue;
               }
