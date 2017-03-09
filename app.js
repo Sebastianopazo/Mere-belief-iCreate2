@@ -209,10 +209,9 @@ function main(r) {
 
             }
             while (1) {
-              if (angle2 <=5 && angle2 >= -5 ) {
+              if (angle2 <=5 && angle2 >= -5 ) {break;}
                 stop();
                 done();
-              }
             }
 
           }, time+100));
