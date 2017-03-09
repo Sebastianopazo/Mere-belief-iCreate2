@@ -197,24 +197,23 @@ function main(r) {
             robot.onMotion = function() {
               var angle2 = robot.delta.angle;
               console.log("angle2 = " + angle2);
+              if (angle2 > 5) {
+                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+                  console.log("moving left!");
 
+              } else if (angle2 < -5) {
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+                  console.log("moving right!");
+
+              }
+              while (1) {
+                if (angle2 <=5 && angle2 >= -5 ) {break;}
+                  console.log('Stopped. Fully reset to position 0!')
+                  stop();
+                  done();
+              }
             }
-            if (angle2 > 5) {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-                console.log("moving left!");
-
-            } else if (angle2 < -5) {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-                console.log("moving right!");
-
-            }
-            while (1) {
-              if (angle2 <=5 && angle2 >= -5 ) {break;}
-                console.log('Stopped. Fully reset to position!')
-                stop();
-                done();
-            }
-
+            
           }, time+100));
 
     };
