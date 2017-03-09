@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var child_process = require('child_process');
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -238,7 +239,6 @@ function main(r) {
   answerServer = function(answerNum, duration, gestureQuantity) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
-    var child_process = require('child_process');
 
       child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
         if (err) {
