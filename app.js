@@ -210,6 +210,7 @@ function main(r) {
             }
             while (1) {
               if (angle2 <=5 && angle2 >= -5 ) {break;}
+                console.log('Stopped. Fully reset to position!')
                 stop();
                 done();
             }
