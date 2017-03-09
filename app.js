@@ -125,6 +125,7 @@ function main(r) {
       else if (angle <= 5 && angle >= -5) {
         stop();
         done();
+        tracker = false;
       }
   	}
 	}
