@@ -194,17 +194,17 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
+            if (angle > 5) {
+              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+                console.log("moving left!");
+
+            } else if (angle < -5) {
+              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+                console.log("moving right!");
+
+            }
             console.log("angle = " + angle);
             while (1) {
-              if (angle > 5) {
-                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-                  console.log("moving left!");
-
-              } else if (angle < -5) {
-                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-                  console.log("moving right!");
-
-              }
               if (angle <=5 && angle >= -5 ) {break;}
                 console.log('Stopped. Fully reset to position 0!')
                 stop();
@@ -234,7 +234,7 @@ function main(r) {
     }
 
   answerServer = function(answerNum, duration, gestureQuantity) {
-    player = Omx('audio/answer'+ answerNum +'.mp3');
+    //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
   };
 
