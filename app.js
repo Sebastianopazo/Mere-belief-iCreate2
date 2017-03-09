@@ -125,6 +125,7 @@ function main(r) {
         stop();
         done();
         tracker = false;
+        console.log("Position Reset!");
       }
   	}
 	}
