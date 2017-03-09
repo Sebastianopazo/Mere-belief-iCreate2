@@ -248,6 +248,14 @@ function main(r) {
     };
     stop();
   };
+
+  while (1) {
+    console.log("checking!");
+    if (angle <=5 && angle >= -5 ) {break;}
+      console.log('Stopped. Fully reset to position 0!');
+  }
+
+
 }
 
 
@@ -367,9 +375,3 @@ function handleInput(robot) {
 server.listen(8080, function(){
   console.log('listening on *:8080');
 });
-
-while (1) {
-  console.log("checking!");
-  if (angle <=5 && angle >= -5 ) {break;}
-    console.log('Stopped. Fully reset to position 0!');
-}
