@@ -4,6 +4,7 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var child_process = require('child_process');
+var kill_child_process = require('child_process').kill();
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -249,7 +250,7 @@ function main(r) {
 
   stopAll = function(){
 
-    child_process.kill('SIGHUP');
+    kill_child_process('SIGHUP');
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
     };
