@@ -239,7 +239,7 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var child_process = require('child_process');
 
-      child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer1.mp3', function (err){
+      child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
         if (err) {
         console.log("child processes failed with error code: " + err.code);
       }
