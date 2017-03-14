@@ -175,7 +175,7 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     angle = 0;
     var time = duration*1000;
-    var gestureDuration = 1500;
+    var gestureDuration = time/gestureQuantity;
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
@@ -324,12 +324,12 @@ function handleInput(robot) {
     client.on('play_answer2', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer2...');
-        answerServer(2, 12, 10);
+        answerServer(2, 12, 15);
     });
     client.on('play_answer3', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer3...');
-        answerServer(3, 14, 12);
+        answerServer(3, 14, 16);
     });
     client.on('play_answer4', function(data) {
         console.log(data);
@@ -339,27 +339,27 @@ function handleInput(robot) {
     client.on('play_answer5', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer5...');
-        answerServer(5, 25, 20);
+        answerServer(5, 25, 30);
     });
     client.on('play_answer6', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer6...');
-        answerServer(6, 16, 13);
+        answerServer(6, 16, 18);
     });
     client.on('play_answer7', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer7...');
-        answerServer(7, 17, 14);
+        answerServer(7, 17, 20);
     });
     client.on('play_answer8', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer8...');
-        answerServer(8, 9, 10);
+        answerServer(8, 9, 12);
     });
     client.on('play_answer9', function(data) {
         console.log(data);
         client.emit('messages', 'Requesting Answer9...');
-        answerServer(9, 31, 28);
+        answerServer(9, 31, 35);
     });
 
     client.on('play_answer10', function(data) {
