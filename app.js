@@ -175,7 +175,7 @@ function main(r) {
   function behaviorRandomizer(duration, gestureQuantity) {
     angle = 0;
     var time = duration*1000;
-    var gestureDuration = time/gestureQuantity;
+    var gestureDuration = 1500;
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
