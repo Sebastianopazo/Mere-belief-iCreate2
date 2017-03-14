@@ -179,12 +179,12 @@ function main(r) {
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
-          if (angle >= -30) {
+          if (angle >= -15) {
             robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
             }
           },
         turnLeft1 = function() {
-          if (angle <= 30 ) {
+          if (angle <= 15 ) {
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
             }
           },
