@@ -112,7 +112,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; console.log("Angle:", angle);
+		angle += robot.delta.angle; //console.log("Angle:", angle);
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic();
     }else if (tracker==true && (angle < 10 || angle > -10)) {
@@ -126,6 +126,7 @@ function main(r) {
         stop();
         done();
         tracker = false;
+        console.log(tracker);
         console.log("Position Reset!");
       }
   	}
@@ -173,7 +174,7 @@ function main(r) {
 
   //randomize behaviors for sound files
   function behaviorRandomizer(duration, gestureQuantity) {
-    
+
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
@@ -213,6 +214,7 @@ function main(r) {
               done();
             }
             tracker = true;
+            console.log(tracker);
 
           }, time+100));
 
