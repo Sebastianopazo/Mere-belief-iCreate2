@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+
 //Initiate communication with robot via socket.io
 var express = require('express');
 var app = express();
