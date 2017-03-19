@@ -249,13 +249,11 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
       mode: 'text',
-      pythonPath: '/lightshowpi/py/',
       pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
-      scriptPath: '/lightshowpi/py/',
       //args: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
 
-    PythonShell.run('synchronized_lights.py', options, function (err, results) {
+    PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
