@@ -255,7 +255,7 @@ function main(r) {
       //args: ['value1', 'value2', 'value3']
     };
 
-    PythonShell.run('synchronized_lights.py', function (err, results) {
+    PythonShell.run('synchronized_lights.py', options, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
