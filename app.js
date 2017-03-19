@@ -249,23 +249,17 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
       mode: 'text',
-      pythonPath: '/var/www/html/Roomba/lightshowpi/py',
+      pythonPath: 'lightshowpi/py',
       pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
-      scriptPath: '/var/www/html/Roomba/lightshowpi/py',
+      scriptPath: 'lightshowpi/py',
       //args: ['value1', 'value2', 'value3']
     };
 
-    PythonShell.run('lightshowpi/py/synchronized_lights.py', '--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err, results) {
+    PythonShell.run('synchronized_lights.py', function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
     });
-
-    //   child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
-    //     if (err) {
-    //     console.log("child processes failed with error code: " + err.code);
-    //   }
-    // });
   };
 
   stopAll = function(){
