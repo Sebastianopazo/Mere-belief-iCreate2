@@ -250,9 +250,9 @@ function main(r) {
     var options = {
       mode: 'text',
       pythonPath: 'lightshowpi/py',
-      pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
+      //pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
       scriptPath: 'lightshowpi/py',
-      //args: ['value1', 'value2', 'value3']
+      args: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
 
     PythonShell.run('synchronized_lights.py', options, function (err, results) {
