@@ -249,7 +249,7 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
       mode: 'text',
-      //pythonPath: '/var/www/html/Roomba/lightshowpi/py',
+      pythonPath: '/var/www/html/Roomba/lightshowpi/py',
       pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
       scriptPath: '/var/www/html/Roomba/lightshowpi/py',
       //args: ['value1', 'value2', 'value3']
