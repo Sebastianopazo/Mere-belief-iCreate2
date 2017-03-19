@@ -21,7 +21,7 @@ var Omx = require('node-omxplayer');
 //ROBOT Communication and Behaviors
 
 var create = require('create2');
-var start, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, tracker, done;
+var start, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, backAndForthloop, tracker, done;
 
 var timeouts = [];
 var tracker = false;
@@ -56,10 +56,10 @@ function main(r) {
 			if(chg.lightBumper || chg.bumpLeft || chg.bumpRight || chg.dropLeft || chg.dropRight || chg.clean || chg.docked) {
 				driveLogic(); //Run drive logic only when sensor values change.
 			}
-			//Charging Station Detected! Since it's in front of the robot anyway... Start Auto-Docking!
-			if(robot.data.irLeft == 172 || robot.data.irRight == 172) {
-				robot.drive(0,0); run = -1; robot.showText("SEEK", 500, false, robot.autoDock);
-			}
+			// //Charging Station Detected! Since it's in front of the robot anyway... Start Auto-Docking!
+			// if(robot.data.irLeft == 172 || robot.data.irRight == 172) {
+			// 	robot.drive(0,0); run = -1; robot.showText("SEEK", 500, false, robot.autoDock);
+			// }
 		} else if(robot.data.mode == 1) { //PASSIVE mode:
 			if(chg.clean && robot.data.clean) { //Clean Pressed:
 				if(robot.data.docked) robot.clean(); //Start backing up if clean pressed while docked.
@@ -240,6 +240,9 @@ function main(r) {
   turnLeft = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
     }
+  dock = function() {
+    robot.autoDock();
+  }
 
   answerServer = function(answerNum, duration, gestureQuantity) {
     //player = Omx('audio/answer'+ answerNum +'.mp3');
@@ -279,8 +282,6 @@ function handleInput(robot) {
 	});
 }
 
-
-
 //Functions from client (browser app)
 
   io.on('connection', function(client) {
@@ -294,6 +295,12 @@ function handleInput(robot) {
         console.log(data);
         client.emit('messages', 'Roombokita Session Connected!');
         start();
+    });
+
+    client.on('dock', function(data) {
+        console.log(data);
+        client.emit('messages', 'Starting docking sequence...');
+        dock();
     });
 
     client.on('move', function(data) {
