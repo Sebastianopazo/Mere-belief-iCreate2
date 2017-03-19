@@ -6,7 +6,8 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var child_process = require('child_process');
+// var child_process = require('child_process');
+var PythonShell = require('python-shell');
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -245,14 +246,26 @@ function main(r) {
   }
 
   answerServer = function(answerNum, duration, gestureQuantity) {
-    //player = Omx('audio/answer'+ answerNum +'.mp3');
     behaviorRandomizer(duration, gestureQuantity);
+    var options = {
+      mode: 'text',
+      pythonPath: '/var/www/html/Roomba/lightshowpi/py',
+      pythonOptions: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
+      scriptPath: '/var/www/html/Roomba/lightshowpi/py',
+      //args: ['value1', 'value2', 'value3']
+    };
 
-      child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
-        if (err) {
-        console.log("child processes failed with error code: " + err.code);
-      }
+    PythonShell.run('synchronized_lights.py', options, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+      console.log('results: %j', results);
     });
+
+    //   child_process.exec('sudo python lightshowpi/py/synchronized_lights.py --file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3', function (err){
+    //     if (err) {
+    //     console.log("child processes failed with error code: " + err.code);
+    //   }
+    // });
   };
 
   stopAll = function(){
