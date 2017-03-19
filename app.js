@@ -249,7 +249,6 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
       mode: 'text',
-      //pythonOptions: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
       args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
 
@@ -265,6 +264,9 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
+    var pyshell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
+    // sends a message to the Python script via stdin
+    pyshell.send(signal.SIGINT);
   };
 
 }
