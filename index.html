@@ -38,9 +38,12 @@
         <div class="section">
           <h4 class="purple-text text-darken-3 center-align">Manual Control</h4>
           <div class="row">
-            <div class="col s12 center">
+            <div class="col s6 center">
               <a id="connect" class="waves-effect waves-light btn-large green lighten-2" onclick = "clientConnect()"><i class="material-icons left">settings_input_antenna</i>Connect to Roomba</a>
               <div>STATUS: <span id="status">Disconnected</span><img id="greenLight" class="light" src="img/green_light.png" alt=""><img id="redLight"class="light" src="img/red_light.png" alt=""></div>
+            </div>
+            <div class="col s6 center">
+              <a class="waves-effect waves-purple btn-large  orange lighten-1 answer" onclick= "dock()"><i class="material-icons left">play_arrow</i>Dock Roomba</a>
             </div>
           </div>
             <div id="controls">
@@ -161,27 +164,31 @@ socket.io.on('connect_error', function(err) {
 });
 
 function clientConnect() {
-  socket.emit('start', 'Connecting...')
+  socket.emit('start', 'Connecting...');
+}
+
+function dock() {
+  socket.emit('dock', 'Docking...');
 }
 
 function moveForward () {
-  socket.emit('move', 'Requesting action...')
+  socket.emit('move', 'Requesting action...');
 }
 
 function stopMove () {
-  socket.emit('stop', 'Requesting action...')
+  socket.emit('stop', 'Requesting action...');
 }
 
 function moveBackward () {
-  socket.emit('back', 'Requesting action...')
+  socket.emit('back', 'Requesting action...');
 }
 
 function rightRotation () {
-  socket.emit('turn_right', 'Requesting action...')
+  socket.emit('turn_right', 'Requesting action...');
 }
 
 function leftRotation () {
-  socket.emit('turn_left', 'Requesting action...')
+  socket.emit('turn_left', 'Requesting action...');
 }
 
 function answerClient(number) {
