@@ -249,9 +249,9 @@ function main(r) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
       mode: 'text',
-      pythonPath: '/lightshowpi/py',
+      pythonPath: '/lightshowpi/py/',
       pythonOptions: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3'],
-      scriptPath: '/lightshowpi/py',
+      scriptPath: '/lightshowpi/py/',
       //args: ['file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
 
