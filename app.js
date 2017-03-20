@@ -266,7 +266,7 @@ function main(r) {
     stop();
     var pyshell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
     // sends a message to the Python script via stdin
-    pyshell.send("exit()");
+    pyshell.send("\x03");
   };
 
 }
