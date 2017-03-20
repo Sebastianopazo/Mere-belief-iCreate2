@@ -265,7 +265,7 @@ function main(r) {
     };
     stop();
     var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py', { mode: 'text '});
-    shell.send('\x03');
+    shell.send('exit');
   };
 
 }
