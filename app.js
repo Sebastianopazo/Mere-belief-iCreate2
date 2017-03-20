@@ -264,9 +264,7 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var pyshell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
-    // sends a message to the Python script via stdin
-    pyshell.send("\x03");
+    PythonShell.childProcess.kill('SIGINT');
   };
 
 }
