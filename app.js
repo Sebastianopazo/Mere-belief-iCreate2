@@ -245,6 +245,10 @@ function main(r) {
   dock = function() {
     robot.autoDock();
   }
+  unDock = function(){
+    run = 0;
+  }
+
 
   answerServer = function(answerNum, duration, gestureQuantity) {
     behaviorRandomizer(duration, gestureQuantity);
@@ -306,6 +310,12 @@ function handleInput(robot) {
         console.log(data);
         client.emit('messages', 'Starting docking sequence...');
         dock();
+    });
+
+    client.on('Undock', function(data) {
+        console.log(data);
+        client.emit('messages', 'Undocked. You can move!');
+        unDock();
     });
 
     client.on('move', function(data) {
