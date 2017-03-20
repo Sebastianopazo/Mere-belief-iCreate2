@@ -265,7 +265,7 @@ function main(r) {
     };
     stop();
     var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
-    shell.childProcess.kill();
+    shell.childProcess.kill('SIGINT');
   };
 
 }
