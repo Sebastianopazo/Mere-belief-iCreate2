@@ -8,6 +8,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var child_process = require('child_process');
 var PythonShell = require('python-shell');
+var terminate = require('terminate');
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -265,7 +266,16 @@ function main(r) {
     };
     stop();
     var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
-    shell.childProcess.kill('SIGINT');
+    // shell.childProcess.kill('SIGINT');
+    terminate(shell, function (err) {
+      if (err) { // you will get an error if you did not supply a valid process.pid
+        console.log("Oopsy: " + err); // handle errors in your preferred way.
+      }
+      else {
+        console.log('done'); // terminating the Processes succeeded.
+      }
+    });
+
   };
 
 }
