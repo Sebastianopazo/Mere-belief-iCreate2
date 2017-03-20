@@ -186,12 +186,11 @@ function main(r) {
         turnRight1 = function() {
           console.log('turnRight!');
           robot.onMotion = function() {
-              var angle2;
-              angle2 += robot.delta.angle; //console.log("Angle:", angle);
-              console.log("Angle is" + angle2);
-              if (angle2 > -19) {
+              angle += robot.delta.angle; //console.log("Angle:", angle);
+              console.log("Angle is" + angle);
+              if (angle > -19) {
                 robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              } else if (angle2 <= -20) {
+              } else if (angle <= -20) {
                 stop();
                 console.log('turnedright stop!');
               }
