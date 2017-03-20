@@ -264,7 +264,7 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    PythonShell.childProcess.kill('SIGINT');
+    PythonShell.kill('SIGINT');
   };
 
 }
