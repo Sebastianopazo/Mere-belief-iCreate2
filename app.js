@@ -251,8 +251,8 @@ function main(r) {
       mode: 'text',
       args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
-
-    PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
+    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
+    shell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
@@ -264,7 +264,6 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
     shell.childProcess.kill('SIGINT');
   };
 
