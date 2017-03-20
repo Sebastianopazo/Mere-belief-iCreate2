@@ -264,7 +264,7 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var shell = new PythonShell('synchronized_lights.py');
+    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
     shell.childProcess.kill();
   };
 
