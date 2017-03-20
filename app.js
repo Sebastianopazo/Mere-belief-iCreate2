@@ -265,7 +265,7 @@ function main(r) {
     };
     stop();
     var shell = new PythonShell('synchronized_lights.py');
-    shell.child_process.kill();
+    shell.childProcess.kill();
   };
 
 }
