@@ -8,7 +8,6 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var child_process = require('child_process');
 var PythonShell = require('python-shell');
-var terminate = require('terminate');
 
 app.use(express.static(__dirname + '/node_modules'));
 app.get('/', function(req, res,next) {
@@ -185,9 +184,18 @@ function main(r) {
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
-          if (angle >= -15) {
-            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-            }
+          console.log('turnRight!');
+          robot.onMotion = function() {
+              if (angle > -19) {
+                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+              } else if (angle <= -20) {
+                stop();
+                console.log('turnedright stop!');
+              }
+        	}
+          // if (angle >= -15) {
+          //   robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+          //   }
           },
         turnLeft1 = function() {
           if (angle <= 15 ) {
