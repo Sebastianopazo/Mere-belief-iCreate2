@@ -27,6 +27,7 @@ var start, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForw
 
 var timeouts = [];
 var tracker = false;
+const shell;
 
 start = function () {
 	create.prompt(function(p){create.open(p,main)});
@@ -253,10 +254,11 @@ function main(r) {
       args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
 
-    PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
+    shell = PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
       console.log('results: %j', results);
+      console.log(shell.pid);
     });
   };
 
@@ -265,7 +267,7 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
+    //var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
     // shell.childProcess.kill('SIGINT');
     terminate(shell.pid, function (err) {
       if (err) { // you will get an error if you did not supply a valid process.pid
