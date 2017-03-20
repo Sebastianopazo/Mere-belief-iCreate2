@@ -190,7 +190,7 @@ function main(r) {
               console.log("Angle is" + angle);
               if (angle > -19) {
                 robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              } else if (angle <= -20) {
+              }  else if (angle >= 20) {
                 stop();
                 console.log('turneright stop!');
               }
@@ -206,7 +206,7 @@ function main(r) {
               console.log("Angle is" + angle);
               if (angle < 19) {
                 robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-              } else if (angle >= 20) {
+              } else if (angle <= -20) {
                 stop();
                 console.log('turneLeft stop!');
               }
