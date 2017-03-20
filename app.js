@@ -264,8 +264,9 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var shell = new PythonShell('script.py', { mode: 'json '});
-    shell.send({ command: "exit()" })
+    var pyshell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
+    // sends a message to the Python script via stdin
+    pyshell.send("exit()");
   };
 
 }
