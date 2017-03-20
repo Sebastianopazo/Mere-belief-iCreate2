@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var child_process = require('child_process');
+var childProcess = require('child_process');
 var PythonShell = require('python-shell');
 
 app.use(express.static(__dirname + '/node_modules'));
@@ -265,7 +265,7 @@ function main(r) {
     };
     stop();
     var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
-    shell.child_process.kill('SIGINT');
+    shell.childProcess.kill();
   };
 
 }
