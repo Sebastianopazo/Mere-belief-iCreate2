@@ -185,11 +185,13 @@ function main(r) {
     var gesture = [
         turnRight1 = function() {
           console.log('turnRight!');
-          console.log("Angle is" + angle);
           robot.onMotion = function() {
-              if (angle > -19) {
+              var angle2;
+              angle2 += robot.delta.angle; //console.log("Angle:", angle);
+              console.log("Angle is" + angle2);
+              if (angle2 > -19) {
                 robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              } else if (angle <= -20) {
+              } else if (angle2 <= -20) {
                 stop();
                 console.log('turnedright stop!');
               }
