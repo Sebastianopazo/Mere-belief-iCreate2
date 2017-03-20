@@ -264,7 +264,7 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py', { mode: 'binary'});
+    var shell = new PythonShell('synchronized_lights.py', { mode: 'text'});
     shell.send('exit');
   };
 
