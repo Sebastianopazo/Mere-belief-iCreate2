@@ -184,36 +184,14 @@ function main(r) {
     timeouts = [];
     var gesture = [
         turnRight1 = function() {
-          console.log('turnRight!');
-          robot.onMotion = function() {
-              angle += robot.delta.angle; //console.log("Angle:", angle);
-              console.log("Angle is" + angle);
-              if (angle > -19) {
-                robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              }  else if (angle >= 20) {
-                stop();
-                console.log('turneright stop!');
-              }
-        	}
-          // if (angle >= -15) {
-          //   robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-          //   }
+          if (angle >= -15) {
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            }
           },
         turnLeft1 = function() {
-          console.log('left!');
-          robot.onMotion = function() {
-              angle += robot.delta.angle; //console.log("Angle:", angle);
-              console.log("Angle is" + angle);
-              if (angle < 19) {
-                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-              } else if (angle <= -20) {
-                stop();
-                console.log('turneLeft stop!');
-              }
-          }
-          // if (angle <= 15 ) {
-          //   robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-          //   }
+          if (angle <= 15 ) {
+            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+            }
           },
           stop1 = function() {
               robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
