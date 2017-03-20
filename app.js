@@ -267,7 +267,7 @@ function main(r) {
     stop();
     var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py');
     // shell.childProcess.kill('SIGINT');
-    terminate(shell, function (err) {
+    terminate(shell.pid, function (err) {
       if (err) { // you will get an error if you did not supply a valid process.pid
         console.log("Oopsy: " + err); // handle errors in your preferred way.
       }
