@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var childProcess = require('child_process');
+// var child_process = require('child_process');
 var PythonShell = require('python-shell');
 
 app.use(express.static(__dirname + '/node_modules'));
@@ -251,12 +251,11 @@ function main(r) {
       mode: 'text',
       args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
     };
+
     PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
-      if (results =! null) {
-          console.log('results: %j', results);
-      }
+      console.log('results: %j', results);
     });
   };
 
@@ -265,12 +264,8 @@ function main(r) {
       clearTimeout(timeouts[i]);
     };
     stop();
-    var options2 = {
-      mode: 'text',
-      args: ['--file=/var/www/html/Roomba/audio/answer1.mp3']
-    };
-    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py', options2);
-    shell.childProcess.kill('SIGINT');
+    var shell = new PythonShell('/lightshowpi/py/synchronized_lights.py', { mode: 'text '});
+    shell.send('\x03');
   };
 
 }
