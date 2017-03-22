@@ -286,7 +286,9 @@ function handleInput(robot) {
 
 		} else if(text == "s") {
 			turnRobot();//stop turn.
-		}
+		} else if (text =="p"){
+      speakServer();
+    }
 	});
 }
 
