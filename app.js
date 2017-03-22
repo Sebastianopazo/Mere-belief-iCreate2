@@ -417,9 +417,6 @@ server.listen(8080, function(){
 
 var say = require('say');
 
-// Stop the text currently being spoken
-say.stop();
-
 // Fire a callback once the text has completed being spoken
 
 function speakServer() {
