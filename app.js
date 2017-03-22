@@ -274,21 +274,21 @@ function main(r) {
 
 
 
-function handleInput(robot) {
-	//Process user input, quit on 'exit'
-	const rl = require('readline').createInterface
-	({input:process.stdin, output:process.stdout});
-	rl.on('line', function(text) {
-		if(text == "exit" || text == "quit") {
-			console.log("Exiting..."); process.exit();
-		} else if(text == "t") {
-		   turnRobot(); //Turn Robot.
-
-		} else if(text == "s") {
-			turnRobot();//stop turn.
-		}
-	});
-}
+// function handleInput(robot) {
+// 	//Process user input, quit on 'exit'
+// 	const rl = require('readline').createInterface
+// 	({input:process.stdin, output:process.stdout});
+// 	rl.on('line', function(text) {
+// 		if(text == "exit" || text == "quit") {
+// 			console.log("Exiting..."); process.exit();
+// 		} else if(text == "t") {
+// 		   turnRobot(); //Turn Robot.
+//
+// 		} else if(text == "s") {
+// 			turnRobot();//stop turn.
+// 		}
+// 	});
+// }
 
 //Functions from client (browser app)
 
@@ -423,9 +423,7 @@ say.stop();
 // Fire a callback once the text has completed being spoken
 
 function speakServer() {
-  say.speak('whats up, dog?', 'Victoria', 1.0, function(err) {
-    if (err) {
-      return console.error(err);
+  say.speak('Hello!');
     }
 
     console.log('Text has been spoken.');
