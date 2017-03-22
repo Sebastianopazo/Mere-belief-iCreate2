@@ -425,3 +425,5 @@ say.stop();
 function speakServer() {
   say.speak('Hello Eddie!');
 }
+
+ speakServer();
