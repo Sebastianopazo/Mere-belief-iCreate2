@@ -423,9 +423,5 @@ say.stop();
 // Fire a callback once the text has completed being spoken
 
 function speakServer() {
-  say.speak('Hello!');
-    }
-
-    console.log('Text has been spoken.');
-  });
+  say.speak('Hello Eddie!');
 }
