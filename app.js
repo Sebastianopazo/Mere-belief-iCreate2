@@ -290,6 +290,15 @@ function handleInput(robot) {
 	});
 }
 
+//Testing Text to speech functions;
+
+var say = require('say');
+
+// Fire a callback once the text has completed being spoken
+
+function speakServer() {
+  say.speak('Hello!', 'voice_kal_diphone');
+}
 //Functions from client (browser app)
 
   io.on('connection', function(client) {
@@ -410,15 +419,3 @@ function handleInput(robot) {
 server.listen(8080, function(){
   console.log('listening on *:8080');
 });
-
-
-
-//Testing Text to speech functions;
-
-var say = require('say');
-
-// Fire a callback once the text has completed being spoken
-
-function speakServer() {
-  say.speak('Hello!');
-}
