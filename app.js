@@ -423,7 +423,12 @@ say.stop();
 // Fire a callback once the text has completed being spoken
 
 function speakServer() {
-  say.speak('Hello Eddie!');
-}
+  // Fire a callback once the text has completed being spoken
+say.speak('whats up, dog?', 'Good News', 1.0, function(err) {
+  if (err) {
+    return console.error(err);
+  }
 
- speakServer();
+  console.log('Text has been spoken.');
+});
+}
