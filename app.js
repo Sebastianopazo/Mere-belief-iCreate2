@@ -394,11 +394,15 @@ function handleInput(robot) {
         answerServer(10, 248, 800);
     });
 
-
     client.on('stopAll', function(data) {
         console.log(data);
         client.emit('messages', 'Aborted!');
         stopAll();
+    });
+    client.on('speak', function(data) {
+        console.log(data);
+        client.emit('messages', 'Speaking!');
+        speakServer();
     });
 
   });
@@ -406,3 +410,24 @@ function handleInput(robot) {
 server.listen(8080, function(){
   console.log('listening on *:8080');
 });
+
+
+
+//Testing Text to speech functions;
+
+var say = require('say');
+
+// Stop the text currently being spoken
+say.stop();
+
+// Fire a callback once the text has completed being spoken
+
+function speakServer() {
+  say.speak('whats up, dog?', 'Victoria', 1.0, function(err) {
+    if (err) {
+      return console.error(err);
+    }
+
+    console.log('Text has been spoken.');
+  });
+}
