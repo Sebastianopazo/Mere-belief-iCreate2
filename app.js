@@ -287,7 +287,7 @@ function handleInput(robot) {
 		} else if(text == "s") {
 			turnRobot();//stop turn.
 		} else if (text =="p"){
-      speakServer();
+      poto();
     }
 	});
 }
@@ -298,8 +298,8 @@ var say = require('say');
 
 // Fire a callback once the text has completed being spoken
 
-function speakServer() {
-  say.speak('Hello!', 'voice_kal_diphone');
+var poto = function () {
+  say.speak('Hello!');
 }
 //Functions from client (browser app)
 
