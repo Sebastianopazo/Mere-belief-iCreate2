@@ -146,7 +146,7 @@ var create = require('create2'); //Add node module for the create 2 robot
 
 //-- 3.1 -- ROBOT Create variables to keep everything global
 
-var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answerServer, behaviorRandomizer, backAndForthloop, done;
+var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
 var timeouts = [];
 var tracker = false;
 var angle = 0;
@@ -237,7 +237,6 @@ function main(r) {
         console.log('off boundaries! stop!');
       }
     }
-    boundaries();
     //Reposition after behaviors are done;
     function reposition () {
       if (tracker==true && (angle < 5 || angle > -5)) {
@@ -258,6 +257,7 @@ function main(r) {
     	}
     }
     reposition ();
+    boundaries();
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
       var time = duration*1000;
