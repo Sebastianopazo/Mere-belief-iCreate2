@@ -105,7 +105,7 @@
           <h4 class="purple-text text-darken-3 center-align">Write message on the form</h4>
           <div class="col 12 center">
             <input id="inputText" type="text"/>
-            <a id="submitText" class="waves-effect waves-purple btn-large purple darken-2" onclick= "speakClient()"><i class="material-icons left">unarchive</i>Submit</a>
+            <a id="submitText" class="waves-effect waves-purple btn-large purple darken-2" onclick= "speak()"><i class="material-icons left">unarchive</i>Submit</a>
           </div>
           <div class="col s6">
             <div class="col s8 center">
@@ -206,23 +206,23 @@ function speakClient() {
 }
 
 function moveForward () {
-  socket.emit('move'//, 'Requesting action...');
+  socket.emit('move', 'Requesting action...');
 }
 
 function stopMove () {
-  socket.emit('stop'//, 'Requesting action...');
+  socket.emit('stop', 'Requesting action...');
 }
 
 function moveBackward () {
-  socket.emit('back'//, 'Requesting action...');
+  socket.emit('back', 'Requesting action...');
 }
 
 function rightRotation () {
-  socket.emit('turn_right'//, 'Requesting action...');
+  socket.emit('turn_right', 'Requesting action...');
 }
 
 function leftRotation () {
-  socket.emit('turn_left'//, 'Requesting action...');
+  socket.emit('turn_left', 'Requesting action...');
 }
 
 function answerClient(number) {
