@@ -240,6 +240,13 @@ function main(r) {
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
 		angle += robot.delta.angle; //console.log("Angle:", angle);
+    function boundaries () {
+      if (angle > 15) {
+        stop();
+      } else if (angle < -15) {
+        stop();
+      }
+    }
 
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
@@ -287,7 +294,7 @@ function main(r) {
             }, time+100));
 
       };
-
+    //Reposition after behaviors are done;
 		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
 		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic();
     }else if (tracker==true && (angle < 10 || angle > -10)) {
@@ -420,23 +427,3 @@ var say = require('say');
 var speakServer = function () {
   say.speak('Hello!');
 }
-
-
-// robot.onMotion = function() {
-//   var angle2 += robot.delta.angle;
-//   // for loop checks every 0.1 seconds for the duration of the gesture;
-//
-// }
-//
-//
-// robot.onMotion = function() {
-//   var angle2 += robot.delta.angle;
-//   // for loop checks every 0.1 seconds for the duration of the gesture;
-//   gestureDuration
-//   for (var i = 0; i < array.length; i++//fix here) {
-//     if (angle2 >= 15) {
-//       //stop
-//     } else {
-//       //move left
-//     }
-//   }
