@@ -160,7 +160,6 @@ start = function () {
 
 //Main Program:
 function main(r) {
-  console.log('tracker2 is '+ tracker2);
 	robot = r; handleInput(robot);
 
 	//Enter Full Mode:
@@ -232,7 +231,6 @@ function main(r) {
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
       if (tracker2 === true) {
-        console.log('tracker2 is '+ tracker2);
         if (angle > 15) {
           stop();
           console.log('off boundaries! stop!');
@@ -251,8 +249,6 @@ function main(r) {
           stop();
           done();
           tracker = false;
-          console.log(tracker);
-          console.log("tracker is " + tracker);
           console.log("Position Reset!");
         }
     	}
@@ -262,7 +258,6 @@ function main(r) {
   behaviorRandomizer = function (duration, gestureQuantity) {
     tracker2 = true;
     angle = 0;
-    console.log("tracker is " + tracker);
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
@@ -303,8 +298,6 @@ function main(r) {
             }
             tracker = true;
             tracker2 = false;
-            console.log("tracker is " + tracker);
-            console.log("tracker2 is " + tracker2);
             robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
           }, time+100));
 
