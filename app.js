@@ -260,7 +260,7 @@ function main(r) {
 
   //randomize behaviors for sound files
   behaviorRandomizer = function (duration, gestureQuantity) {
-    tracker2 = true;
+    //tracker2 = true;
     angle = 0;
     console.log("tracker is " + tracker);
     var time = duration*1000;
