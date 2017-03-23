@@ -388,6 +388,7 @@ function main(r) {
     };
     stop();
     shell.childProcess.kill('SIGINT');
+    tracker2 = false;
   };
 
 }
