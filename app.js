@@ -160,6 +160,7 @@ start = function () {
 
 //Main Program:
 function main(r) {
+  console.log('tracker2 is '+ tracker2);
 	robot = r; handleInput(robot);
 
 	//Enter Full Mode:
@@ -239,10 +240,7 @@ function main(r) {
           console.log('off boundaries! stop!');
         }
       }
-    //Reposition after behaviors are done;
-    function reposition () {
 
-    }
       if (tracker==true && (angle < 5 || angle > -5)) {
     	  console.log("Resetting Position");
         if (angle > 10) {
