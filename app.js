@@ -149,6 +149,7 @@ var create = require('create2'); //Add node module for the create 2 robot
 var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
 var timeouts = [];
 var tracker = false;
+var tracker2 = false;
 var angle = 0;
 
 //Initiate dialog to choose connection method
@@ -228,12 +229,14 @@ function main(r) {
 
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
-      if (angle > 15) {
-        stop();
-        console.log('off boundaries! stop!');
-      } else if (angle < -15) {
-        stop();
-        console.log('off boundaries! stop!');
+      if (tracker2 = true) {
+        if (angle > 15) {
+          stop();
+          console.log('off boundaries! stop!');
+        } else if (angle < -15) {
+          stop();
+          console.log('off boundaries! stop!');
+        }
       }
     //Reposition after behaviors are done;
       if (tracker==true && (angle < 5 || angle > -5)) {
@@ -256,6 +259,7 @@ function main(r) {
 
   //randomize behaviors for sound files
   behaviorRandomizer = function (duration, gestureQuantity) {
+    tracker2 = true;
     angle = 0;
     console.log("tracker is " + tracker);
     var time = duration*1000;
@@ -297,7 +301,9 @@ function main(r) {
               done();
             }
             tracker = true;
+            tracker2 = false;
             console.log("tracker is " + tracker);
+            console.log("tracker2 is " + tracker2);
           }, time+100));
 
     };
