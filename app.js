@@ -24,6 +24,7 @@ server.listen(8080, function(){
 
     done = function(){
       client.emit('messages', 'Done!');
+      console.log('Done!');
     };
 
     client.on('start', function(data) {
@@ -239,7 +240,8 @@ function main(r) {
         }
       }
     //Reposition after behaviors are done;
-      if (tracker==true && (angle < 5 || angle > -5)) {
+    function reposition () {
+      if (angle < 5 || angle > -5) {
     	  console.log("Resetting Position");
         if (angle > 10) {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
@@ -249,19 +251,16 @@ function main(r) {
         else if (angle <= 5 && angle >= -5) {
           stop();
           done();
-          tracker = false;
-          console.log(tracker);
-          console.log("tracker is " + tracker);
           console.log("Position Reset!");
         }
     	}
+    }
 	}
 
   //randomize behaviors for sound files
   behaviorRandomizer = function (duration, gestureQuantity) {
     tracker2 = true;
     angle = 0;
-    console.log("tracker is " + tracker);
     var time = duration*1000;
     var gestureDuration = time/gestureQuantity;
     timeouts = [];
@@ -296,14 +295,13 @@ function main(r) {
           }, addedTime));
       };
           timeouts.push(setTimeout(function() {
-            if (angle < 3 || angle < -3) {
+            if (angle < 5 || angle < -5) {
               stop();
               done();
             }
-            tracker = true;
+            reposition ();
             tracker2 = false;
-            console.log("tracker is " + tracker);
-            console.log("tracker2 is " + tracker2);
+            console.log("tracker2 is " + tracker);
           }, time+100));
 
     };
