@@ -232,6 +232,7 @@ function main(r) {
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
       if (tracker2 = true) {
+        console.log('tracker2 is '+ tracker2);
         if (angle > 15) {
           stop();
           console.log('off boundaries! stop!');
@@ -239,9 +240,7 @@ function main(r) {
           stop();
           console.log('off boundaries! stop!');
         }
-      }
-
-      if (tracker==true && (angle < 5 || angle > -5)) {
+      } else if (tracker==true && (angle < 5 || angle > -5)) {
     	  console.log("Resetting Position");
         if (angle > 10) {
           robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
