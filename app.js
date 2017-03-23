@@ -146,7 +146,7 @@ var create = require('create2'); //Add node module for the create 2 robot
 
 //-- 3.1 -- ROBOT Create variables to keep everything global
 
-var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, tracker, done;
+var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
 var timeouts = [];
 var tracker = false;
 
