@@ -247,6 +247,7 @@ function main(r) {
         stop();
       }
     }
+    boundaries();
     //Reposition after behaviors are done;
 		if (tracker==true && (angle < 5 || angle > -5)) {
   	  console.log("Resetting Position");
