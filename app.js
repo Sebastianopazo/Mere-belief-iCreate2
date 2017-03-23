@@ -243,7 +243,7 @@ function main(r) {
         } else if (angle < -10) {
           robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
         }
-        else if (angle <= 10 && angle >= -10) {
+        else if (angle <= 5 && angle >= -5) {
           stop();
           done();
           tracker = false;
@@ -252,56 +252,55 @@ function main(r) {
           console.log("Position Reset!");
         }
     	}
-
-    //randomize behaviors for sound files
-    behaviorRandomizer = function (duration, gestureQuantity) {
-      angle = 0;
-      console.log("tracker is " + tracker);
-      var time = duration*1000;
-      var gestureDuration = time/gestureQuantity;
-      timeouts = [];
-      var gesture = [
-          turnRighRandom = function() {
-            if (angle >= -15) {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-              }
-            },
-          turnLeftRandom = function() {
-            if (angle <= 15 ) {
-              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-              }
-            },
-            stopRandom = function() {
-                robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-            },
-            backAndForthloop = function () {
-              robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
-              setTimeout(function(){
-                robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
-              }, gestureDuration/2)
-            }
-          ];
-      var r = new randomGenerator(gesture.length-1);
-      var text = new randomGenerator(characters.length-1);
-      for (var i = 0; i < gestureQuantity; i++) {
-          var addedTime = gestureDuration*i;
-            timeouts.push(setTimeout(function() {
-              gesture[r.get()]();
-              robot.showText(characters[text.get()], 50, true);
-            }, addedTime));
-        };
-            timeouts.push(setTimeout(function() {
-              if (angle < 3 || angle < -3) {
-                stop();
-                done();
-              }
-              tracker = true;
-              console.log("tracker is " + tracker);
-            }, time+100));
-
-      };
 	}
 
+  //randomize behaviors for sound files
+  behaviorRandomizer = function (duration, gestureQuantity) {
+    angle = 0;
+    console.log("tracker is " + tracker);
+    var time = duration*1000;
+    var gestureDuration = time/gestureQuantity;
+    timeouts = [];
+    var gesture = [
+        turnRighRandom = function() {
+          if (angle >= -15) {
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+            }
+          },
+        turnLeftRandom = function() {
+          if (angle <= 15 ) {
+            robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+            }
+          },
+          stopRandom = function() {
+              robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+          },
+          backAndForthloop = function () {
+            robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+            setTimeout(function(){
+              robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
+            }, gestureDuration/2)
+          }
+        ];
+    var r = new randomGenerator(gesture.length-1);
+    var text = new randomGenerator(characters.length-1);
+    for (var i = 0; i < gestureQuantity; i++) {
+        var addedTime = gestureDuration*i;
+          timeouts.push(setTimeout(function() {
+            gesture[r.get()]();
+            robot.showText(characters[text.get()], 50, true);
+          }, addedTime));
+      };
+          timeouts.push(setTimeout(function() {
+            if (angle < 3 || angle < -3) {
+              stop();
+              done();
+            }
+            tracker = true;
+            console.log("tracker is " + tracker);
+          }, time+100));
+
+    };
   //GENERAL RANDOMIZER
   // if only one argument is passed, it will assume that is the high
   // limit and the low limit will be set to zero
