@@ -208,6 +208,21 @@ function main(r) {
 		if(robot.data.clean || robot.data.docked) {robot.driveSpeed(0,0);robot.start()} //Back to PASSIVE mode.
 	}
 
+  function handleInput(robot) {
+  	//Process user input, quit on 'exit'
+  	const rl = require('readline').createInterface
+  	({input:process.stdin, output:process.stdout});
+  	rl.on('line', function(text) {
+  		if(text == "exit" || text == "quit") {
+  			console.log("Exiting..."); process.exit();
+  		} else if(text == "t") {
+  		   turnRobot(); //Turn Robot.
+
+  		} else if(text == "s") {
+  			turnRobot();//stop turn.
+  		}
+  	});
+  }
 	//Enable and disable undocking timer:
 	var dTmr; function setUndock(e) {
 		if(dTmr) clearTimeout(dTmr); //Cancel timer if already running.
@@ -229,7 +244,10 @@ function main(r) {
 			robot.drive(100, (drAngle-angle<0)?-1:1);
 		}
 	}
-
+  //Prevent Default Behavior of Buttons in Passive Mode:
+  function preventDefault(func) {
+    setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
+  }
 	//Stop turning when 's' is pressed:
 	stopTurn = function() {
 		if(robot.data.mode == 3 && drRun) { //If already turning:
@@ -249,22 +267,23 @@ function main(r) {
     }
     boundaries();
     //Reposition after behaviors are done;
-		if (tracker==true && (angle < 5 || angle > -5)) {
-  	  console.log("Resetting Position");
-      if (angle > 10) {
-        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-      } else if (angle < -10) {
-        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-      }
-      else if (angle <= 10 && angle >= -10) {
-        stop();
-        done();
-        tracker = false;
-        console.log(tracker);
-        console.log("Position Reset!");
-      }
-  	}
-
+    function reposition () {
+      if (tracker==true && (angle < 5 || angle > -5)) {
+    	  console.log("Resetting Position");
+        if (angle > 10) {
+          robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+        } else if (angle < -10) {
+          robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+        }
+        else if (angle <= 10 && angle >= -10) {
+          stop();
+          done();
+          tracker = false;
+          console.log(tracker);
+          console.log("Position Reset!");
+        }
+    	}
+    }
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
       var time = duration*1000;
@@ -312,10 +331,7 @@ function main(r) {
 
       };
 	}
-	//Prevent Default Behavior of Buttons in Passive Mode:
-	function preventDefault(func) {
-		setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
-	}
+
   //GENERAL RANDOMIZER
   // if only one argument is passed, it will assume that is the high
   // limit and the low limit will be set to zero
@@ -399,24 +415,6 @@ function main(r) {
     shell.childProcess.kill('SIGINT');
   };
 
-}
-
-
-
-function handleInput(robot) {
-	//Process user input, quit on 'exit'
-	const rl = require('readline').createInterface
-	({input:process.stdin, output:process.stdout});
-	rl.on('line', function(text) {
-		if(text == "exit" || text == "quit") {
-			console.log("Exiting..."); process.exit();
-		} else if(text == "t") {
-		   turnRobot(); //Turn Robot.
-
-		} else if(text == "s") {
-			turnRobot();//stop turn.
-		}
-	});
 }
 
 //Testing Text to speech functions;
