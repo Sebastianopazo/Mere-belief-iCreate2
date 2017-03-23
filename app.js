@@ -261,8 +261,10 @@ function main(r) {
     function boundaries () {
       if (tracker = false && angle > 15) {
         stop();
+        console.log('off boundaries! stop!');
       } else if (tracker = false && angle < -15) {
         stop();
+        console.log('off boundaries! stop!');
       }
     }
     boundaries();
@@ -284,6 +286,7 @@ function main(r) {
         }
     	}
     }
+    reposition ();
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
       var time = duration*1000;
