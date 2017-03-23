@@ -241,13 +241,28 @@ function main(r) {
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
     function boundaries () {
-      if (angle > 15) {
+      if (tracker = false && angle > 15) {
         stop();
-      } else if (angle < -15) {
+      } else if (tracker = false && angle < -15) {
         stop();
       }
     }
-    boundaries();
+    //Reposition after behaviors are done;
+		if (tracker==true && (angle < 5 || angle > -5)) {
+  	  console.log("Resetting Position");
+      if (angle > 10) {
+        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      } else if (angle < -10) {
+        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
+      }
+      else if (angle <= 10 && angle >= -10) {
+        stop();
+        done();
+        tracker = false;
+        console.log(tracker);
+        console.log("Position Reset!");
+      }
+  	}
 
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
@@ -285,7 +300,7 @@ function main(r) {
             }, addedTime));
         };
             timeouts.push(setTimeout(function() {
-              if (angle < 5 || angle < -5) {
+              if (angle < 3 || angle < -3) {
                 stop();
                 done();
               }
@@ -295,24 +310,6 @@ function main(r) {
             }, time+100));
 
       };
-    //Reposition after behaviors are done;
-		if(((drAngle >= 0 && angle >= drAngle) || (drAngle < 0 && angle
-		<= drAngle)) && drRun) { drRun = 0; run = 1; driveLogic();
-    }else if (tracker==true && (angle < 10 || angle > -10)) {
-  	  console.log("Resetting Position");
-      if (angle > 10) {
-        robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
-      } else if (angle < -10) {
-        robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-      }
-      else if (angle <= 10 && angle >= -10) {
-        stop();
-        done();
-        tracker = false;
-        console.log(tracker);
-        console.log("Position Reset!");
-      }
-  	}
 	}
 	//Prevent Default Behavior of Buttons in Passive Mode:
 	function preventDefault(func) {
