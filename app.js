@@ -231,7 +231,7 @@ function main(r) {
 
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
-      if (tracker2 = true) {
+      if (tracker2 === true) {
         console.log('tracker2 is '+ tracker2);
         if (angle > 15) {
           stop();
@@ -260,7 +260,7 @@ function main(r) {
 
   //randomize behaviors for sound files
   behaviorRandomizer = function (duration, gestureQuantity) {
-    //tracker2 = true;
+    tracker2 = true;
     angle = 0;
     console.log("tracker is " + tracker);
     var time = duration*1000;
