@@ -239,7 +239,7 @@ function main(r) {
 
 	var angle = 0; //Count Angle Changes Using Encoders:
 	robot.onMotion = function() {
-		angle += robot.delta.angle; //console.log("Angle:", angle);
+		angle += robot.delta.angle; console.log("Angle:", angle);
     function boundaries () {
       if (angle > 15) {
         stop();
@@ -247,6 +247,7 @@ function main(r) {
         stop();
       }
     }
+    boundaries();
 
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
