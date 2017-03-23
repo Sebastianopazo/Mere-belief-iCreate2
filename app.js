@@ -228,7 +228,6 @@ function main(r) {
 
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
-    function () {
       if (tracker = false && angle > 15) {
         stop();
         console.log('off boundaries! stop!');
@@ -236,9 +235,7 @@ function main(r) {
         stop();
         console.log('off boundaries! stop!');
       }
-    }
     //Reposition after behaviors are done;
-    function () {
       if (tracker==true && (angle < 5 || angle > -5)) {
     	  console.log("Resetting Position");
         if (angle > 10) {
@@ -255,7 +252,7 @@ function main(r) {
           console.log("Position Reset!");
         }
     	}
-    }
+
     //randomize behaviors for sound files
     behaviorRandomizer = function (duration, gestureQuantity) {
       angle = 0;
