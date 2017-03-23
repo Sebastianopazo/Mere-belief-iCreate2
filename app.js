@@ -228,10 +228,10 @@ function main(r) {
 
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
-      if (tracker = false && angle > 15) {
+      if (angle > 15) {
         stop();
         console.log('off boundaries! stop!');
-      } else if (tracker = false && angle < -15) {
+      } else if (angle < -15) {
         stop();
         console.log('off boundaries! stop!');
       }
