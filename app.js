@@ -333,6 +333,19 @@ function main(r) {
             }, time+100));
 
       };
+
+      answerServer = function(answerNum, duration, gestureQuantity) {
+        behaviorRandomizer(duration, gestureQuantity);
+        var options = {
+          mode: 'text',
+          args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
+        };
+
+        shell = PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
+          if (err) throw err;
+          // results is an array consisting of messages collected during execution
+        });
+      };
 	}
 
   //GENERAL RANDOMIZER
@@ -395,20 +408,6 @@ function main(r) {
   unDock = function(){
     run = 0;
   }
-
-
-  answerServer = function(answerNum, duration, gestureQuantity) {
-    behaviorRandomizer(duration, gestureQuantity);
-    var options = {
-      mode: 'text',
-      args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
-    };
-
-    shell = PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-    });
-  };
 
   stopAll = function(){
     for (var i=0; i<timeouts.length; i++) {
