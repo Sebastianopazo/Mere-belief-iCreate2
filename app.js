@@ -146,9 +146,10 @@ var create = require('create2'); //Add node module for the create 2 robot
 
 //-- 3.1 -- ROBOT Create variables to keep everything global
 
-var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
+var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answerServer, behaviorRandomizer, backAndForthloop, done;
 var timeouts = [];
 var tracker = false;
+var angle = 0;
 
 //Initiate dialog to choose connection method
 start = function () {
@@ -215,47 +216,16 @@ function main(r) {
   	rl.on('line', function(text) {
   		if(text == "exit" || text == "quit") {
   			console.log("Exiting..."); process.exit();
-  		} else if(text == "t") {
-  		   turnRobot(); //Turn Robot.
-
-  		} else if(text == "s") {
-  			turnRobot();//stop turn.
   		}
   	});
   }
-	//Enable and disable undocking timer:
-	var dTmr; function setUndock(e) {
-		if(dTmr) clearTimeout(dTmr); //Cancel timer if already running.
-		if(e) { run = 1; robot.start(); dTmr = setTimeout(function() {
-			robot.full(); run = 1; dTmr = setTimeout(function(){robot.showText
-			("UNDOCK", 250, true);robot.play(0);driveLogic();dTmr=null},250);
-		}, 4400); } else run = 0;
-	}
 
-	//Turns robot when 't' is pressed:
-	var drRun = 0, drAngle = 0;
-	turnRobot = function() {
-		if(robot.data.mode == 3 && drRun) { //If already turning:
-			run = 0; if(drAngle) drAngle = 0; else //Set desired angle to original angle.
-			drAngle = (robot.motorRad==1)?64:-64; //Continue in current motor direction.
-			robot.drive(100, (drAngle-angle<0)?-1:1); drRun = 1;
-		} else if(robot.data.mode == 3 && run == 1) { //Start new turn in opposite direction:
-			run = 0; drAngle = drAngle<0?64:-64; angle = 0; drRun = 1;
-			robot.drive(100, (drAngle-angle<0)?-1:1);
-		}
-	}
   //Prevent Default Behavior of Buttons in Passive Mode:
   function preventDefault(func) {
     setTimeout(function(){robot.full();if(func)setTimeout(func,500)},1400);
   }
-	//Stop turning when 's' is pressed:
-	stopTurn = function() {
-		if(robot.data.mode == 3 && drRun) { //If already turning:
-			run = 1; drRun = 0; driveLogic(); //Stop turn.
-		}
-	}
 
-	var angle = 0; //Count Angle Changes Using Encoders:
+
 	robot.onMotion = function() {
 		angle += robot.delta.angle; console.log("Angle:", angle);
     function boundaries () {
@@ -282,6 +252,7 @@ function main(r) {
           done();
           tracker = false;
           console.log(tracker);
+          console.log("tracker is " + tracker);
           console.log("Position Reset!");
         }
     	}
@@ -328,23 +299,9 @@ function main(r) {
                 done();
               }
               tracker = true;
-              console.log(tracker);
-
+              console.log("tracker is " + tracker);
             }, time+100));
 
-      };
-
-      answerServer = function(answerNum, duration, gestureQuantity) {
-        behaviorRandomizer(duration, gestureQuantity);
-        var options = {
-          mode: 'text',
-          args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
-        };
-
-        shell = PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
-          if (err) throw err;
-          // results is an array consisting of messages collected during execution
-        });
       };
 	}
 
@@ -408,6 +365,20 @@ function main(r) {
   unDock = function(){
     run = 0;
   }
+
+
+  answerServer = function(answerNum, duration, gestureQuantity) {
+    behaviorRandomizer(duration, gestureQuantity);
+    var options = {
+      mode: 'text',
+      args: ['--file=/var/www/html/Roomba/audio/answer'+ answerNum +'.mp3']
+    };
+
+    shell = PythonShell.run('/lightshowpi/py/synchronized_lights.py', options, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+    });
+  };
 
   stopAll = function(){
     for (var i=0; i<timeouts.length; i++) {
