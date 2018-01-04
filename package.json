@@ -18,18 +18,21 @@
   },
   "homepage": "https://github.com/Sebastianopazo/Roomba#readme",
   "dependencies": {
+    "aws-sdk": "^2.175.0",
+    "child_process": "^1.0.2",
     "childprocess": "^2.0.2",
     "create2": "^1.2.3",
     "express": "^4.14.1",
     "jquery": "^3.1.1",
+    "node-gyp": "^3.5.0",
     "node-omxplayer": "^0.4.1",
     "node-rpi-rgb-led-matrix": "^0.1.0",
     "play-sound": "^1.1.1",
+    "python-shell": "^0.4.0",
+    "say": "^0.11.0",
     "socket.io": "^1.7.3",
-    "terminate": "^2.1.0",
-    "child_process": "^1.0.2",
-    "node-gyp": "^3.5.0",
-    "python-shell": "^0.4.0"
+    "speaker": "^0.4.0",
+    "terminate": "^2.1.0"
   },
   "devDependencies": {},
   "keywords": []

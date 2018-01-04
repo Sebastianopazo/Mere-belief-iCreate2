@@ -147,7 +147,7 @@ var create = require('create2'); //Add node module for the create 2 robot
 
 //-- 3.1 -- ROBOT Create variables to keep everything global
 
-var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, stop, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
+var start, shell, dock, clientDisconnect, stopAll, robot, turnRobot, stopTurn, moveForward, player, moveBackward, turnRight, turnLeft, answer1Server, answer2Server, answer3Server, answer4Server, answer5Server, answer6Server, answer7Server, answer8Server, answer9Server, behaviorRandomizer, backAndForthloop, done;
 var timeouts = [];
 var tracker = false;
 var tracker2 = false;
@@ -334,36 +334,32 @@ function main(r) {
           return val;
       }
   }
-
+ 
 
   //Characters for messages
   var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-
-  stop = function() {
-    robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
-  }
-
   moveForward = function() {
-    robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:100);
+    robot.driveSpeed(robot.data.dropLeft?0:500,robot.data.dropRight?0:500);
     },
   moveBackward = function() {
       robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:-100);
     },
   turnRight = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:100,robot.data.dropRight?0:-100);
+      robot.driveSpeed(robot.data.dropLeft?0:500,robot.data.dropRight?0:-500);
     },
   turnLeft = function() {
-      robot.driveSpeed(robot.data.dropLeft?0:-100,robot.data.dropRight?0:100);
-    }
+      robot.driveSpeed(robot.data.dropLeft?0:-500,robot.data.dropRight?0:500);
+    },
   dock = function() {
     robot.autoDock();
-  }
-  unDock = function(){
-    run = 0;
-  }
-
-
+    },
+   unDock = function(){
+    robot.start();
+   }, 
+   stop = function (){
+	robot.driveSpeed(robot.data.dropLeft?0:0,robot.data.dropRight?0:0);
+   }
   answerServer = function(answerNum, duration, gestureQuantity) {
     behaviorRandomizer(duration, gestureQuantity);
     var options = {
@@ -387,7 +383,6 @@ function main(r) {
   };
 
 }
-
 //Testing Text to speech functions;
 
 var say = require('say');
